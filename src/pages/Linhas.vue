@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <!-- Header -->
+      
       <v-app-bar app>
         <v-toolbar-title>Banco do Brasil</v-toolbar-title>
 
@@ -17,7 +17,7 @@
           
           
         </v-container>
-        <router-view></router-view>
+        
       </v-main>
   
      
