@@ -3,13 +3,11 @@
       <v-app-bar app>
         <v-toolbar-title>Banco do Brasil</v-toolbar-title>
 
-        <v-btn to="/" color="primary">Home</v-btn>
         <v-btn to="/simul" color="secondary">Simulação</v-btn>
         <v-btn to="/operacoes" color="secondary">Operacoes</v-btn>
         <v-btn to="/linhas" color="primary">Linhas</v-btn>
         <v-btn to="/blog" color="secondary">Blog</v-btn>
         
-
       </v-app-bar>
   
    
