@@ -18,15 +18,27 @@
           <v-card-subtitle>
             Insira os valores a investir logo abaixo
           </v-card-subtitle>
-          <v-card-actions>
+          <!-- <v-card-actions>
             <v-btn>CDB</v-btn>
             <v-btn>CDI</v-btn>
             <v-btn>Tesouro Direto</v-btn>
             <v-btn>Renda Fixa</v-btn>
             <v-btn>Fundo de Investimentos</v-btn>
             <v-btn>Poupança</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
           <v-form>
+            <v-select
+              v-model="formulario.tipo_investimento"
+              :items="[
+                'CDB',
+                'CDI',
+                'Tesouro Direto',
+                'Renda Fixa',
+                'Fundo de Investimentos',
+                'Poupança',
+              ]"
+              label="Tipo de Investimento"
+            ></v-select>
             <v-text-field
               v-model="formulario.valor_aplicado"
               label="Valor Aplicado"
@@ -68,6 +80,7 @@ export default {
   data() {
     return {
       formulario: {
+        tipo_investimento: "",
         valor_aplicado: 0.0,
         investimento_mensal: 0.0,
         periodo: 0,
@@ -80,6 +93,7 @@ export default {
   methods: {
     simularInvestimento() {
       const {
+        tipo_investimento,
         valor_aplicado,
         investimento_mensal,
         periodo,
