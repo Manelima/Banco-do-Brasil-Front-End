@@ -14,8 +14,8 @@
           Compare investimentos ao longo do tempo
         </v-card-title>
         <v-card-subtitle>
-          Preencha os valores para simular a rentabilidade de diferentes tipos
-          de produtos.
+          Preencha os valores para simular a rentabilidade de diferentes tipos de
+          produtos.
         </v-card-subtitle>
 
         <v-row class="my-6" align-items="center" justify="center">
@@ -48,10 +48,7 @@
             @input="formatarValorMonetario('investimento_mensal')"
           ></v-text-field>
 
-          <v-text-field
-            v-model="formulario.periodo"
-            label="Prazo"
-          ></v-text-field>
+          <v-text-field v-model="formulario.periodo" label="Prazo"></v-text-field>
 
           <v-select
             v-model="formulario.tipo_de_periodo"
@@ -64,7 +61,11 @@
           <v-select
             v-if="formulario.tipo_investimento !== 'Poupança'"
             v-model="formulario.rentabilidade"
-            :items="opcoesRentabilidade.find(opcoes => opcoes.tipo === formulario.tipo_investimento)?.opcoes || []"
+            :items="
+              opcoesRentabilidade.find(
+                (opcoes) => opcoes.tipo === formulario.tipo_investimento
+              )?.opcoes || []
+            "
             label="Tipo de Rentabilidade"
             @change="atualizarResumoRentabilidade"
           ></v-select>
@@ -83,19 +84,23 @@
 
           <!-- Exibe mensagem personalizada para Tesouro Selic -->
           <v-alert v-if="formulario.rentabilidade === 'Selic'" type="info">
-            Título Selic rendem de acordo com uma porcentagem do CDI. Estamos considerando a Selic a 10.75% + o valor abaixo.
+            Título Selic rendem de acordo com uma porcentagem do CDI. Estamos considerando
+            a Selic a 10.75% + o valor abaixo.
           </v-alert>
 
           <v-alert v-if="formulario.rentabilidade === 'Pré-fixado'" type="info">
-            Títulos prefixados rendem conforme uma taxa fixa combinada no momento da compra.
+            Títulos prefixados rendem conforme uma taxa fixa combinada no momento da
+            compra.
           </v-alert>
 
           <v-alert v-if="formulario.rentabilidade === 'Pós-fixado'" type="info">
-            Títulos pós-fixados rendem de acordo com uma porcentagem do CDI. Estamos considerando o CDI como 10.65%.
+            Títulos pós-fixados rendem de acordo com uma porcentagem do CDI. Estamos
+            considerando o CDI como 10.65%.
           </v-alert>
 
           <v-alert v-if="formulario.rentabilidade === 'IPCA+'" type="info">
-            Título IPCA+ rendem de acordo com uma porcentagem do CDI. Estamos considerando o IPCA a 0.56% + o valor abaixo.
+            Título IPCA+ rendem de acordo com uma porcentagem do CDI. Estamos considerando
+            o IPCA a 0.53% + o valor abaixo.
           </v-alert>
 
           <!-- Alerta para a faixa de rentabilidade -->
@@ -108,12 +113,7 @@
             {{ resumoRentabilidade }}
           </v-alert>
 
-          <v-btn
-            block
-            color="primary"
-            class="mt-4"
-            @click="simularInvestimento"
-          >
+          <v-btn block color="primary" class="mt-4" @click="simularInvestimento">
             Simular investimento
           </v-btn>
         </v-form>
@@ -131,9 +131,7 @@
               <div v-if="comparacao">{{ comparacao }}</div>
             </v-card-text>
             <v-card-actions>
-              <v-btn color="primary" text @click="resultadoVisivel = false"
-                >Fechar</v-btn
-              >
+              <v-btn color="primary" text @click="resultadoVisivel = false">Fechar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -144,7 +142,6 @@
   <v-footer app>
     <v-col class="text-center">© 2024 - Tropa do BB</v-col>
   </v-footer>
-  
 </template>
 
 <script>
@@ -157,12 +154,12 @@ export default {
         "LCI & LCA",
         "Tesouro Direto",
         "Poupança",
-      ], 
+      ],
       opcoesRentabilidade: [
-        { tipo: 'Debênture', opcoes: ['Pré-fixado', 'Pós-fixado', 'IPCA+'] },
-        { tipo: 'LCI & LCA', opcoes: ['Pré-fixado', 'Pós-fixado', 'IPCA+'] },
-        { tipo: 'CDB/LC', opcoes: ['Pré-fixado', 'Pós-fixado', 'IPCA+'] },
-        { tipo: 'Tesouro Direto', opcoes: ['Pré-fixado', 'IPCA+', 'Selic'] },
+        { tipo: "Debênture", opcoes: ["Pré-fixado", "Pós-fixado", "IPCA+"] },
+        { tipo: "LCI & LCA", opcoes: ["Pré-fixado", "Pós-fixado", "IPCA+"] },
+        { tipo: "CDB/LC", opcoes: ["Pré-fixado", "Pós-fixado", "IPCA+"] },
+        { tipo: "Tesouro Direto", opcoes: ["Pré-fixado", "IPCA+", "Selic"] },
       ],
       formulario: {
         tipo_investimento: "",
@@ -183,7 +180,8 @@ export default {
       comparacao: "",
     };
   },
-  methods: { selecionarTipo(tipo) {
+  methods: {
+    selecionarTipo(tipo) {
       this.formulario.tipo_investimento = tipo;
       this.atualizarResumoInvestimento();
       this.formulario.rentabilidade = "";
@@ -192,9 +190,7 @@ export default {
     },
     simularInvestimento() {
       let valorAplicado = this.parseCurrency(this.formulario.valor_aplicado);
-      let investimentoMensal = this.parseCurrency(
-        this.formulario.investimento_mensal
-      );
+      let investimentoMensal = this.parseCurrency(this.formulario.investimento_mensal);
       let meses =
         this.formulario.tipo_de_periodo === "Anos"
           ? parseInt(this.formulario.periodo) * 12
@@ -214,31 +210,15 @@ export default {
       this.rendimentoBruto = 0;
 
       if (this.formulario.tipo_investimento === "Poupança") {
-        this.calcularRendimentoPoupanca(
-          valorAplicado,
-          investimentoMensal,
-          meses
-        );
+        this.calcularRendimentoPoupanca(valorAplicado, investimentoMensal, meses);
       } else if (this.formulario.rentabilidade === "Pré-fixado") {
-        this.calcularRendimentoPreFixado(
-          valorAplicado,
-          investimentoMensal,
-          meses
-        );
+        this.calcularRendimentoPreFixado(valorAplicado, investimentoMensal, meses);
       } else if (this.formulario.rentabilidade === "IPCA+") {
-        this.calcularRendimentoIPCA(
-          valorAplicado,
-          investimentoMensal,
-          meses
-        );
+        this.calcularRendimentoIPCA(valorAplicado, investimentoMensal, meses);
       } else if (this.formulario.rentabilidade === "Selic") {
         this.calcularRendimentoSelic(valorAplicado, investimentoMensal, meses);
       } else {
-        this.calcularRendimentoPosFixado(
-          valorAplicado,
-          investimentoMensal,
-          meses
-        );
+        this.calcularRendimentoPosFixado(valorAplicado, investimentoMensal, meses);
       }
 
       this.resultadoVisivel = true;
@@ -270,20 +250,17 @@ export default {
         } else if (
           // Selic do Tesouro Direto Padrão literal
           this.formulario.rentabilidade === "Selic" &&
-          (valor < -0.05 || valor > 0.5 )
+          (valor < -0.05 || valor > 0.5)
         ) {
           this.alertaPercentual =
-          "Esse valor está fora dos valores encontrados no mercado com a Taxa Selic.  (-0.05% - 0.5%)."
-        }else{
+            "Esse valor está fora dos valores encontrados no mercado com a Taxa Selic.  (-0.05% - 0.5%).";
+        } else {
           this.alertaPercentual = "";
         }
       }
       // CDB/LC
       else if (this.formulario.tipo_investimento === "CDB/LC") {
-        if (
-          this.formulario.rentabilidade === "Pré-fixado" &&
-          (valor < 5 || valor > 17)
-        ) {
+        if (this.formulario.rentabilidade === "Pré-fixado" && (valor < 5 || valor > 17)) {
           this.alertaPercentual =
             "Esse valor está fora dos limites para CDB/LC Pré-fixado (5% - 17%).";
         } else if (
@@ -304,10 +281,7 @@ export default {
       }
       // Debênture
       else if (this.formulario.tipo_investimento === "Debênture") {
-        if (
-          this.formulario.rentabilidade === "Pré-fixado" &&
-          (valor < 5 || valor > 19)
-        ) {
+        if (this.formulario.rentabilidade === "Pré-fixado" && (valor < 5 || valor > 19)) {
           this.alertaPercentual =
             "Esse valor está fora dos limites para Debêntures Pré-fixado (5% - 19%).";
         } else if (
@@ -328,10 +302,7 @@ export default {
       }
       // LCI & LCA
       else if (this.formulario.tipo_investimento === "LCI & LCA") {
-        if (
-          this.formulario.rentabilidade === "Pré-fixado" &&
-          (valor < 5 || valor > 15)
-        ) {
+        if (this.formulario.rentabilidade === "Pré-fixado" && (valor < 5 || valor > 15)) {
           this.alertaPercentual =
             "Esse valor está fora dos limites para LCI & LCA Pré-fixado (5% - 15%).";
         } else if (
@@ -367,7 +338,7 @@ export default {
           "Tesouro Direto é um título público emitido pelo governo.";
       } else if (tipo_investimento === "Poupança") {
         this.resumoInvestimento =
-          "A poupança é um investimento tradicional, com rendimento de 0.56% mensalmente.";
+          "A poupança é um investimento tradicional, com rendimento de 7.24% ao ano atualmente.";
       } else if (tipo_investimento === "Debênture") {
         this.resumoInvestimento =
           "Debêntures são títulos de dívida emitidos por empresas.";
@@ -392,10 +363,11 @@ export default {
       }
       this.formulario.percentualRentabilidade = "";
       this.alertaPercentual = "";
-    },calcularRendimentoSelic(valorAplicado, investimentoMensal, meses) {
+    },
+    calcularRendimentoSelic(valorAplicado, investimentoMensal, meses) {
       const taxaSelicAnual = 0.1075;
       const taxaSelicMensal = Math.pow(1 + taxaSelicAnual, 1 / 12) - 1;
-
+      
 
       for (let i = 0; i < meses; i++) {
         valorAplicado = valorAplicado * (1 + taxaSelicMensal) + investimentoMensal;
@@ -435,7 +407,7 @@ export default {
         return;
       }
 
-      let ipca = 0.0053; // IPCA de 0.56%
+      let ipca = 0.0053; // IPCA de 0.53%
       const taxaCompostaAnual = (1 + taxaAnual) * (1 + ipca) - 1;
       const taxaMensal = Math.pow(1 + taxaCompostaAnual, 1 / 12) - 1;
 
@@ -466,7 +438,7 @@ export default {
     formatarValorMonetario(campo) {
       let valor = this.formulario[campo];
 
-      // Filtra todos os caracters não numéricos
+      // Remove todos os caracteres não numéricos
       valor = valor.replace(/\D/g, "");
 
       // Formata o valor
@@ -484,13 +456,13 @@ export default {
       return parseFloat(numericValue);
     },
   },
-};  
+};
 </script>
 
 <style>
 .primary {
   background-color: #f1fc23b0;
-  /* Só clicar para alterar as cores */
+  /* Altere a cor conforme necessário */
   color: white;
 }
 </style>
