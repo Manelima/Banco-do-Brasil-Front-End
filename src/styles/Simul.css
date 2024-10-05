@@ -1,0 +1,34 @@
+.container{
+    background-color: #465EFF;
+    background-image: url(https://cdn.bb.com.br/wp-content/uploads/2023/12/DT_Banner_Full_Vem_ser_Cliente-1.jpg);
+}
+
+.header{
+    background-color: #FCFC30!important;
+}   
+
+.titulo_nav_bar{
+    color: #465EFF;
+}
+
+.buttongeral{
+    background-color: #465EFF;
+}
+
+.card{
+    background-color: #FFF!important;
+}
+
+.titulo_card{
+    color: #465EFF;
+}
+
+.texto_card{
+    color: #465EFF;
+    font-weight: 400!important;
+}
+.campo_texto{
+    background-color: #465EFF;
+    font-weight: 400!important;
+
+}
