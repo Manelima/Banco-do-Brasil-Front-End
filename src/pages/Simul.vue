@@ -2,11 +2,11 @@
   <v-app-bar class="header">
 
     
+    <v-img src="@/images/bb.png" class="logo"></v-img>
+    
+    <v-app-bar-title class="titulo_nav_bar"> Banco do Brasil </v-app-bar-title>
+    
       
-    
-    <v-app-bar-title class="titulo_nav_bar">Banco do Brasil</v-app-bar-title>
-    
-      <v-img src="@/images/bb.png" class="logo"></v-img>
 
     <v-btn to="/" class="buttongeral mx-1">Home</v-btn>
     <v-btn to="/linhas" class="buttongeral mx-1">Linhas</v-btn>
@@ -234,23 +234,25 @@
       </v-row>
 
     </v-container>
-    
   </v-main>
+
+  <BarChart aria-describedby="my-data-table" />
+  <table id="my-data-table">
+    <caption>Rendimento de cada Investimento</caption>
+  </table>
+
 </template>
 
 
 
 <script>
+import BarChart from "@/components/BarChart.vue";
 import "@/styles/Simul.css";
 
-import { Line } from 'vue-chartjs'; // Importa o componente de gráficos
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
-
-ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale);
-
 export default {
+  name: 'Simul',
   components:{
-    LineChart: Line
+    BarChart
   },
   data() {
     return {

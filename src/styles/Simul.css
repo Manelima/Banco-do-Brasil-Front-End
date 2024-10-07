@@ -1,6 +1,8 @@
 .container-man{
   background-color: #465EFF;
-  background-image: url(https://cdn.bb.com.br/wp-content/uploads/2023/12/DT_Banner_Full_Vem_ser_Cliente-1.jpg);
+  /* background-image: url('src/images/imagem-investimentos.png'); */
+  background-image: url(https://media.discordapp.net/attachments/1283447318984786005/1292634798464176148/imagem-investimentos.png?ex=67051c37&is=6703cab7&hm=bcd30aaefcb4e243a90b58c58176b92c47ca0b03867edc2a13055290efd4197b&=&format=webp&quality=lossless&width=674&height=394);
+  background-size: 100%;
 }
 
 .header{
@@ -22,6 +24,10 @@
 }
 
 .buttongeral{
+    color: #465EFF!important;
+}
+
+.buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
 }
