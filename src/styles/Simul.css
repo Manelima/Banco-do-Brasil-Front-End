@@ -1,34 +1,67 @@
-.container{
-    background-color: #465EFF;
-    background-image: url(https://cdn.bb.com.br/wp-content/uploads/2023/12/DT_Banner_Full_Vem_ser_Cliente-1.jpg);
+.container-man{
+  background-color: #465EFF;
+  background-image: url(https://cdn.bb.com.br/wp-content/uploads/2023/12/DT_Banner_Full_Vem_ser_Cliente-1.jpg);
 }
 
 .header{
-    background-color: #FCFC30!important;
-}   
+  background-color: #FCFC30!important;
+}
 
-.titulo_nav_bar{
-    color: #465EFF;
+.logo{
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: auto;
+}
+
+.titulo_nav_bar {
+  color: #465EFF;
+  font-size: 24px;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .buttongeral{
-    background-color: #465EFF;
+  background-color: #465EFF;
+  color: #FFF!important;
 }
 
 .card{
-    background-color: #FFF!important;
+  background-color: #FFF!important;
 }
 
 .titulo_card{
-    color: #465EFF;
+  color: #465EFF;
+  font-weight: 400!important;
+}
+
+.subtitulo_card{
+  color: #465EFF;
+  font-weight: 400!important;
 }
 
 .texto_card{
-    color: #465EFF;
-    font-weight: 400!important;
+  color: #465EFF;
+  font-weight: 400!important;
 }
-.campo_texto{
-    background-color: #465EFF;
-    font-weight: 400!important;
 
+.info_curta{
+  background-color: #FCFC30!important;
+}
+
+.campo_texto{
+  background-color: #FFF;
+  font-weight: 400!important;
+  color: black;
+
+}
+
+.footer{
+  background-color: #FCFC30!important;
+}
+
+.texto_footer{
+  color: #465EFF;
+  font-weight: bold;
+  font-size: 20px;
 }
