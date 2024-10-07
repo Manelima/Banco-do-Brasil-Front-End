@@ -22,19 +22,19 @@
       </v-card>
 
       <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
-        <v-card-title class="text-h4">
+        <v-card-title class="titulo_card text-h4">
           Compare investimentos ao longo do tempo
         </v-card-title>
-        <v-card-subtitle>
+        <v-card-subtitle class="subtitulo_card">
           Preencha os valores para simular a rentabilidade de diferentes tipos de
           produtos.
         </v-card-subtitle>
 
         <v-row class="my-6" align-items="center" justify="center">
-          <v-btn
+          <v-btn class="buttongeral"
             v-for="tipo in tiposInvestimento"
             :key="tipo"
-            :class="{ primary: tipo === formulario.tipo_investimento, 'mx-2': true }"
+            :class="{ primary: tipo === formulario.tipo_investimento, 'mx-2': true}"
             small
             @click="selecionarTipo(tipo)"
           >
@@ -43,7 +43,7 @@
         </v-row>
 
         <!-- Exibe o resumo do investimento -->
-        <v-alert v-if="resumoInvestimento" type="info" class="mb-4">
+        <v-alert v-if="resumoInvestimento" type="info" class="mb-4 info_curta" style="background-color: #FCFC30!important; color: #465EFF!important; font-weight: bold!important;">
           {{ resumoInvestimento }}
         </v-alert>
 
@@ -227,8 +227,8 @@
     </v-container>
   </v-main>
 
-  <v-footer app>
-    <v-col class="text-center">© 2024 - Tropa do BB</v-col>
+  <v-footer app class="footer">
+    <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
   </v-footer>
 </template>
 
