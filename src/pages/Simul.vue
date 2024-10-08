@@ -1,15 +1,22 @@
 <template>
   <v-app-bar class="header">
-    <v-toolbar-title class="titulo_nav_bar">Banco do Brasil</v-toolbar-title>
+
+    
+      
+    
+    <v-app-bar-title class="titulo_nav_bar">Banco do Brasil</v-app-bar-title>
+    
+      <v-img src="@/images/bb.png" class="logo"></v-img>
 
     <v-btn to="/" class="buttongeral mx-1">Home</v-btn>
     <v-btn to="/linhas" class="buttongeral mx-1">Linhas</v-btn>
     <v-btn to="/operacoes" class="buttongeral mx-1">Operações</v-btn>
     <v-btn to="/blog" class="buttongeral mx-1">Blog</v-btn>
+
   </v-app-bar>
 
-  <v-spacer> </v-spacer>
-  <v-main class="container">
+  <v-spacer></v-spacer>
+  <v-main class="container-man">
     <v-container max-width="800px" class="mx-auto mt-10 pa-4 pb-6">
       <v-card class="card pa-4 transparent-bg my-10" elevation="3">
         <v-card-text class="texto_card">
@@ -76,7 +83,6 @@
           ></v-select>
 
           <!-- Campo para seleção do tipo de rentabilidade (exibido apenas se não for poupança) -->
-          <!-- V-Select para escolher a rentabilidade -->
           <v-select
             class="campo_texto mb-4"
             v-if="formulario.tipo_investimento !== 'Poupança'"
@@ -150,6 +156,8 @@
               <div>Total investido: R$ {{ totalInvestido.toFixed(2) }}</div>
               <div>Rendimento bruto: R$ {{ rendimentoBruto.toFixed(2) }}</div>
               <div v-if="comparacao">{{ comparacao }}</div>
+
+              <investment-chart v-if="chartData" :chart-data="chartData"></investment-chart>
             </v-card-text>
             <v-card-actions>
               <v-btn color="primary" text @click="resultadoVisivel = false">Fechar</v-btn>
@@ -162,24 +170,24 @@
         <v-col cols="6">
           <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
             <v-card-title class="titulo_card">Poupança</v-card-title>
-            <v-card-text class="texto_card"
-              >A poupança é uma reserva financeira, guardada para uma finalidade futura,
+            <v-card-text class="texto_card">
+              A poupança é uma reserva financeira, guardada para uma finalidade futura,
               com rentabilidade definida por lei e que varia de acordo com a taxa Selic.
               Para Pessoas físicas, quando a Selic está acima de 8,5% ao ano, ela rende
               0,5% ao mês + TR (Taxa Referencial). Quando é igual ou menor que 8.5% rende
-              70% da meta Selic + TR.</v-card-text
-            >
+              70% da meta Selic + TR.
+            </v-card-text>
           </v-card>
         </v-col>
 
         <v-col cols="6">
           <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
             <v-card-title class="titulo_card">Tesouro Direto</v-card-title>
-            <v-card-text class="texto_card"
-              >São títulos públicos de Renda Fixa, emitidos pelo governo. Oferecem baixo
+            <v-card-text class="texto_card">
+              São títulos públicos de Renda Fixa, emitidos pelo governo. Oferecem baixo
               risco e podem ser atrelados à taxa básica de juros (Selic) ou apresentar uma
-              taxa prefixada no momento da aplicação.</v-card-text
-            >
+              taxa prefixada no momento da aplicação.
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -188,24 +196,24 @@
         <v-col cols="6">
           <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
             <v-card-title class="titulo_card">Debênture</v-card-title>
-            <v-card-text class="texto_card"
-              >São títulos de dívidas emitidos por empresas que não são instituições
+            <v-card-text class="texto_card">
+              São títulos de dívidas emitidos por empresas que não são instituições
               financeiras ou de crédito imobiliário. Em retorno ao empréstimo, as empresas
               pagam juros sobre esse dinheiro, que podem ser prefixados ou pós-fixados
-              (atrelados ao CDI).</v-card-text
-            >
+              (atrelados ao CDI).
+            </v-card-text>
           </v-card>
         </v-col>
 
         <v-col cols="6">
           <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
             <v-card-title class="titulo_card">LCI e LCA</v-card-title>
-            <v-card-text class="texto_card"
-              >As Letras de Crédito Imobiliário (LCI) e do Agronegócio (LCA) são títulos
-              emitidos por bancos e instituições financeiras. São destinados ao
-              financiamento mercado imobiliário e ao setor agropecuário. São livres de
-              Imposto de Renda.</v-card-text
-            >
+            <v-card-text class="texto_card">
+              São títulos de crédito imobiliário e do agronegócio, que têm a vantagem de
+              serem isentos de Imposto de Renda para pessoas físicas. As LCI’s são lastreadas
+              em créditos imobiliários e as LCA’s em créditos do agronegócio. Oferecem
+              rentabilidade em geral atrelada ao CDI.
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -224,18 +232,26 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
-  </v-main>
 
-  <v-footer app class="footer">
-    <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
-  </v-footer>
+    </v-container>
+    
+  </v-main>
 </template>
+
+
 
 <script>
 import "@/styles/Simul.css";
 
+import { Line } from 'vue-chartjs'; // Importa o componente de gráficos
+import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
+
+ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale);
+
 export default {
+  components:{
+    LineChart: Line
+  },
   data() {
     return {
       tiposInvestimento: [
@@ -277,11 +293,18 @@ export default {
       this.formulario.rentabilidade = "";
       this.formulario.percentualRentabilidade = "";
       this.alertaPercentual = "";
-    },
+
+      const investimentoSelecionado = this.opcoesRentabilidade.find(
+      (item) => item.tipo === tipo
+    );
+    this.formulario.opcoesFiltradas = investimentoSelecionado
+      ? investimentoSelecionado.opcoes
+      : [];
+  },
     simularInvestimento() {
       let valorAplicado = this.parseCurrency(this.formulario.valor_aplicado);
       let investimentoMensal = this.parseCurrency(this.formulario.investimento_mensal);
-      let meses =
+      let meses = 
         this.formulario.tipo_de_periodo === "Anos"
           ? parseInt(this.formulario.periodo) * 12
           : parseInt(this.formulario.periodo);
