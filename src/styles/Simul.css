@@ -1,105 +1,106 @@
-.container-main{
-  background-color: #465EFF;
-  /* background-image: url('src/images/imagem-investimentos.png'); */
-  background-image: url(https://media.discordapp.net/attachments/1283447318984786005/1292634798464176148/imagem-investimentos.png?ex=67051c37&is=6703cab7&hm=bcd30aaefcb4e243a90b58c58176b92c47ca0b03867edc2a13055290efd4197b&=&format=webp&quality=lossless&width=674&height=394);
+.simul-container-main{
+  margin-top: 50px;
+  background-color:#465EFF;
+  background-image: url('@/images/imagem_investimentos.jpg');
   background-size: 100%;
 }
 
-.header{
+.simul-header{
   background-color: #FCFC30!important;
 }
 
-.logo{
-  display: flex;
-  justify-content: center;
-  width: 100px;
-  height: auto;
+.simul-logo{
+  max-width: 68px!important;
 }
 
-.titulo_nav_bar {
+.simul-titulo_nav_bar {
   color: #465EFF;
   font-size: 24px;
   margin-left: 10px;
   font-weight: bold;
 }
 
-.buttongeral{
+/* ================ BOTOES ============== */
+.simul-buttongeral{
     color: #465EFF!important;
 }
 
-.buttongeral:hover{
+.simul-buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
 }
 
-.card_info_topo{
-  margin-top: 650px;
+/* =================== BODY ================== */
+.simul-card_info_topo{
+  margin-top: 515px;
 }
 
-.card{
+.simul-card{
   background-color: #FFF!important;
 }
 
-.caixa_dialog_result /* não altera nada, analisar! */
+.simul-caixa_dialog_result /* não altera nada, analisar! */
 
-.valorBrutoDialog /* não altera nada, analisar */
+.simul-valorBrutoDialog /* não altera nada, analisar */
 
-.card_pos_form
+.simul-card_pos_form
 
-.card_tesouro_dir{
+.simul-card_tesouro_dir{
   min-height: 100%!important;
 }
 
-.titulo_card{
+.simul-titulo_card{
   color: #465EFF;
   font-weight: 400!important;
 }
 
-.subtitulo_card{
+.simul-subtitulo_card{
   color: #465EFF;
   font-weight: 400!important;
 }
 
-.texto_card{
+.simul-texto_card{
   color: #465EFF;
   font-weight: 400!important;
 }
 
-.info_curta{
+.simul-info_curta{
   background-color: #FCFC30!important;
 }
 
 
-.campo_texto{
+.simul-campo_texto{
   background-color: #FFF;
   font-weight: 400!important;
-  color: black;
+  color: #000;
 
 }
 
-.footer{
+/* ================= FOOTER ================ */
+
+.simul-footer{
   background-color: #FCFC30!important;
 }
 
-.texto_footer{
+.simul-texto_footer{
   color: #465EFF;
   font-weight: bold;
   font-size: 20px;
 }
 
-.container_grafico{
+.simul-container_grafico{
   background-color: #FFF!important;
   height: 475px;
   justify-self: right;
 }
 
-.coluna_grafico{
+.simul-coluna_grafico{
   background-color: #FFF!important;
   height: 505px;
   margin-top: 15px;
 }
 
 /* averiguar isso aqui abaixo(sem poder rolar a tela, não dava para ver se estava mudando algo) */
-.card_selic{
+.simul-card_selic{
   height: 235.56px!important;
 }

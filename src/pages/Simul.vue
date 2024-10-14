@@ -1,24 +1,24 @@
 <template>
-  <v-app-bar class="header">
+  <v-app-bar class="simul-header">
     <v-img src="@/images/bb.png" class="logo"></v-img>
 
-    <v-app-bar-title class="titulo_nav_bar"> Banco do Brasil </v-app-bar-title>
+    <v-app-bar-title class="simul-titulo_nav_bar"> Banco do Brasil </v-app-bar-title>
 
-    <v-btn to="/" class="buttongeral mx-1">Home</v-btn>
-    <v-btn to="/linhas" class="buttongeral mx-1">Linhas</v-btn>
-    <v-btn to="/operacoes" class="buttongeral mx-1">Operações</v-btn>
-    <v-btn to="/blog" class="buttongeral mx-1">Blog</v-btn>
+    <v-btn to="/" class="simul-buttongeral mx-1">Home</v-btn>
+    <v-btn to="/linhas" class="simul-buttongeral mx-1">Linhas</v-btn>
+    <v-btn to="/operacoes" class="simul-buttongeral mx-1">Operações</v-btn>
+    <v-btn to="/blog" class="simul-buttongeral mx-1">Blog</v-btn>
   </v-app-bar>
 
   <v-spacer></v-spacer>
-  <v-main class="container-main">
+  <v-main class="simul-container-main">
     <v-container class="mx-auto mt-10 pa-4 pb-6">
       <v-container>
         <v-card
-          class="card card_info_topo pa-4 transparent-bg mb-10"
+          class="simul-card simul-card_info_topo pa-4 transparent-bg mb-10"
           elevation="3"
         >
-          <v-card-text class="texto_card">
+          <v-card-text class="simul-texto_card">
             Olá, este simulador de investimentos proporciona uma maneira fácil
             de calcular o retorno do seu capital após uma aplicação em uma taxa
             e um prazo específicos. Esse cálculo considera também eventuais
@@ -30,7 +30,7 @@
 
         <v-row class="my-6" align-items="center" justify="center">
           <v-btn
-            class="buttongeral"
+            class="simul-buttongeral"
             v-for="(tipo, index) in tiposInvestimento"
             :key="index"
             :class="{
@@ -45,23 +45,23 @@
         </v-row>
       </v-container>
 
-      <v-container class="container_filho_1">
+      <v-container class="simul-simul-container_filho_1">
         <v-row>
-          <v-col cols="6" class="coluna_formulario">
-            <v-card class="card pa-4 transparent-bg mb-10" elevation="3">
-              <v-card-title class="titulo_card text-h4">
+          <v-col cols="6" class="simul-coluna_formulario">
+            <v-card class="simul-card pa-4 transparent-bg mb-10" elevation="3">
+              <v-card-title class="simul-titulo_card text-h4">
                 Simule seu Investimento !!!
               </v-card-title>
-              <v-card-subtitle class="subtitulo_card mb-5">
+              <v-card-subtitle class="subsimul-titulo_card mb-5">
                 Preencha os valores para simular a rentabilidade de diferentes
                 tipos de investimentos.
               </v-card-subtitle>
 
               <v-form>
-                <v-row class="linha_botoes_form">
+                <v-row class="simul-simul-linha_botoes_form">
                   <v-col>
                     <v-text-field
-                      class="campo_texto mb-4"
+                      class="simul-campo_texto mb-4"
                       v-model="formulario.valor_aplicado"
                       label="Valor da Aplicação"
                       @input="formatarValorMonetario('valor_aplicado')"
@@ -71,7 +71,7 @@
 
                   <v-col>
                     <v-text-field
-                      class="campo_texto mb-4"
+                      class="simul-campo_texto mb-4"
                       v-model="formulario.investimento_mensal"
                       label="Investimento Mensal"
                       @input="formatarValorMonetario('investimento_mensal')"
@@ -80,10 +80,10 @@
                   </v-col>
                 </v-row>
 
-                <v-row class="linha_botoes_form">
+                <v-row class="simul-linha_botoes_form">
                   <v-col>
                     <v-text-field
-                      class="campo_texto primary mb-4"
+                      class="simul-campo_texto primary mb-4"
                       v-model="formulario.periodo"
                       label="Prazo"
                     >
@@ -92,7 +92,7 @@
 
                   <v-col>
                     <v-select
-                      class="campo_texto mb-4"
+                      class="simul-campo_texto mb-4"
                       v-model="formulario.tipo_de_periodo"
                       :items="['Meses', 'Anos']"
                     >
@@ -100,11 +100,11 @@
                   </v-col>
                 </v-row>
 
-                <v-row class="linha_botoes_form">
+                <v-row class="simul-linha_botoes_form">
                   <v-col>
                     <!-- Campo para seleção do tipo de rentabilidade (exibido apenas se não for poupança) -->
                     <v-select
-                      class="campo_texto mb-4"
+                      class="simul-campo_texto mb-4"
                       v-if="formulario.tipo_investimento !== 'Poupança'"
                       v-model="formulario.rentabilidade"
                       :items="
@@ -122,7 +122,7 @@
                   <v-col>
                     <!-- Campo para a porcentagem de rentabilidade -->
                     <v-text-field
-                      class="campo_texto inputcol mb-4"
+                      class="simul-campo_texto simul-inputcol mb-4"
                       v-if="formulario.tipo_investimento !== 'Poupança'"
                       v-model="formulario.percentualRentabilidade"
                       label="Taxa (%)"
@@ -183,14 +183,14 @@
                   {{ resumoRentabilidade }}
                 </v-alert>
 
-                <v-btn block class="buttongeral" @click="simularInvestimento">
+                <v-btn block class="simul-buttongeral" @click="simularInvestimento">
                   Simular investimento
                 </v-btn>
               </v-form>
 
               <!-- Exibição do resultado -->
               <v-dialog v-model="resultadoVisivel" max-width="500">
-                <v-card class="caixa_dialog_result">
+                <v-card class="simul-caixa_dialog_result">
                   <v-card-title class="headline"
                     >Resultado da Simulação</v-card-title
                   >
@@ -198,7 +198,7 @@
                   <v-card-text>
                     Em {{ formulario.periodo }}
                     {{ formulario.tipo_de_periodo.toLowerCase() }} você teria:
-                    <div class="valor_bruto_dialog">
+                    <div class="simul-valor_bruto_dialog">
                       R$ {{ valorTotalBruto.toFixed(2) }}
                     </div>
                     <div>
@@ -223,12 +223,12 @@
             </v-card>
           </v-col>
 
-          <v-col class="coluna_grafico">
+          <v-col class="simul-coluna_grafico">
             <!-- Exibe o resumo do investimento -->
             <v-alert
               v-if="resumoInvestimento"
               type="info"
-              class="info_curta"
+              class="simul-info_curta"
               style="
                 background-color: #fcfc30 !important;
                 color: #465eff !important;
@@ -242,15 +242,15 @@
         </v-row>
       </v-container>
 
-      <v-container class="container_filho_2">
+      <v-container class="simul-container_filho_2">
         <v-row>
           <v-col cols="6">
             <v-card
-              class="card_pos_form pa-4 transparent-bg mb-10"
+              class="simul-simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="titulo_card">Poupança</v-card-title>
-              <v-card-text class="texto_card">
+              <v-card-title class="simul-titulo_card">Poupança</v-card-title>
+              <v-card-text class="simul-texto_card">
                 A poupança é uma reserva financeira, guardada para uma
                 finalidade futura, com rentabilidade definida por lei e que
                 varia de acordo com a taxa Selic. Para Pessoas físicas, quando a
@@ -261,13 +261,13 @@
             </v-card>
           </v-col>
 
-          <v-col cols="6" class="card_tesouro_dir">
+          <v-col cols="6" class="simul-card_tesouro_dir">
             <v-card
-              class="card_pos_form pa-4 transparent-bg mb-10"
+              class="simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="titulo_card">Tesouro Direto</v-card-title>
-              <v-card-text class="texto_card">
+              <v-card-title class="simul-titulo_card">Tesouro Direto</v-card-title>
+              <v-card-text class="simul-texto_card">
                 São títulos públicos de Renda Fixa, emitidos pelo governo.
                 Oferecem baixo risco e podem ser atrelados à taxa básica de
                 juros (Selic) ou apresentar uma taxa prefixada no momento da
@@ -280,11 +280,11 @@
         <v-row>
           <v-col cols="6">
             <v-card
-              class="card_pos_form pa-4 transparent-bg mb-10"
+              class="simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="titulo_card">Debênture</v-card-title>
-              <v-card-text class="texto_card">
+              <v-card-title class="simul-titulo_card">Debênture</v-card-title>
+              <v-card-text class="simul-texto_card">
                 São títulos de dívidas emitidos por empresas que não são
                 instituições financeiras ou de crédito imobiliário. Em retorno
                 ao empréstimo, as empresas pagam juros sobre esse dinheiro, que
@@ -295,11 +295,11 @@
 
           <v-col cols="6">
             <v-card
-              class="card_pos_form pa-4 transparent-bg mb-10"
+              class="simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="titulo_card">LCI e LCA</v-card-title>
-              <v-card-text class="texto_card">
+              <v-card-title class="simul-titulo_card">LCI e LCA</v-card-title>
+              <v-card-text class="simul-texto_card">
                 São títulos de crédito imobiliário e do agronegócio, que têm a
                 vantagem de serem isentos de Imposto de Renda para pessoas
                 físicas. As LCI’s são lastreadas em créditos imobiliários e as
@@ -313,13 +313,13 @@
         <v-row>
           <v-col>
             <v-card
-              class="card_pos_form pa-4 transparent-bg mb-10"
+              class="simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="titulo_card"
+              <v-card-title class="simul-titulo_card"
                 >CDB (Certificados de Depósito Bancário)</v-card-title
               >
-              <v-card-text class="texto_card"
+              <v-card-text class="simul-texto_card"
                 >Os CDBs são títulos emitidos por instituições financeiras como
                 forma de captar recursos. Podem ser prefixados, pós-fixados
                 (atrelados ao CDI) ou atrelados à inflação.</v-card-text
@@ -389,52 +389,63 @@ export default {
     
     // Função para atualizar o gráfico
     atualizarGrafico() {
-        if(this.formulario.tipo_investimento === 'Tesouro Direto' && this.formulario.rentabilidade === 'Pré-fixado'){
+      if(this.formulario.tipo_investimento === 'Tesouro Direto' && this.formulario.rentabilidade === 'Pré-fixado'){
 
-  const valorAplicado = this.formulario.valor_aplicado;
-  const investimentoMensal = this.formulario.investimento_mensal;
-  const meses = this.formulario.periodo;
-
-  this.rendimentoB[1] = this.calcularRendimentoPoupanca(valorAplicado, investimentoMensal, meses);
-
-  this.rendimentoB[0] = this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses);
-
-  this.rendimentoB[2] = this.rendimentoB[0]
-  this.rendimentoB[3] = this.rendimentoB[2]
-  this.rendimentoB[4] = this.rendimentoB[3]
+        const valorAplicado = this.formulario.valor_aplicado;
+        const investimentoMensal = this.formulario.investimento_mensal;
+        const meses = this.formulario.periodo;
         
-  console.log('CDB/LC: ', this.rendimentoB[0]);
-  console.log('Poupança: ', this.rendimentoB[1]);
-  console.log('LCI & LCA: ', this.rendimentoB[2]);
-  console.log('Tesouro Direto: ', this.rendimentoB[3]);
-  console.log('Debênture: ', this.rendimentoB[4]);
+        //const valorInicial  = this.calcRendimentoBrutoPoupanca();
 
-  // Exibir os resultados no gráfico
-  this.gerarDataGrafico();
+        this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca(valorAplicado, investimentoMensal, meses);
+        // temp.rendimento[1] = this.rendimento[1].
+        // this.calcRendimentoBruto(.., ...,...) = 0;
+                              
+        console.log('Poupança: ', this.rendimentoB[1]);
 
+        this.rendimentoB[0] = this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses);
+
+        this.rendimentoB[2] = this.rendimentoB[0]
+        this.rendimentoB[3] = this.rendimentoB[2]
+        this.rendimentoB[4] = this.rendimentoB[3]
+              
+        //console.log('CDB/LC: ', this.rendimentoB[0]);
+        //console.log('Poupança: ', this.rendimentoB[1]);
+        //console.log('LCI & LCA: ', this.rendimentoB[2]);
+        //console.log('Tesouro Direto: ', this.rendimentoB[3]);
+        //console.log('Debênture: ', this.rendimentoB[4]);
+
+      
       } else if (this.formulario.tipo_investimento === 'Tesouro Direto' && this.formulario.rentabilidade === 'IPCA+'){
 
-        this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
+        //this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
         this.rendimentoB[3] = this.calcRendimentoBruto();
         this.rendimentoB [0] = this.rendimentoB [3];
         this.rendimentoB[2] = this.rendimentoB[0];
         this.rendimentoB[4] = this.rendimentoB[2];
+        
 
       } else if (this.formulario.rentabilidade === 'Pós-fixado'){
         
         this.rendimentoB[0] = this.calcRendimentoBruto();
         this.rendimentoB[2] = this.rendimentoB[0];
         this.rendimentoB[4] = this.rendimentoB[2];
-     
-      } else if (this.formulario.rentabilidade === 'IPCA'){
+        
+        console.log('CDB/LC: ' + this.rendimentoB[0])
+      } else if (this.formulario.opcoesRentabilidade === 'IPCA+'){
 
         this.rendimentoB[0] = this.calcularRendimentoIPCA();
         this.rendimentoB[2] = this.rendimentoB[0];
         this.rendimentoB[4] = this.rendimentoB[2];
 
       } else if (this.formulario.rentabilidade === 'Selic'){
+        const valorAplicado = this.formulario.valor_aplicado;
+        const investimentoMensal = this.formulario.investimento_mensal;
+        const meses = this.formulario.periodo;
+        
+        this.rendimentoB[3] =  this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses); 
 
-        this.rendimentoB[3] = this.calcularRendimentoSelic();
+        console.log(this.rendimentoB[3]);
 
       } else if (this.formulario.rentabilidade === 'Pré-fixado'){ 
 
@@ -443,6 +454,9 @@ export default {
         this.rendimentoB[2] = this.rendimentoB[0];
         this.rendimentoB[4] = this.rendimentoB[2];
 
+      } else if (this.formulario.tipo_de_periodo === 'Poupança') {
+    
+        this.rendimentoB[1] = this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses);
       }
     },
     selecionarTipo(tipo) {
@@ -512,7 +526,7 @@ export default {
     },
 
     
-    atualizarRendimentoB() {
+   /* atualizarRendimentoB() {
       switch (this.formulario.tipo_investimento) {
         case "CDB/LC":
           this.rendimentoB[0] = this.rendimentoBruto;
@@ -530,7 +544,7 @@ export default {
           this.rendimentoB[4] = this.rendimentoBruto;
           break;
       }
-    },
+    },*/
 
     // VALIDAÇÕES
     validarPercentual() {
@@ -692,15 +706,15 @@ export default {
     rendimentoBrutoSelic = valorTotalBruto - totalInvestido;
       return this.rendimentoBrutoSelic;
     },
+
     calcRendimentoBrutoPoupanca(){
       
-     const taxaPoupanca = 0.0057; // Taxa de 0.57% ao mês
-
   // Calcula o rendimento bruto da poupança
-     this.rendimentoBrutoPoupanca = this.valorTotalBruto - this.totalInvestido;
+     this.rendimentoBruto = this.valorTotalBruto - this.totalInvestido;
 
-    return this.rendimentoBrutoPoupanca;
+      return this.rendimentoBruto;
     },
+    //default calcularRendimentoPoupanca
 
     calcularRendimentoSelic(valorAplicado, investimentoMensal, meses) {
       // VERIFICAR EFICIENCIA
@@ -713,6 +727,8 @@ export default {
       for (let i = 0; i < meses; i++) {
         valorAplicadoTesouro = valorAplicadoTesouro * (1 + taxaSelicMensal) + investimentoMensal;
       }
+      
+      this.rendimentoB[3] = this.calcRendimentoBrutoSelic(this.valorTotalBruto, (valorAplicado))
       return valorAplicadoTesouro;
 
      
@@ -722,14 +738,25 @@ export default {
   let totalInvestido = valorAplicado;
   let rendimento = 0;
 
-  for (let i = 0; i < meses; i++) {
-    rendimento += totalInvestido * taxaPoupanca;
-    totalInvestido += investimentoMensal;
-  }
+      let valorInicial = valorAplicado;
+      for (let i = 0; i < meses; i++) {
+        valorAplicado = valorAplicado * (1 + taxaPoupanca) + investimentoMensal;
+      }
 
-  return rendimento;
-},
- 
+      this.valorTotalBruto = valorAplicado;
+
+      this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca(this.valorTotalBruto, (valorInicial + (investimentoMensal * meses)));
+      //return this.calcRendimentoBruto();
+      return this.rendimentoB[1];
+    },
+      /*for (let i = 0; i < meses; i++) {
+        valorAplicado = valorAplicado * (1 + taxaPoupanca) + investimentoMensal;
+      }
+
+      this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
+      let rendimento = valorAplicado - (totalInvestido + investimentoMensal * meses)
+      return rendimento;*/
+
   
     calcularRendimentoPreFixado(valorAplicado, investimentoMensal, meses) {
       // Verifica se o tipo de investimento é pré-fixado
@@ -799,7 +826,7 @@ export default {
       return this.calcRendimentoBruto();
     },
     calcularRendimentoPosFixado(valorAplicado, investimentoMensal, meses) {
-      let percentualCDI = parseFloat(this.formulario.percentualRentabilidade);
+      let percentualCDI = parseFloat(this.formulario.percentualRentabilidade) ;
       if (isNaN(percentualCDI)) {
         alert("Por favor, insira um percentual de rentabilidade válido.");
         return;

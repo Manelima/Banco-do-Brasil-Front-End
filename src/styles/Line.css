@@ -1,0 +1,99 @@
+/* ============= HEADER ============ */
+
+.line-header{
+  background-color: #FCFC30!important;
+}
+
+.line-logo{
+  max-width: 68px!important;
+}
+
+.line-titulo_nav_bar {
+  color: #465EFF;
+  font-size: 24px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* ================ BOTOES ============== */
+
+.line-buttongeral{
+  color: #465EFF!important;
+}
+
+.line-buttongeral:hover{
+  background-color: #465EFF;
+  color: #FFF!important;
+}
+
+/* =================== BODY(CONTAINER 1) ================== */
+
+.line-container-main{
+  background-image: url('@/images/blue_girl.jpg');
+  color: #FCFC30;
+  background-size: 100%;
+}
+
+.line-container_card_topo{
+  
+  word-wrap: break-word!important;
+  word-break: break-all!important;
+  margin-top: 250px!important;
+  /* height: 400px; */
+  max-width: 51.5%;
+  background: none;
+  font-size: 32px;
+  font-weight: bold;
+  margin-right: 50%;
+}
+
+.line-card_filho_topo{
+  word-wrap: break-word!important;
+  word-break: break-all!important;
+  height: 242.36px;
+  
+}
+
+.line-subtitle_card{
+  font-weight: bold;
+  font-size: 24px;
+  color: #465EFF;
+}
+
+.line-div_maintext{
+  margin-right: 0;
+  color: #FCFC30 !important;
+  font-style: bold;
+}
+.line-texto-emprestimo{
+  color: #FCFC30;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =================== BODY(CONTAINER 2) ================== */
+
+.line-container_form{
+  margin-top: 10%;
+}
+
+.line-lado_esquerdo{
+  padding: 0px;
+}
+
+.line-lado_direito{
+  background-color: #FCFC30!important;
+  padding: 5%;
+}
+
+.line-form_def_linhas{
+  color: #465EFF!important;
+  background-color: #FCFC30!important;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= FOOTER ================ */
+.line-footer{
+  background-color: #FCFC30!important;
+} 
