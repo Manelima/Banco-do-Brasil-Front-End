@@ -82,11 +82,13 @@
                 <template v-if="perguntaAtual === 3">
                   <h3>Você prefere realizar o pagamento do crédito em:</h3>
                   <v-radio label="Várias parcelas mensais." value="parcelas"></v-radio>
-                  <v-radio label="Um pagamento único na data de recebimento de um valor futuro." value="pagamento_unico"></v-radio>
+                  <v-radio label="Um pagamento único na data de recebimento de um valor futuro."
+                    value="pagamento_unico"></v-radio>
                 </template>
 
                 <template v-if="perguntaAtual === 4">
-                  <h3>Você recebe seu salário ou benefícios de forma consignada (desconto direto na folha de pagamento)?</h3>
+                  <h3>Você recebe seu salário ou benefícios de forma consignada (desconto direto na folha de pagamento)?
+                  </h3>
                   <v-radio label="Sim, sou funcionário público." value="publico"></v-radio>
                   <v-radio label="Sim, trabalho em empresa privada." value="privado"></v-radio>
                   <v-radio label="Não" value="nao_consignado"></v-radio>
@@ -125,15 +127,28 @@
               <!-- Botões para navegação -->
               <v-row>
                 <v-col cols="6">
-                  <v-btn :disabled="perguntaAtual === 1" @click="perguntaAnterior">Anterior</v-btn>
+                  <v-btn class="line-buttongeral" :disabled="perguntaAtual === 1"
+                    @click="perguntaAnterior">Anterior</v-btn>
                 </v-col>
                 <v-col cols="6" class="text-right">
-                  <v-btn :disabled="perguntaAtual === totalDePerguntas" @click="proximaPergunta">Próxima</v-btn>
+                  <v-btn class="line-buttongeral" v-if="perguntaAtual < totalDePerguntas"
+                    @click="proximaPergunta">Próxima</v-btn>
+                  <v-btn class="line-buttongeral" v-else @click="enviarResposta">Enviar Respostas</v-btn>
                 </v-col>
               </v-row>
             </v-form>
           </v-col>
         </v-row>
+
+        <!-- Exibir as opções de crédito recomendadas (MERAMENTE ILUSTRATIVA!!!)-->
+        <v-container v-if="mostrarResultados" class="line-container_resultados">
+          <h3>Linhas de Crédito Recomendadas:</h3>
+          <v-list>
+            <v-list-item v-for="linha in linhasRecomendadas" :key="linha">
+              <v-list-item-content>{{ linha }}</v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-container>
       </v-container>
     </v-container>
   </v-main>
@@ -153,19 +168,59 @@ export default {
       perguntaAtual: 1,
       totalDePerguntas: 8,
       respostaSelecionada: null,
+      respostas: [],
+      mostrarResultados: false,
+      linhasRecomendadas: []
     };
   },
   methods: {
     proximaPergunta() {
-      if (this.perguntaAtual < this.totalDePerguntas) {
-        this.perguntaAtual++;
+      if (this.respostaSelecionada) {
+        this.respostas.push(this.respostaSelecionada);
+        this.respostaSelecionada = null;
+        if (this.perguntaAtual < this.totalDePerguntas) {
+          this.perguntaAtual++;
+        }
       }
     },
     perguntaAnterior() {
       if (this.perguntaAtual > 1) {
         this.perguntaAtual--;
+        this.respostas.pop();
       }
     },
+    enviarResposta() {
+      // Coleta todas as respostas e realiza a lógica para sugerir linhas de crédito
+      this.respostas.push(this.respostaSelecionada);
+
+      this.linhasRecomendadas = this.getlinhasRecomendadas();
+      this.mostrarResultados = true;
+    },
+    getlinhasRecomendadas() {
+      // Lógica simples de exemplo, ajustada com base nas respostas
+      let linhas = [];
+
+      if (this.respostas.includes("renovar")) {
+        linhas.push("Renovação de Empréstimos");
+      }
+      if (this.respostas.includes("compra")) {
+        linhas.push("Crédito Novo (CDC)");
+      }
+      if (this.respostas.includes("antecipar")) {
+        linhas.push("Antecipação de Crédito (13º salário, IRPF, FGTS)");
+      }
+      if (this.respostas.includes("imovel")) {
+        linhas.push("Financiamento de Imóveis");
+      }
+      if (this.respostas.includes("veiculo")) {
+        linhas.push("Financiamento de Veículos");
+      }
+      if (this.respostas.includes("portabilidade")) {
+        linhas.push("Portabilidade de Crédito");
+      }
+
+      return linhas;
+    }
   },
 };
 </script>

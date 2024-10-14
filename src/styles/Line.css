@@ -74,7 +74,7 @@
 /* =================== BODY(CONTAINER 2) ================== */
 
 .line-container_form{
-  margin-top: 10%;
+  margin-top: 17.5%;
 }
 
 .line-lado_esquerdo{
@@ -91,6 +91,14 @@
   background-color: #FCFC30!important;
   width: 100%;
   height: 100%;
+}
+
+/* ================ RESULTADOS ================ */
+
+.line-container_resultados{
+  background-color: #465EFF!important;
+  margin-top: 10%;
+  padding: 5%;
 }
 
 /* ================= FOOTER ================ */
