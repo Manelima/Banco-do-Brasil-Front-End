@@ -21,6 +21,7 @@
   ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement);
   
   export default {
+    name: "investimentChart",
     components: {
       LineChart: Line,
     },
