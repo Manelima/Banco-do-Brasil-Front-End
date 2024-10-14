@@ -1,0 +1,44 @@
+/* ============= HEADER ============ */
+
+.home-header{
+	background-color: #FCFC30!important;
+}
+  
+.home-logo{
+	max-width: 68px!important;
+}
+  
+.home-linha_preta_vertical{
+	height: 60%;
+	background-color: #000;
+	width: 1px;
+}
+.home-titulo_nav_bar {
+	color: #465EFF;
+	font-size: 24px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+  /* ================ BOTOES ============== */
+
+.home-buttongeral{
+	color: #465EFF!important;
+}
+  
+.home-buttongeral:hover{
+	background-color: #465EFF;
+	color: #FFF!important;
+}
+  
+  /* ================= FOOTER ================ */
+
+.home-footer{
+	background-color: #FCFC30!important;
+}
+  
+.home-texto_footer{
+	color: #465EFF;
+	font-weight: bold;
+	font-size: 20px;
+}

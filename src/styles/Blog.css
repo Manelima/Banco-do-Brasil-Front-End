@@ -1,0 +1,45 @@
+/* ============= HEADER ============ */
+
+.blog-header{
+	background-color: #FCFC30!important;
+}
+  
+.blog-logo{
+	max-width: 68px!important;
+}
+
+.blog-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
+}
+
+.blog-titulo_nav_bar {
+	color: #465EFF;
+	font-size: 24px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+  /* ================ BOTOES ============== */
+
+.blog-buttongeral{
+    color: #465EFF!important;
+}
+  
+.blog-buttongeral:hover{
+	background-color: #465EFF;
+	color: #FFF!important;
+}
+  
+  /* ================= FOOTER ================ */
+
+.blog-footer{
+	background-color: #FCFC30!important;
+}
+  
+.blog-texto_footer{
+	color: #465EFF;
+	font-weight: bold;
+	font-size: 20px;
+}

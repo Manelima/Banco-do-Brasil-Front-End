@@ -1,7 +1,7 @@
 <template>
   <v-app-bar class="line-header">
     <v-img src="@/images/bb.png" class="line-logo"></v-img>
-
+    <div class="line-linha_preta_vertical"></div>
     <v-app-bar-title class="line-titulo_nav_bar">
       Banco do Brasil
     </v-app-bar-title>

@@ -4,13 +4,19 @@
   background-image: url('@/images/imagem_investimentos.jpg');
   background-size: 100%;
 }
-
+/* ================= HEADER ================= */
 .simul-header{
   background-color: #FCFC30!important;
 }
 
 .simul-logo{
   max-width: 68px!important;
+}
+
+.simul-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
 }
 
 .simul-titulo_nav_bar {
@@ -100,7 +106,7 @@
   margin-top: 15px;
 }
 
-/* averiguar isso aqui abaixo(sem poder rolar a tela, não dava para ver se estava mudando algo) */
+
 .simul-card_selic{
   height: 235.56px!important;
 }

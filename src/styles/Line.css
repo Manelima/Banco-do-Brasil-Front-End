@@ -8,6 +8,12 @@
   max-width: 68px!important;
 }
 
+.line-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
+}
+
 .line-titulo_nav_bar {
   color: #465EFF;
   font-size: 24px;

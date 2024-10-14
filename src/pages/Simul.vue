@@ -1,8 +1,10 @@
 <template>
   <v-app-bar class="simul-header">
-    <v-img src="@/images/bb.png" class="logo"></v-img>
-
-    <v-app-bar-title class="simul-titulo_nav_bar"> Banco do Brasil </v-app-bar-title>
+    <v-img src="@/images/bb.png" class="line-logo"></v-img>
+    <div class="simul-linha_preta_vertical"></div>
+    <v-app-bar-title class="line-titulo_nav_bar">
+      Banco do Brasil
+    </v-app-bar-title>
 
     <v-btn to="/" class="simul-buttongeral mx-1">Home</v-btn>
     <v-btn to="/linhas" class="simul-buttongeral mx-1">Linhas</v-btn>
