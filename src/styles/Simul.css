@@ -29,11 +29,13 @@
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
+    border-radius: 80px;
 }
 
 .simul-buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
+  border-radius: 80px;
 }
 
 /* =================== BODY ================== */
