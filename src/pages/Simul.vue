@@ -381,6 +381,7 @@ export default {
     gerarDataGrafico() {
       this.atualizarGrafico();
       return [
+        ["Valor Total", this.rendimentoB[5]],
         ["CDB/LC", this.rendimentoB[0]],
         ["Debênture", this.rendimentoB[4]],
         ["LCI & LCA", this.rendimentoB[2]],
@@ -399,7 +400,7 @@ export default {
         
         //const valorInicial  = this.calcRendimentoBrutoPoupanca();
 
-        this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca(valorAplicado, investimentoMensal, meses);
+        this.calcRendimentoBrutoPoupanca(this.valorTotalBruto, (valorAplicado + (investimentoMensal * meses)));
         // temp.rendimento[1] = this.rendimento[1].
         // this.calcRendimentoBruto(.., ...,...) = 0;
                               
@@ -410,7 +411,7 @@ export default {
         this.rendimentoB[2] = this.rendimentoB[0]
         this.rendimentoB[3] = this.rendimentoB[2]
         this.rendimentoB[4] = this.rendimentoB[3]
-              
+        this,this.rendimentoB[5] = this.valorTotalBruto;              
         //console.log('CDB/LC: ', this.rendimentoB[0]);
         //console.log('Poupança: ', this.rendimentoB[1]);
         //console.log('LCI & LCA: ', this.rendimentoB[2]);
@@ -445,7 +446,8 @@ export default {
         const investimentoMensal = this.formulario.investimento_mensal;
         const meses = this.formulario.periodo;
         
-        this.rendimentoB[3] =  this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses); 
+     
+        this.rendimentoB[3] = this.calcRendimentoBrutoSelic();
 
         console.log(this.rendimentoB[3]);
 
@@ -705,7 +707,7 @@ export default {
       return this.rendimentoBruto;
     },
     calcRendimentoBrutoSelic(){
-    rendimentoBrutoSelic = valorTotalBruto - totalInvestido;
+      rendimentoBrutoSelic = valorTotalBruto - totalInvestido;
       return this.rendimentoBrutoSelic;
     },
 
@@ -730,7 +732,8 @@ export default {
         valorAplicadoTesouro = valorAplicadoTesouro * (1 + taxaSelicMensal) + investimentoMensal;
       }
       
-      this.rendimentoB[3] = this.calcRendimentoBrutoSelic(this.valorTotalBruto, (valorAplicado))
+      this.valorTotalBruto = valorAplicadoTesouro;
+      this.rendimentoB[3] = this.calcRendimentoBrutoSelic(this.valorTotalBruto, (valorAplicado));
       return valorAplicadoTesouro;
 
      

@@ -29,10 +29,12 @@
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
+    border-radius: 80px;
 }
 
 .simul-buttongeral:hover{
   background-color: #465EFF;
+  border-radius: 80px;
   color: #FFF!important;
 }
 

@@ -38,21 +38,70 @@
         </v-row>
 
         <!-- Exibe o card baseado na operação selecionada -->
-        <v-card v-if="operacaoSelecionada === 'saque'" class="opera-card_operacao_selecionada" style="background-color: black;">
-          <v-card-actions></v-card-actions>
+        <v-card v-if="operacaoSelecionada === 'saque'" class="opera-card_operacao_selecionada">
+          <v-card-title class="white--text">Saque Móvel</v-card-title>
+          <v-card-text>
+            <v-form>
+              <v-text-field label="Valor do Saque" v-model="valorSaque" prefix="R$" type="number" outlined class="white--text" color="white"></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn @click="confirmarSaque" class="white--text" outlined color="white"> Confirmar Saque </v-btn>
+          </v-card-actions>
         </v-card>
 
-        <v-card v-if="operacaoSelecionada === 'transferencia'" class="opera-card_operacao_selecionada" style="background-color: blue;">
-          <v-card-actions></v-card-actions>
+        <v-card v-if="operacaoSelecionada === 'transferencia'" class="opera-card_operacao_selecionada">
+          <v-card-title class="white--text">Transferência</v-card-title>
+          <v-card-text>
+            <v-form>
+              <v-text-field label="Conta de Destino" v-model="contaDestino" outlined class="white--text" color="white"></v-text-field>
+              <v-text-field label="Valor da Transferência" v-model="valorTransferencia" prefix="R$" type="number" outlined class="white--text" color="white"></v-text-field>
+            </v-form>
+          </v-card-text>
+            <v-card-actions>
+              <v-btn @click="confirmarTransferencia" class="white--text" outlined color="white">
+                Confirmar Transferência
+              </v-btn>
+            </v-card-actions>
         </v-card>
 
-        <v-card v-if="operacaoSelecionada === 'deposito'" class="opera-card_operacao_selecionada" style="background-color: red;">
-          <v-card-actions></v-card-actions>
+
+        <v-card v-if="operacaoSelecionada === 'deposito'" class="opera-card_operacao_selecionada">
+          <v-card-title class="white--text">Depósito</v-card-title>
+          <v-card-text>
+            <v-form>
+              <v-text-field label="Valor do Depósito" v-model="valorDeposito" prefix="R$" type="number" outlined class="white--text" color="white"></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn @click="confirmarDeposito" class="white--text" outlined color="white">
+              Confirmar Depósito
+            </v-btn>
+          </v-card-actions>
         </v-card>
 
-        <v-card v-if="operacaoSelecionada === 'historico'" class="opera-card_operacao_selecionada" style="background-color: magenta;">
-          <v-card-actions></v-card-actions>
+        <v-card v-if="operacaoSelecionada === 'historico'" class="opera-card_operacao_selecionada">
+          <v-card-title class="white--text">Histórico de Transações</v-card-title>
+          <v-card-text>
+            <v-simple-table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(transacao, index) in historicoTransacoes" :key="index">
+                  <td>{{ transacao.data }}</td>
+                  <td>{{ transacao.tipo }}</td>
+                  <td>R$ {{ transacao.valor }}</td>
+                </tr>
+              </tbody>
+            </v-simple-table>
+          </v-card-text>
         </v-card>
+
       </v-container>
     </v-container>
   </v-main>
@@ -70,13 +119,34 @@ export default {
   data() {
     return {
       nomeDeUsuario: 'User_teste01',
-      operacaoSelecionada: null, // Armazena a operação selecionada
+      operacaoSelecionada: null,
+      valorSaque: null,
+      contaDestino: '',
+      valorTransferencia: null,
+      valorDeposito: null,
+      historicoTransacoes: [
+        { data: '10/10/2024', tipo: 'Depósito', valor: '500' },
+        { data: '12/10/2024', tipo: 'Transferência', valor: '200' },
+      ],
     };
   },
   methods: {
     selecionarOperacao(operacao) {
       this.operacaoSelecionada = operacao; // Define a operação selecionada
     },
+    confirmarSaque() {
+      alert(`Saque de R$ ${this.valorSaque} realizado com sucesso!`);
+      this.valorSaque = null;
+    },
+    confirmarTransferencia() {
+      alert(`Transferência de R$ ${this.valorTransferencia} para a conta ${this.contaDestino} realizada com sucesso!`);
+      this.contaDestino = '';
+      this.valorTransferencia = null;
+    },
+    confirmarDeposito() {
+      alert(`Depósito de R$ ${this.valorDeposito} realizado com sucesso!`);
+      this.valorDeposito = null;
+    }
   },
 };
 </script>
