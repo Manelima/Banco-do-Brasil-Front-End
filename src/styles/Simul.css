@@ -1,6 +1,8 @@
-.container-man{
+.container-main{
   background-color: #465EFF;
-  background-image: url(https://cdn.bb.com.br/wp-content/uploads/2023/12/DT_Banner_Full_Vem_ser_Cliente-1.jpg);
+  /* background-image: url('src/images/imagem-investimentos.png'); */
+  background-image: url(https://media.discordapp.net/attachments/1283447318984786005/1292634798464176148/imagem-investimentos.png?ex=67051c37&is=6703cab7&hm=bcd30aaefcb4e243a90b58c58176b92c47ca0b03867edc2a13055290efd4197b&=&format=webp&quality=lossless&width=674&height=394);
+  background-size: 100%;
 }
 
 .header{
@@ -22,12 +24,30 @@
 }
 
 .buttongeral{
+    color: #465EFF!important;
+}
+
+.buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
 }
 
+.card_info_topo{
+  margin-top: 590px;
+}
+
 .card{
   background-color: #FFF!important;
+}
+
+.caixa_dialog_result /* não altera nada, analisar! */
+
+.valorBrutoDialog /* não altera nada, analisar */
+
+.card_pos_form
+
+.card_tesouro_dir{
+  min-height: 100%!important;
 }
 
 .titulo_card{
@@ -49,6 +69,7 @@
   background-color: #FCFC30!important;
 }
 
+
 .campo_texto{
   background-color: #FFF;
   font-weight: 400!important;
@@ -64,4 +85,21 @@
   color: #465EFF;
   font-weight: bold;
   font-size: 20px;
+}
+
+.container_grafico{
+  background-color: #FFF!important;
+  height: 475px;
+  justify-self: right;
+}
+
+.coluna_grafico{
+  background-color: #FFF!important;
+  height: 505px;
+  margin-top: 15px;
+}
+
+/* averiguar isso aqui abaixo(sem poder rolar a tela, não dava para ver se estava mudando algo) */
+.card_selic{
+  height: 235.56px!important;
 }
