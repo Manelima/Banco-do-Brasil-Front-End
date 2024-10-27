@@ -193,7 +193,7 @@
               <!-- Botões de navegação -->
               <v-row>
                 <v-col cols="6">
-                  <v-btn class="line-buttongeral" :disabled="perguntaAtual === 1"
+                  <v-btn class="line-buttongeral" :disabled="perguntaAtual === 0"
                     @click="perguntaAnterior">Anterior</v-btn>
                 </v-col>
                 <v-col cols="6" class="text-right">
@@ -241,73 +241,48 @@ export default {
       if (this.perguntaAtual < this.totalDePerguntas) {
         this.perguntaAtual++;
       }
+      console.log(this.respostasSelecionadas[this.perguntaAtual]);
+      console.log(this.perguntaAtual);
     },
     perguntaAnterior() {
-      if (this.perguntaAtual > 1) {
+      if (this.perguntaAtual > 0) {
         this.perguntaAtual--;
       }
+      console.log(this.respostasSelecionadas[this.perguntaAtual]);
+      console.log(this.perguntaAtual);
     },
     enviarResposta() {
       this.mostrarResultados = true;
       this.linhasRecomendadas = this.getLinhasRecomendadas();
     },
     getLinhasRecomendadas() {
-      // Implementar lógica de recomendação de linhas de crédito com base nas respostas selecionadas
-      // Aqui você pode adicionar as condições de verificação de respostas para determinar as linhas recomendadas
-      let recomendacoes = [];
+      let linhas = [];
 
-      if (this.respostasSelecionadas[0] === 'dinheiro_conta') {
-        if (this.respostasSelecionadas[1] === 'com_garantia') {
-          recomendacoes = [
-            'Empréstimo com Garantia de Imóvel',
-            'Empréstimo com Garantia de Veículo',
-            'Empréstimo com Garantia de Investimentos'
-          ];
-        } else if (this.respostasSelecionadas[1] === 'sem_garantia') {
-          if (this.respostasSelecionadas[2] === 'antecipacao') {
-            recomendacoes = [
-              'Antecipar 13º',
-              'Restituição do IRPF',
-              'Saque aniversário do FGTS'
-            ];
-          } else if (this.respostasSelecionadas[2] === 'credhora') {
-            recomendacoes = [
-              'Empréstimo Consignado',
-              'Empréstimo Automático',
-              'Crédito Benefício',
-              'Crédito Salário'
-            ];
+      if (this.respostasSelecionadas[1] === 'dinheiro_conta') {
+        if (this.respostasSelecionadas[2] === 'com_garantia') {
+          linhas.push('Empréstimo com Garantia de Imóvel', 'Empréstimo com Garantia de Veículo', 'Empréstimo com Garantia de Investimentos');
+        } else if (this.respostasSelecionadas[2] === 'sem_garantia') {
+          if (this.respostasSelecionadas[3] === 'antecipacao') {
+            linhas.push('Antecipar 13º', 'Restituição do IRPF', 'Saque aniversário do FGTS');
+          } else if (this.respostasSelecionadas[3] === 'credhora') {
+            linhas.push('Empréstimo Consignado', 'Empréstimo Automático', 'Crédito Benefício', 'Crédito Salário');
           }
         }
-      } else if (this.respostasSelecionadas[0] === 'financiamento_sonhos') {
-        if (this.respostasSelecionadas[1] === 'classicos') {
-          recomendacoes = [
-            'Financiamento Imobiliário',
-            'Financiamento de Veículos',
-            'Financiamento de Motos'
-          ];
-        } else if (this.respostasSelecionadas[1] === 'diferenciado') {
-          recomendacoes = [
-            'Crédito Mobilidade',
-            'Crédito Realiza',
-            'Crédito Energia Renovável',
-            'Bens e Serviços para PCDs'
-          ];
-        } else if (this.respostasSelecionadas[1] === 'agronegocio') {
-          recomendacoes = [
-            'Pronaf Grupo A/C',
-            'Pronaf Agricultura Familiar',
-            'Crédito Rural Pronamp Custeio',
-            'Custeio Agropecuário'
-          ];
+      } else if (this.respostasSelecionadas[1] === 'financiamento_sonhos') {
+        if (this.respostasSelecionadas[2] === 'classicos') {
+          linhas.push('Financiamento Imobiliário', 'Financiamento de Veículos', 'Financiamento de Motos');
+        } else if (this.respostasSelecionadas[2] === 'diferenciado') {
+          linhas.push('Crédito Mobilidade', 'Crédito Realiza', 'Crédito Energia Renovável', 'Bens e Serviços para PCDs');
+        } else if (this.respostasSelecionadas[2] === 'agronegocio') {
+          linhas.push('Pronaf Grupo A/C', 'Pronaf Agricultura Familiar', 'Crédito Rural Pronamp Custeio', 'Custeio Agropecuário');
         }
-      } else if (this.respostasSelecionadas[0] === 'renovar_emprestimo') {
-        recomendacoes = ['Renovação de Empréstimos'];
-      } else if (this.respostasSelecionadas[0] === 'portabilidade') {
-        recomendacoes = ['Portabilidade de Crédito'];
+      } else if (this.respostasSelecionadas[1] === 'renovar_emprestimo') {
+        linhas.push('Renovação de Empréstimos');
+      } else if (this.respostasSelecionadas[1] === 'portabilidade') {
+        linhas.push('Portabilidade de Crédito');
       }
 
-      return recomendacoes;
+      return linhas;
     }
   }
 };
