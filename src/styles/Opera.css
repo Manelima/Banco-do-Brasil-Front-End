@@ -1,0 +1,77 @@
+/* ============= HEADER ============ */
+
+.opera-header{
+	background-color: #FCFC30!important;
+}
+  
+.opera-logo{
+  max-width: 68px!important;
+}
+
+.opera-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
+}
+  
+.opera-titulo_nav_bar {
+	color: #465EFF;
+	font-size: 24px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+/* ================ BOTOES ============== */
+
+.opera-buttongeral{
+	color: #465EFF!important;
+	border-radius: 80px;
+}
+.opera-buttontipos{
+	color: #465EFF!important;
+	width: 200px;
+
+}
+  /* Precisa ter outra classe pra dimensionar os buttons aí*/
+.opera-buttongeral:hover{
+	background-color: #465EFF;
+	border-radius: 80px;
+	color: #FFF!important;
+}
+
+/* ===================== BODY ================== */
+
+.opera-container_main{
+	width: 40%;
+	background-color: #FCFC30;
+}
+
+.opera-coluna_um{
+	margin-left: 15%;
+}
+
+.opera-coluna_dois
+
+.opera-container_operacoes{
+	height: 800px;
+}
+
+.opera-div_saudacao{
+	font-size: 2em;
+}
+
+.opera-card_operacao_selecionada{
+	height: 600px;
+}
+
+/* ================= FOOTER ================ */
+
+.opera-footer{
+	background-color: #FCFC30!important;
+}
+  
+.opera-texto_footer{
+	color: #465EFF;
+	font-weight: bold;
+	font-size: 20px;
+}
