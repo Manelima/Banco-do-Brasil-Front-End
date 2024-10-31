@@ -60,8 +60,10 @@
           <v-col cols="6" class="line-lado_direito d-flex align-center justify-center">
             <v-form class="line-form_def_linhas">
               <v-radio-group v-model="respostasSelecionadas[perguntaAtual]" class="line-pergunta_form">
+                
+                <!-- ESCOPOS DE TEMPLATES A SEREM FINALIZADOS(A LÓGICA DE ELABORAÇÃO É A SEGUINTE: AS PERGUNTAS SÃO FEITAS NA ORDEM EM QUE OCORREM, PRIORIZANDO AQUELAS CUJA ROTA OCORRE MAIS ACIMA DO QUE AS OUTRAS, POR EXEMPLO, A PRIMEIRA ROTA É AQUELA ONDE TODAS AS RESPOSTAS FORAM PRIMEIRAS OPÇÕES, ENQUANTO A SEGUNDA ROTA É AQUELA ONDE APENAS A ÚLTIMA OPÇÃO MUDA, PARA SEGUNDA, POR EXEMPLO, CLARO, DEVIDO À QUANTIA MAIOR DE RAMIFICAÇÕES, SERÁ NECESSÁRIA UMA MAIOR ANÁLISE DO FLUXO CORRETO, ASSIM COMO TAMBÉM SERÁ NECESSÁRIO CERTO FOCO DURANTE ESSA ELABORAÇÃO - COMENTÁRIO DESTINADO A: EMANUEL!) -->
 
-                <!-- Pergunta 1: O que você procura? -->
+                <!-- Pergunta 0: O que você procura? -->
                 <template v-if="perguntaAtual === 0">
                   <h3>O que você procura?</h3>
                   <v-radio label="Dinheiro na conta para usar como eu quiser" value="dinheiro_conta"></v-radio>
@@ -71,103 +73,95 @@
                     value="portabilidade"></v-radio>
                 </template>
 
-                <!-- Pergunta 2: Dinheiro na conta para usar como eu quiser -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'dinheiro_conta'">
-                  <h3>Deseja usar garantias?</h3>
-                  <v-radio label="Sim, quero usar garantias e juros baixos" value="com_garantia"></v-radio>
+                <!-- Resposta anterior(0): "Dinheiro na conta para usar como eu quiser" -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[0] === 'dinheiro_conta'">
+                  <h3>você quer usar um imóvel ou veículo como garantia desse empréstimo? Isso pode deixar sua taxa de
+                    juros mais baixa</h3>
                   <v-radio label="Não quero usar garantias" value="sem_garantia"></v-radio>
+                  <v-radio label="Sim, quero usar garantias e ter juros baixos" value="com_garantia"></v-radio>
                 </template>
 
-                <!-- Linhas recomendadas com garantias -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'com_garantia'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Empréstimo com Garantia de Imóvel</li>
-                      <li>Empréstimo com Garantia de Veículo</li>
-                      <li>Empréstimo com Garantia de Investimentos</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(1): "Não quero usar garantias" -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[1] === 'sem_garantia'">
+                  <h3>Você prefere pagar parcelas mensais(Linhas CDC), ou tem algum valor a receber no futuro(linhas de
+                    antecipação) para quitar o empréstimo?</h3>
+                  <v-radio label="Antecipar valores sem precisar pagar parcelas mensais." value="antecipar"></v-radio>
+                  <v-radio label="Crédito na hora sem precisar pagar parcelas mensais." value="credito_hora"></v-radio>
                 </template>
 
-                <!-- Pergunta 3: Sem garantias -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'sem_garantia'">
-                  <h3>O que você prefere?</h3>
-                  <v-radio label="Antecipar valores sem precisar pagar parcelas mensais" value="antecipacao"></v-radio>
-                  <v-radio label="Crédito na hora com pagamento de parcelas mensais" value="credhora"></v-radio>
+                <!-- Resposta anterior(2): "Antecipar valores sem precisar pagar parcelas mensais." -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas[2] === 'antecipar'">
+                  <h3>O que você pretende antecipar?</h3>
+                  <v-radio label="13º salário." value="decimo_terceiro"></v-radio>
+                  <v-radio label="Restituição do IRPF." value="IRPF"></v-radio>
+                  <v-radio label="Saque aniversário do FGTS." value="FGTS"></v-radio>
                 </template>
 
-                <!-- Linhas recomendadas: Antecipação -->
-                <template v-if="perguntaAtual === 3 && respostasSelecionadas[3] === 'antecipacao'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Antecipar 13º</li>
-                      <li>Restituição do IRPF</li>
-                      <li>Saque aniversário do FGTS</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(3): "13º salário." -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas[3] === 'decimo_terceiro'">
+                  <h3>Quanto você vai receber?</h3>
+                  <v-text-field v-model="respostasSelecionadas[4]" label="Valor do 13º salário"
+                    @input="formatarValorMonetario('respostasSelecionadas[4]')">
+                  </v-text-field>
                 </template>
 
-                <!-- Linhas recomendadas: Crédito na hora -->
-                <template v-if="perguntaAtual === 3 && respostasSelecionadas[3] === 'credhora'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Empréstimo Consignado</li>
-                      <li>Empréstimo Automático</li>
-                      <li>Crédito Benefício</li>
-                      <li>Crédito Salário</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
                 </template>
 
-                <!-- Financiamento para realizar meus sonhos -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'financiamento_sonhos'">
-                  <h3>Seja mais específico:</h3>
-                  <v-radio label="Eu quero os clássicos: imobiliário e veículos" value="classicos"></v-radio>
-                  <v-radio label="Procuro algo diferenciado que só o BB possui" value="diferenciado"></v-radio>
-                  <v-radio label="Busco algo voltado para o agronegócio" value="agronegocio"></v-radio>
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
                 </template>
 
-                <!-- Linhas recomendadas: Clássicos -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'classicos'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Financiamento Imobiliário</li>
-                      <li>Financiamento de Veículos</li>
-                      <li>Financiamento de Motos</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
                 </template>
 
-                <!-- Linhas recomendadas: Diferenciado -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'diferenciado'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Crédito Mobilidade</li>
-                      <li>Crédito Realiza</li>
-                      <li>Crédito Energia Renovável</li>
-                      <li>Bens e Serviços para PCDs</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
                 </template>
 
-                <!-- Linhas recomendadas: Agronegócio -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'agronegocio'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Pronaf Grupo A/C</li>
-                      <li>Pronaf Agricultura Familiar</li>
-                      <li>Crédito Rural Pronamp Custeio</li>
-                      <li>Custeio Agropecuário</li>
-                    </ul>
-                  </v-alert>
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
                 </template>
 
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                </template>
+
+                <!-- Resposta anterior(X): "..." -->
+                <template>
+                  <h3></h3>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="" value=""></v-radio>
+                </template>
+
+                <!-- DAQUI PARA BAIXO FOI MANTIDO POIS O FLUXO PERMANECE O MESMO, MAS FALTA MODIFICAR A APARIÇÃO DAS RESPECTIVAS LINHAS E OS ÍNDICES MANIPULADOS NOS v-if. -->
                 <!-- Renovação de Empréstimos -->
                 <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'renovar_emprestimo'">
                   <v-alert type="success">
@@ -183,7 +177,7 @@
                   <v-alert type="success">
                     Linhas de Crédito Recomendadas:
                     <ul>
-                      <li>Portabilidade de Crédito</li>
+                      <li>Portabilidade de Empréstimo</li>
                     </ul>
                   </v-alert>
                 </template>
@@ -230,7 +224,7 @@ export default {
   data() {
     return {
       perguntaAtual: 0,
-      totalDePerguntas: 3,
+      /*totalDePerguntas: 3, MODIFICAR DE ACORDO COM A ROTA SEGUIDA OU O MÁXIMO DE PERGUNTAS POSSÍVEIS.*/
       respostasSelecionadas: [],
       mostrarResultados: false,
       linhasRecomendadas: []
@@ -283,7 +277,22 @@ export default {
       }
 
       return linhas;
-    }
+    },
+    //ANALISAR SE É NECESSÁRIO USAR A FUNÇÃO "FORMATAR O VALOR MONETÁRIO" E A "PARSE CURRENCY", CASO NECESSÁRIO, ADAPTÁ-LAS PARA O FORMULÁRIO DESTA PÁGINA.
+    formatarValorMonetario(campo) {
+      let valor = this.formulario[campo];
+
+      // Remove todos os caracteres não numéricos
+      valor = valor.replace(/\D/g, "");
+
+      // Formata o valor
+      valor = (valor / 100).toFixed(2) + "";
+      valor = valor.replace(".", ",");
+      valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+
+      // Atualiza o campo do formulário
+      this.respostasSelecionadas[campo] = "R$ " + valor;
+    },
   }
 };
 </script>
