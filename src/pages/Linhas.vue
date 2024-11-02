@@ -60,7 +60,7 @@
           <v-col cols="6" class="line-lado_direito d-flex align-center justify-center">
             <v-form class="line-form_def_linhas">
               <v-radio-group v-model="respostasSelecionadas[perguntaAtual]" class="line-pergunta_form">
-                
+
                 <!-- ESCOPOS DE TEMPLATES A SEREM FINALIZADOS(A LÓGICA DE ELABORAÇÃO É A SEGUINTE: AS PERGUNTAS SÃO FEITAS NA ORDEM EM QUE OCORREM, PRIORIZANDO AQUELAS CUJA ROTA OCORRE MAIS ACIMA DO QUE AS OUTRAS, POR EXEMPLO, A PRIMEIRA ROTA É AQUELA ONDE TODAS AS RESPOSTAS FORAM PRIMEIRAS OPÇÕES, ENQUANTO A SEGUNDA ROTA É AQUELA ONDE APENAS A ÚLTIMA OPÇÃO MUDA, PARA SEGUNDA, POR EXEMPLO, CLARO, DEVIDO À QUANTIA MAIOR DE RAMIFICAÇÕES, SERÁ NECESSÁRIA UMA MAIOR ANÁLISE DO FLUXO CORRETO, ASSIM COMO TAMBÉM SERÁ NECESSÁRIO CERTO FOCO DURANTE ESSA ELABORAÇÃO - COMENTÁRIO DESTINADO A: EMANUEL!) -->
 
                 <!-- Pergunta 0: O que você procura? -->
@@ -191,9 +191,11 @@
                     @click="perguntaAnterior">Anterior</v-btn>
                 </v-col>
                 <v-col cols="6" class="text-right">
-                  <v-btn class="line-buttongeral" v-if="perguntaAtual < totalDePerguntas"
-                    @click="proximaPergunta">Próxima</v-btn>
-                  <v-btn class="line-buttongeral" v-else @click="enviarResposta">Enviar Respostas</v-btn>
+                  <!-- O v-if do botão de proximaPergunta e enviarRespostas precisam aparecer de acordo com a perguntaAtual e a respostaFinal-->
+                  <v-btn class="line-buttongeral" @click="proximaPergunta">Próxima</v-btn>
+                  <v-btn class="line-buttongeral"
+                    v-if="perguntaAtual === 4 && respostasSelecionadas[3] === 'decimo_terceiro'"
+                    @click="enviarResposta">Enviar Respostas</v-btn>
                 </v-col>
               </v-row>
             </v-form>
@@ -224,17 +226,18 @@ export default {
   data() {
     return {
       perguntaAtual: 0,
-      /*totalDePerguntas: 3, MODIFICAR DE ACORDO COM A ROTA SEGUIDA OU O MÁXIMO DE PERGUNTAS POSSÍVEIS.*/
+      totalDePerguntas: 0,
       respostasSelecionadas: [],
       mostrarResultados: false,
-      linhasRecomendadas: []
+      linhasRecomendadas: [],
+      verificacao: this.perguntaAtual < this.totalDePerguntas,
     };
   },
   methods: {
     proximaPergunta() {
-      if (this.perguntaAtual < this.totalDePerguntas) {
-        this.perguntaAtual++;
-      }
+      
+      this.perguntaAtual++;
+
       console.log(this.respostasSelecionadas[this.perguntaAtual]);
       console.log(this.perguntaAtual);
     },
