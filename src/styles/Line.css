@@ -8,6 +8,12 @@
   max-width: 68px!important;
 }
 
+.line-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
+}
+
 .line-titulo_nav_bar {
   color: #465EFF;
   font-size: 24px;
@@ -19,11 +25,13 @@
 
 .line-buttongeral{
   color: #465EFF!important;
+  border-radius: 80px;
 }
 
 .line-buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
+  border-radius: 80px;
 }
 
 /* =================== BODY(CONTAINER 1) ================== */
@@ -38,8 +46,9 @@
   
   word-wrap: break-word!important;
   word-break: break-all!important;
-  margin-block: 3%!important;
-  max-width: 32.5%;
+  margin-top: 250px!important;
+  /* height: 400px; */
+  max-width: 51.5%;
   background: none;
   font-size: 32px;
   font-weight: bold;
@@ -72,7 +81,9 @@
 
 /* =================== BODY(CONTAINER 2) ================== */
 
-.line-container_form
+.line-container_form{
+  margin-top: 17.5%;
+}
 
 .line-lado_esquerdo{
   padding: 0px;

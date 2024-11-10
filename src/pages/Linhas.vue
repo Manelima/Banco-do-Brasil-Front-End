@@ -73,6 +73,8 @@
                     value="portabilidade"></v-radio>
                 </template>
 
+                <!--- DINHEIRO NA CONTA PATH:-->
+
                 <!-- Resposta anterior(0): "Dinheiro na conta para usar como eu quiser" -->
                 <template v-if="perguntaAtual === 1 && respostasSelecionadas[pergunta_0] === 'dinheiro_conta'">
                   <h3>você quer usar um imóvel ou veículo como garantia desse empréstimo? Isso pode deixar sua taxa de
@@ -113,6 +115,14 @@
                   </v-text-field>
                 </template>
 
+                <!-- Resposta anterior(3): "Saque aniversário do FGTS." -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas[pergunta_3] === 'FGTS'">
+                  <h3>quanto você tem de saldo no FGTS?</h3>
+                  <v-text-field v-model="respostasSelecionadas[pergunta_4]"
+                    @input="formatarValorMonetario('respostasSelecionadas[pergunta_4]')" label="Saldo FGTS">
+                  </v-text-field>
+                </template>
+
                 <!-- Resposta anterior(4): preenchimento do campo com o valor a receber -->
                 <template v-if="perguntaAtual === 5 && respostasSelecionadas[pergunta_4] !== ''">
                   <h3>Qual será a data de recebimento do valor?</h3>
@@ -121,13 +131,8 @@
                   </v-text-field>
                 </template>
 
-                <!-- Resposta anterior(3): "Saque aniversário do FGTS." -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas[pergunta_3] === 'FGTS'">
-                  <h3>quanto você tem de saldo no FGTS?</h3>
-                  <v-text-field v-model="respostasSelecionadas[pergunta_4]"
-                    @input="formatarValorMonetario('respostasSelecionadas[pergunta_4]')" label="Saldo FGTS">
-                  </v-text-field>
-                </template>
+                
+                <!-- Resposta anterior(2): Crédito na hora  -->
 
                 <template v-if="perguntaAtual === 3 && respostasSelecionadas[pergunta_2] === 'credito_hora'">
                   <h3>De quanto você precisa?</h3>
@@ -143,20 +148,32 @@
                   </v-text-field>
                 </template>
 
+                <!-- DINHEIRO NA CONTA END-PATH -->
+
                 <!-- Resposta anterior(X): "..." -->
-                <template>
+
+                <!-- Resposta anterior(0): "financiamentos_sonhos" -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[pergunta_0] === 'financiamentos_sonhos'">
+                  <h3>Eu quero um financiamento para realizar meus sonhos</h3>
+                  <v-radio label="Eu quero os clássicos, imobiliário e veículos" value="classicos"></v-radio>
+                  <v-radio label="Procuro algo que só o BB possui" value="diferenciado"></v-radio>
+                  <v-radio label="Busco algo voltado para o agronegócio" value="agronegocio"></v-radio>
+                </template>
+
+                <!-- Resposta anterior (1): Eu quero os clássicos, imobiliário e veículos-->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[pergunta_1] === 'eu_quero_os_classicos_imobiliario_e_veiculos'">
                   <h3></h3>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
+                  <v-radio label="Financiamento imobiliário" value="financiamento_imobiliario"></v-radio>
+                  <v-radio label="Financiamento carro" value="financiamento_carro"></v-radio>
+                  <v-radio label="Financiamento moto" value="financiamento_moto"></v-radio>
                 </template>
 
                 <!-- Resposta anterior(X): "..." -->
-                <template>
-                  <h3></h3>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas[pergunta_2] === 'financiamento_imobiliario'">
+                  <h3>Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model="respostasSelecionadas[pergunta_2]"
+                    @input="formatarValorMonetario('respostasSelecionadas[pergunta_2]')" label="Valor do crédito">
+                  </v-text-field>
                 </template>
 
                 <!-- Resposta anterior(X): "..." -->
@@ -287,7 +304,9 @@ export default {
             linhas.push('Empréstimo Consignado', 'Empréstimo Automático', 'Crédito Benefício', 'Crédito Salário');
           }
         }
-      } else if (this.respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos') {
+      }
+      
+     else if (this.respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos') {
         if (this.respostasSelecionadas['pergunta_2'] === 'classicos') {
           linhas.push('Financiamento Imobiliário', 'Financiamento de Veículos', 'Financiamento de Motos');
         } else if (this.respostasSelecionadas['pergunta_2'] === 'diferenciado') {

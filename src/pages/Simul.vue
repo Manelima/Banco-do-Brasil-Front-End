@@ -1,8 +1,10 @@
 <template>
   <v-app-bar class="simul-header">
-    <v-img src="@/images/bb.png" class="logo"></v-img>
-
-    <v-app-bar-title class="simul-titulo_nav_bar"> Banco do Brasil </v-app-bar-title>
+    <v-img src="@/images/bb.png" class="line-logo"></v-img>
+    <div class="simul-linha_preta_vertical"></div>
+    <v-app-bar-title class="line-titulo_nav_bar">
+      Banco do Brasil
+    </v-app-bar-title>
 
     <v-btn to="/" class="simul-buttongeral mx-1">Home</v-btn>
     <v-btn to="/linhas" class="simul-buttongeral mx-1">Linhas</v-btn>
@@ -45,12 +47,12 @@
         </v-row>
       </v-container>
 
-      <v-container class="simul-simul-container_filho_1">
+      <v-container class="simul-simul-container_filho_1 mt-6">
         <v-row>
           <v-col cols="6" class="simul-coluna_formulario">
             <v-card class="simul-card pa-4 transparent-bg mb-10" elevation="3">
               <v-card-title class="simul-titulo_card text-h4">
-                Simule seu Investimento !!!
+                Simule seu Investimento 
               </v-card-title>
               <v-card-subtitle class="subsimul-titulo_card mb-5">
                 Preencha os valores para simular a rentabilidade de diferentes
@@ -362,17 +364,44 @@ export default {
         percentualRentabilidade: "",
       },
       alertaPercentual: "",
+      
+      //variáveis de resumo --
       resumoInvestimento: "",
       resumoRentabilidade: "",
+      // -- fim
+
       resultadoVisivel: false,
       valorTotalBruto: 0,
       totalInvestido: 0,
+
+      //variáveis de rendimento bruto --
       rendimentoBruto: 0,
+      rendimentoBrutoPoupanca: 0,
+      rendimentoBrutoSelic: 0,
+      rendimentoBrutoIPCA: 0,
+      rendimentoBrutoPreFixado: 0,
+      rendimentoBrutoPosFixado: 0,
+      // -- fim
+      
       comparacao: "",
       rendimentoB: [0, 0, 0, 0, 0],
-      retornoPrefixado: 0,
-      rendimentoBrutoSelic: 0,
-      rendimentoBrutoPoupanca: 0,
+      
+      //variaveis de valores aplicados
+      valorAplicado: 0,
+      valorAplicadoPoupanca: 0,
+      valorAplicadoSelic: 0,
+      valorAplicadoIPCA: 0,
+      valorAplicadoPreFixado: 0,
+      valorAplicadoPosFixado: 0,
+      // -- fim
+
+      investimentoMensal: 0,
+
+      meses: 0,
+
+      //retornoPrefixado: 0, não estava sendo usada
+      //rendimentoBrutoSelic: 0,
+      //rendimentoBrutoPoupanca: 0,
     };
   },
   methods: {
@@ -387,78 +416,113 @@ export default {
       ];
     },
     
+    definirRendimentoBruto(){
+      if(this.formulario.tipo_investimento === 'Poupança'){
+        this.rendimentoBruto = this.rendimentoBrutoPoupanca;
+      }
+      else if(this.formulario.rentabilidade === 'Pré-fixado'){
+        this.rendimentoBruto = this.rendimentoBrutoPreFixado;
+      }
+      else if(this.formulario.rentabilidade === 'Pós-fixado'){
+        this.rendimentoBruto = this.rendimentoBrutoPosFixado;
+      }
+      else if(this.formulario.rentabilidade === 'IPCA+'){
+        this.rendimentoBruto = this.rendimentoBrutoIPCA;
+      }
+      else if(this.formulario.rentabilidade === 'Selic'){
+        this.rendimentoBruto = this.rendimentoBrutoSelic;
+      }
+      return 'a definição foi feita!';
+    },
+
     // Função para atualizar o gráfico
     atualizarGrafico() {
       if(this.formulario.tipo_investimento === 'Tesouro Direto' && this.formulario.rentabilidade === 'Pré-fixado'){
-
-        const valorAplicado = this.formulario.valor_aplicado;
-        const investimentoMensal = this.formulario.investimento_mensal;
-        const meses = this.formulario.periodo;
+      
         
-        //const valorInicial  = this.calcRendimentoBrutoPoupanca();
 
-        this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca(valorAplicado, investimentoMensal, meses);
-        // temp.rendimento[1] = this.rendimento[1].
-        // this.calcRendimentoBruto(.., ...,...) = 0;
-                              
-        console.log('Poupança: ', this.rendimentoB[1]);
+        this.rendimentoB[3] = this.calcRendimentoBrutoPreFixado();
 
-        this.rendimentoB[0] = this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses);
-
-        this.rendimentoB[2] = this.rendimentoB[0]
-        this.rendimentoB[3] = this.rendimentoB[2]
-        this.rendimentoB[4] = this.rendimentoB[3]
-              
-        //console.log('CDB/LC: ', this.rendimentoB[0]);
-        //console.log('Poupança: ', this.rendimentoB[1]);
-        //console.log('LCI & LCA: ', this.rendimentoB[2]);
-        //console.log('Tesouro Direto: ', this.rendimentoB[3]);
-        //console.log('Debênture: ', this.rendimentoB[4]);
-
+    
       
       } else if (this.formulario.tipo_investimento === 'Tesouro Direto' && this.formulario.rentabilidade === 'IPCA+'){
 
-        //this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
-        this.rendimentoB[3] = this.calcRendimentoBruto();
-        this.rendimentoB [0] = this.rendimentoB [3];
-        this.rendimentoB[2] = this.rendimentoB[0];
-        this.rendimentoB[4] = this.rendimentoB[2];
-        
-
-      } else if (this.formulario.rentabilidade === 'Pós-fixado'){
-        
-        this.rendimentoB[0] = this.calcRendimentoBruto();
-        this.rendimentoB[2] = this.rendimentoB[0];
-        this.rendimentoB[4] = this.rendimentoB[2];
-        
-        console.log('CDB/LC: ' + this.rendimentoB[0])
-      } else if (this.formulario.opcoesRentabilidade === 'IPCA+'){
-
-        this.rendimentoB[0] = this.calcularRendimentoIPCA();
-        this.rendimentoB[2] = this.rendimentoB[0];
-        this.rendimentoB[4] = this.rendimentoB[2];
-
-      } else if (this.formulario.rentabilidade === 'Selic'){
-        const valorAplicado = this.formulario.valor_aplicado;
-        const investimentoMensal = this.formulario.investimento_mensal;
-        const meses = this.formulario.periodo;
-        
-        this.rendimentoB[3] =  this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses); 
-
-        console.log(this.rendimentoB[3]);
-
-      } else if (this.formulario.rentabilidade === 'Pré-fixado'){ 
-
-        this.rendimentoB[0] = this.calcRendimentoBruto();
-        console.log(this.rendimentoB[0]);
-        this.rendimentoB[2] = this.rendimentoB[0];
-        this.rendimentoB[4] = this.rendimentoB[2];
-
-      } else if (this.formulario.tipo_de_periodo === 'Poupança') {
+        this.rendimentoB[3] = this.calcRendimentoBrutoIPCA();
     
-        this.rendimentoB[1] = this.calcRendimentoBruto(valorAplicado, investimentoMensal, meses);
+        
+      }  else if (this.formulario.tipo_investimento === 'CDB/LC' && this.formulario.rentabilidade === 'Pós-fixado'){
+        
+        this.rendimentoB[0] = this.calcRendimentoBrutoPosFixado();
+        
+        
+        console.log('CDB/LC: ' + this.rendimentoB[0]);
+
+      } else if (this.formulario.tipo_investimento === 'CDB/LC' && this.formulario.rentabilidade === 'Pré-fixado'){
+        
+        this.rendimentoB[0] = this.calcRendimentoBrutoPreFixado();
+        
+        
+        console.log('CDB/LC: ' + this.rendimentoB[0]);
+      } else if (this.formulario.tipo_investimento === 'CDB/LC' && this.formulario.rentabilidade === 'IPCA+'){
+        
+        this.rendimentoB[0] = this.calcRendimentoBrutoIPCA();
+        
+        
+        console.log('CDB/LC: ' + this.rendimentoB[0]);
+       }  else if (this.formulario.tipo_investimento === 'Debênture' && this.formulario.rentabilidade === 'Pós-fixado'){
+        
+        this.rendimentoB[4] = this.calcRendimentoBrutoPosFixado();
+        
+        
+        console.log('Debênture' + this.rendimentoB[0]);
+
+      } else if (this.formulario.tipo_investimento === 'Debênture' && this.formulario.rentabilidade === 'Pré-fixado'){
+        
+        this.rendimentoB[4] = this.calcRendimentoBrutoPreFixado();
+        
+        
+        console.log('Debênture' + this.rendimentoB[0]);
+      } else if (this.formulario.tipo_investimento === 'Debênture' && this.formulario.rentabilidade === 'IPCA+'){
+        
+        this.rendimentoB[4] = this.calcRendimentoBrutoIPCA();
+        
+        
+        console.log('Debênture: ' + this.rendimentoB[0]);
+      
+      } else if (this.formulario.tipo_investimento === 'LCI & LCA' && this.formulario.rentabilidade === 'Pós-fixado'){
+        
+        this.rendimentoB[2] = this.calcRendimentoBrutoPosFixado();
+        
+        
+        console.log('LCI & LCA: ' + this.rendimentoB[2]);
+
+      } else if (this.formulario.tipo_investimento === 'LCI & LCA' && this.formulario.rentabilidade === 'Pré-fixado'){
+        
+        this.rendimentoB[2] = this.calcRendimentoBrutoPreFixado();
+        
+        
+        console.log('LCI & LCA: ' + this.rendimentoB[2]);
+      } else if (this.formulario.tipo_investimento === 'LCI & LCA' && this.formulario.rentabilidade === 'IPCA+'){
+        
+        this.rendimentoB[2] = this.calcRendimentoBrutoIPCA();
+        
+        
+        console.log('LCI & LCA: ' + this.rendimentoB[2]);
+       } else if (this.formulario.rentabilidade === 'Selic'){
+     
+        
+        this.rendimentoB[3] =  this.calcRendimentoBrutoSelic(); 
+
+
+        console.log('RendimentoB[3]: ' + this.rendimentoB[3] + '\nRendimentoB[1]: ' + this.rendimentoB[1]);
+
+      } else if (this.formulario.tipo_investimento === 'Poupança') {
+    
+        this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
       }
     },
+    
+    
     selecionarTipo(tipo) {
       this.formulario.tipo_investimento = tipo;
       this.atualizarResumoInvestimento();
@@ -475,78 +539,49 @@ export default {
     },
 
     simularInvestimento() {
-      let valorAplicado = this.parseCurrency(this.formulario.valor_aplicado);
-      let investimentoMensal = this.parseCurrency(
+      this.valorAplicado = this.parseCurrency(this.formulario.valor_aplicado);
+
+      
+      this.investimentoMensal = this.parseCurrency(
         this.formulario.investimento_mensal
       );
-      let meses =
+      this.meses =
         this.formulario.tipo_de_periodo === "Anos"
           ? parseInt(this.formulario.periodo) * 12
           : parseInt(this.formulario.periodo);
 
       if (
-        isNaN(valorAplicado) ||
-        isNaN(investimentoMensal) ||
-        isNaN(meses) ||
-        meses <= 0
+        isNaN(this.valorAplicado) ||
+        isNaN(this.investimentoMensal) ||
+        isNaN(this.meses) ||
+        this.meses <= 0
       ) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
       }
 
-      this.totalInvestido = valorAplicado + investimentoMensal * meses;
-      this.rendimentoBruto = 0;
-
+      this.totalInvestido = this.valorAplicado + this.investimentoMensal * this.meses;
+      //funções para simular investimentos, lembrar de checkar caso mude algo
       if (this.formulario.tipo_investimento === "Poupança") {
         this.calcularRendimentoPoupanca(
-          valorAplicado,
-          investimentoMensal,
-          meses
+          this.investimentoMensal,
+          this.meses
         );
       } else if (this.formulario.rentabilidade === "Pré-fixado") {
         this.calcularRendimentoPreFixado(
-          valorAplicado,
-          investimentoMensal,
-          meses
+          this.investimentoMensal,
+          this.meses
         );
       } else if (this.formulario.rentabilidade === "IPCA+") {
-        this.calcularRendimentoIPCA(valorAplicado, investimentoMensal, meses);
+        this.calcularRendimentoIPCA(this.investimentoMensal, this.meses);
       } else if (this.formulario.rentabilidade === "Selic") {
-        this.calcularRendimentoSelic(valorAplicado, investimentoMensal, meses);
-      } else if (valorAplicado) {
+        this.calcularRendimentoSelic(this.investimentoMensal, this.meses);
       } else {
-        this.calcularRendimentoPosFixado(
-          valorAplicado,
-          investimentoMensal,
-          meses
-        );
+        this.calcularRendimentoPosFixado( this.investimentoMensal, this.meses);
       }
-
+    
       this.resultadoVisivel = true;
     },
-
-    
-   /* atualizarRendimentoB() {
-      switch (this.formulario.tipo_investimento) {
-        case "CDB/LC":
-          this.rendimentoB[0] = this.rendimentoBruto;
-          break;
-        case "Poupança":
-          this.rendimentoB[1] = this.rendimentoBruto;
-          break;
-        case "LCI & LCA":
-          this.rendimentoB[2] = this.rendimentoBruto;
-          break;
-        case "Tesouro Direto":
-          this.rendimentoB[3] = this.rendimentoBruto;
-          break;
-        case "Debênture":
-          this.rendimentoB[4] = this.rendimentoBruto;
-          break;
-      }
-    },*/
-
-    // VALIDAÇÕES
     validarPercentual() {
       const valor = parseFloat(this.formulario.percentualRentabilidade);
 
@@ -700,69 +735,70 @@ export default {
 
     calcRendimentoBruto() {
       this.rendimentoBruto = this.valorTotalBruto - this.totalInvestido;
-      return this.rendimentoBruto;
-    },
-    calcRendimentoBrutoSelic(){
-    rendimentoBrutoSelic = valorTotalBruto - totalInvestido;
-      return this.rendimentoBrutoSelic;
-    },
 
-    calcRendimentoBrutoPoupanca(){
+      console.log('Console de calcRendimentoBruto:\n' + 'this.rendimentoBruto: ' + this.rendimentoBruto + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
       
-  // Calcula o rendimento bruto da poupança
-     this.rendimentoBruto = this.valorTotalBruto - this.totalInvestido;
-
       return this.rendimentoBruto;
     },
-    //default calcularRendimentoPoupanca
 
-    calcularRendimentoSelic(valorAplicado, investimentoMensal, meses) {
-      // VERIFICAR EFICIENCIA
+    //--------------Calculos Selic------------ analisar resultado
+    calcularRendimentoSelic(investimentoMensal, meses) {
 
-      let valorAplicadoTesouro = valorAplicado; 
-
+      this.valorAplicadoSelic = this.valorAplicado;
       const taxaSelicAnual = 0.1075; // 10.75% a.a.
       const taxaSelicMensal = Math.pow(1 + taxaSelicAnual, 1 / 12) - 1;
-   
+    
+
       for (let i = 0; i < meses; i++) {
-        valorAplicadoTesouro = valorAplicadoTesouro * (1 + taxaSelicMensal) + investimentoMensal;
+        this.valorAplicadoSelic = this.valorAplicadoSelic * (1 + taxaSelicMensal) + investimentoMensal;
       }
+
+     this.valorTotalBruto = this.valorAplicadoSelic;
       
-      this.rendimentoB[3] = this.calcRendimentoBrutoSelic(this.valorTotalBruto, (valorAplicado))
-      return valorAplicadoTesouro;
-
-     
+      return this.calcRendimentoBrutoSelic();
     },
-    calcularRendimentoPoupanca(valorAplicado, investimentoMensal, meses) {
+    calcRendimentoBrutoSelic(){
+      this.rendimentoBrutoSelic = this.valorTotalBruto - this.totalInvestido;
+
+      console.log('Console de calcRendimentoBrutoSelic:\n' + 'this.rendimentoBrutoSelic: ' + this.rendimentoBrutoSelic + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
+      
+      return this.rendimentoBrutoSelic;
+    },
+    // ----------------------------------FIM
+
+    //---------------Calculos Poupança-------------
+    calcularRendimentoPoupanca(investimentoMensal, meses) {
+      
+      this.valorAplicadoPoupanca = this.valorAplicado;
       const taxaPoupanca = 0.0057; // 0.57% ao mês
-  let totalInvestido = valorAplicado;
-  let rendimento = 0;
 
-      let valorInicial = valorAplicado;
       for (let i = 0; i < meses; i++) {
-        valorAplicado = valorAplicado * (1 + taxaPoupanca) + investimentoMensal;
+       this.valorAplicadoPoupanca = this.valorAplicadoPoupanca* (1 + taxaPoupanca) + investimentoMensal;
       }
 
-      this.valorTotalBruto = valorAplicado;
-
-      this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca(this.valorTotalBruto, (valorInicial + (investimentoMensal * meses)));
-      //return this.calcRendimentoBruto();
-      return this.rendimentoB[1];
-    },
-      /*for (let i = 0; i < meses; i++) {
-        valorAplicado = valorAplicado * (1 + taxaPoupanca) + investimentoMensal;
-      }
+      this.valorTotalBruto = this.valorAplicadoPoupanca;
 
       this.rendimentoB[1] = this.calcRendimentoBrutoPoupanca();
-      let rendimento = valorAplicado - (totalInvestido + investimentoMensal * meses)
-      return rendimento;*/
+      return this.rendimentoB[1];
+    },
+    calcRendimentoBrutoPoupanca(){
+      
+      // Calcula o rendimento bruto da poupança
+      this.rendimentoBrutoPoupanca = this.valorTotalBruto - this.totalInvestido;
 
+      this.definirRendimentoBruto();
+
+      console.log('Console de calcRendimentoBrutoPoupanca:\n' + 'this.rendimentoBrutoPoupanca: ' + this.rendimentoBrutoPoupanca + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
+
+      return this.rendimentoBrutoPoupanca;
+    },
+    // ------------------------------------------FIM
   
-    calcularRendimentoPreFixado(valorAplicado, investimentoMensal, meses) {
-      // Verifica se o tipo de investimento é pré-fixado
-      let taxaAnual = parseFloat(this.formulario.percentualRentabilidade) / 100;
+    // --------------Calculos Pré-fixado-------------
+    calcularRendimentoPreFixado(investimentoMensal, meses) {
 
-      // Se a taxaAnual não for um número, exibe mensagem e encerra
+      this.valorAplicadoPreFixado = this.valorAplicado;
+      let taxaAnual = parseFloat(this.formulario.percentualRentabilidade) / 100;
       if (isNaN(taxaAnual)) {
         alert("Por favor, insira um percentual de rentabilidade válido.");
         return;
@@ -772,26 +808,16 @@ export default {
       const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
 
       // Certifique-se de que valorAplicado seja válido (não NaN ou indefinido)
-      if (isNaN(valorAplicado) || valorAplicado <= 0) {
+      if (isNaN(this.valorAplicadoPreFixado) || this.valorAplicadoPreFixado <= 0) {
         alert("Por favor, insira um valor de aplicação válido.");
         return;
       }
 
-      // Inicializa valorFinal com o valor aplicado já rendendo
-      let valorFinal = valorAplicado * Math.pow(1 + taxaMensal, meses);
-
-      // Adiciona os aportes mensais ao cálculo
-      for (let i = 1; i <= meses; i++) {
-        valorFinal += investimentoMensal * Math.pow(1 + taxaMensal, meses - i);
-      }
+      // Inicializa valorFinal com o valor aplicado já rendendo e com os aportes mensais
+      let valorFinal = this.valorAplicadoPreFixado * Math.pow(1 + taxaMensal, meses) + investimentoMensal * (Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal;
 
       // Atualiza os valores finais
       this.valorTotalBruto = valorFinal;
-
-      // Certifique-se de que calcRendimentoBruto() retorne um valor válido
-       this.rendimentoB[0] = this.calcRendimentoBruto();
-       this.rendimentoB[2] = this.rendimentoB[0];
-       this.rendimentoB[4] = this.rendimentoB[2];
 
       // Verifique se valorTotalBruto e rendimentoBruto são números válidos
       if (isNaN(this.valorTotalBruto) || isNaN(this.rendimentoB[0])) {
@@ -799,10 +825,30 @@ export default {
           "O cálculo gerou valores inválidos. Por favor, revise os dados inseridos."
         );
       }
-      return this.calcRendimentoBruto();
-    },
 
-    calcularRendimentoIPCA(valorAplicado, investimentoMensal, meses) {
+      // Certifique-se de que calcRendimentoBrutoPreFixado() retorne um valor válido
+
+
+      return this.calcRendimentoBrutoPreFixado();
+    },
+    calcRendimentoBrutoPreFixado(){
+
+      // Calcula o rendimento bruto do Selic
+      this.rendimentoBrutoPreFixado = this.valorTotalBruto - this.totalInvestido;
+
+      this.definirRendimentoBruto();
+
+      console.log('Console de calcRendimentoBrutoPreFixado:\n' + 'this.rendimentoBrutoPreFixado: ' + this.rendimentoBrutoPreFixado + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
+
+      return this.rendimentoBrutoPreFixado;
+    },
+    //-------------------------------------------FIM
+
+    //--------------Calculos IPCA+---------------
+    calcularRendimentoIPCA(investimentoMensal, meses) {
+
+      this.valorAplicadoIPCA = this.valorAplicado;
+
       let taxaAnual = parseFloat(this.formulario.percentualRentabilidade) / 100;
 
       if (isNaN(taxaAnual)) {
@@ -815,40 +861,62 @@ export default {
       const taxaMensal = Math.pow(1 + taxaCompostaAnual, 1 / 12) - 1;
 
       for (let i = 0; i < meses; i++) {
-        valorAplicado = valorAplicado * (1 + taxaMensal) + investimentoMensal;
+        this.valorAplicadoIPCA = this.valorAplicadoIPCA * (1 + taxaMensal) + investimentoMensal;
       }
 
-      this.valorTotalBruto = valorAplicado;
+      this.valorTotalBruto = this.valorAplicadoIPCA;
 
-       this.rendimentoB[0] = this.calcRendimentoBruto();
-       this.rendimentoB[2] = this.rendimentoB[0];
-      this.rendimentoB[4] = this.rendimentoB[2];
-      return this.calcRendimentoBruto();
+      return this.calcRendimentoBrutoIPCA();
     },
-    calcularRendimentoPosFixado(valorAplicado, investimentoMensal, meses) {
-      let percentualCDI = parseFloat(this.formulario.percentualRentabilidade) ;
+    calcRendimentoBrutoIPCA(){
+      // Calcula o rendimento bruto do Selic
+      this.rendimentoBrutoIPCA = this.valorTotalBruto - this.totalInvestido;
+
+      this.definirRendimentoBruto();
+
+      console.log('Console de calcRendimentoBrutoIPCA:\n' + 'this.calcRendimentoBrutoIPCA: ' + this.rendimentoBrutoIPCA + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
+
+      return this.rendimentoBrutoIPCA;
+    },
+    //-------------------------------------FIM
+
+    //-----------------Calculos Pós-fixado----------------
+    calcularRendimentoPosFixado(investimentoMensal, meses) {
+      
+      this.valorAplicadoPosFixado = this.valorAplicado;
+      let percentualCDI = parseFloat(this.formulario.percentualRentabilidade);
+
       if (isNaN(percentualCDI)) {
         alert("Por favor, insira um percentual de rentabilidade válido.");
         return;
       }
+      
       let cdiAnual = 0.1065; // CDI atual (exemplo: 10.65%)
+
       let taxaAnual = cdiAnual * (percentualCDI / 100);
+
       const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
 
       for (let i = 0; i < meses; i++) {
-        valorAplicado = valorAplicado * (1 + taxaMensal) + investimentoMensal;
+        this.valorAplicadoPosFixado = this.valorAplicadoPosFixado * (1 + taxaMensal) + investimentoMensal;
       }
 
-      this.valorTotalBruto = valorAplicado;
-
-      this.rendimentoB[0] = this.calcRendimentoBruto();
-      this.rendimentoB[2] = this.rendimentoB[0];
-      this.rendimentoB[4] = this.rendimentoB[2];
-
-
+      this.valorTotalBruto = this.valorAplicadoPosFixado;
+        
       return this.calcRendimentoBruto();
       
     },
+    calcRendimentoBrutoPosFixado(){
+      // Calcula o rendimento bruto do Pós-fixado
+      this.rendimentoBrutoPosFixado = this.valorTotalBruto - this.totalInvestido;
+
+      this.definirRendimentoBruto();
+
+      console.log('Console de calcRendimentoBrutoPosFixado: \n' + 'this.calcRendimentoBrutoPosFixado: ' + this.rendimentoBrutoPosFixado + 'this.valorTotalBruto: ' + this.valorTotalBruto + 'this.totalInvestido: ' + this.totalInvestido);
+
+      return this.rendimentoBrutoPosFixado;
+    },
+    //------------------------------------------FIM
 
     formatarValorMonetario(campo) {
       let valor = this.formulario[campo];
