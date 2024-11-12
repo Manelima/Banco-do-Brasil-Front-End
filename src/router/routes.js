@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
 import Linhas from '@/pages/Linhas.vue';
 import Simul from '@/pages/Simul.vue';
-import Operacoes from '@/pages/Operacoes.vue';
+import Operacoes from '@/pages/Opera.vue';
 import Blog from '@/pages/Blog.vue';
 
 const routes = [

@@ -20,6 +20,17 @@
   margin-left: 10px;
   font-weight: bold;
 }
+/* ============= TEXTO ============*/
+.text_h1{
+  color: #FCFC30;
+  font-size: 40px;
+ 
+}
+
+.text_h4{
+  margin-top: 20%;
+  color: #FFF!important;
+}
 
 /* ================ BOTOES ============== */
 
@@ -34,12 +45,18 @@
   border-radius: 80px;
 }
 
+.line-buttonbeforeafter{
+  background-color: #FCFC30!important;
+  color: #465EFF!important;
+} 
+
 /* =================== BODY(CONTAINER 1) ================== */
 
 .line-container-main{
   background-image: url('@/images/blue_girl.jpg');
-  color: #FCFC30;
+  color: #FCFC30 ;
   background-size: 100%;
+  margin-top: 3.5%;
 }
 
 .line-container_card_topo{
@@ -90,15 +107,24 @@
 }
 
 .line-lado_direito{
-  background-color: #FCFC30!important;
+  background-color: #465EFF!important;
   padding: 5%;
 }
 
 .line-form_def_linhas{
-  color: #465EFF!important;
-  background-color: #FCFC30!important;
+  color: white!important;
+  background-color: #465EFF!important;
   width: 100%;
   height: 100%;
+}
+
+
+.line-form_ratio{
+  margin-top: 2%;
+  margin-bottom: 5%;
+  background-color: #2B43CC!important;
+  border-radius: 10px;
+ 
 }
 
 /* ================ RESULTADOS ================ */

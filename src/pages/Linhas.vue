@@ -61,148 +61,23 @@
             <v-form class="line-form_def_linhas">
               <v-radio-group v-model="respostasSelecionadas['pergunta_' + perguntaAtual]" class="line-pergunta_form">
 
-                <!-- ESCOPOS DE TEMPLATES A SEREM FINALIZADOS(A LÓGICA DE ELABORAÇÃO É A SEGUINTE: AS PERGUNTAS SÃO FEITAS NA ORDEM EM QUE OCORREM, PRIORIZANDO AQUELAS CUJA ROTA OCORRE MAIS ACIMA DO QUE AS OUTRAS, POR EXEMPLO, A PRIMEIRA ROTA É AQUELA ONDE TODAS AS RESPOSTAS FORAM PRIMEIRAS OPÇÕES, ENQUANTO A SEGUNDA ROTA É AQUELA ONDE APENAS A ÚLTIMA OPÇÃO MUDA, PARA SEGUNDA, POR EXEMPLO, CLARO, DEVIDO À QUANTIA MAIOR DE RAMIFICAÇÕES, SERÁ NECESSÁRIA UMA MAIOR ANÁLISE DO FLUXO CORRETO, ASSIM COMO TAMBÉM SERÁ NECESSÁRIO CERTO FOCO DURANTE ESSA ELABORAÇÃO - COMENTÁRIO DESTINADO A: EMANUEL!) -->
-
-                <!-- Pergunta 0: O que você procura? -->
+                <!-- Seção antes do formulário: -->
                 <template v-if="perguntaAtual === 0">
+                  <h1 class="text_h1">Quer saber quais são suas principais linhas de crédito?</h1>
+
+                  <h4 class="text_h4">O BB ajuda a encontrar a melhor solução para você. Conheça as linhas de crédito pessoal, escolha a mais adequada e realize seus sonhos.</h4>  
+                </template>
+
+                <!-- Pergunta 1: O que você procura? -->
+                <template v-if="perguntaAtual === 1">
                   <h3>O que você procura?</h3>
-                  <v-radio label="Dinheiro na conta para usar como eu quiser" value="dinheiro_conta"></v-radio>
-                  <v-radio label="Financiamento para realizar meus sonhos" value="financiamento_sonhos"></v-radio>
-                  <v-radio label="Quero renovar empréstimos que já possuo" value="renovar_emprestimo"></v-radio>
-                  <v-radio label="Fazer a portabilidade de um empréstimo de outro banco ou instituição financeira"
+                  <v-radio class="line-form_ratio" label="Dinheiro na conta para usar como eu quiser" value="dinheiro_conta"></v-radio>
+                  <v-radio class="line-form_ratio" label="Financiamento para realizar meus sonhos" value="financiamento_sonhos"></v-radio>
+                  <v-radio class="line-form_ratio" label="Quero renovar empréstimos que já possuo" value="renovar_emprestimo"></v-radio>
+                  <v-radio class="line-form_ratio" label="Fazer a portabilidade de um empréstimo de outro banco ou instituição financeira"
                     value="portabilidade"></v-radio>
                 </template>
 
-                <!--- DINHEIRO NA CONTA PATH:-->
-
-                <!-- Resposta anterior(0): "Dinheiro na conta para usar como eu quiser" -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas['pergunta_0'] === 'dinheiro_conta'">
-                  <h3>você quer usar um imóvel ou veículo como garantia desse empréstimo? Isso pode deixar sua taxa de
-                    juros mais baixa</h3>
-                  <v-radio label="Não quero usar garantias" value="sem_garantia"></v-radio>
-                  <v-radio label="Sim, quero usar garantias e ter juros baixos" value="com_garantia"></v-radio>
-                </template>
-
-                <!-- Resposta anterior(1): "Não quero usar garantias" -->
-                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'sem_garantia'">
-                  <h3>Você prefere pagar parcelas mensais(Linhas CDC), ou tem algum valor a receber no futuro(linhas de
-                    antecipação) para quitar o empréstimo?</h3>
-                  <v-radio label="Antecipar valores sem precisar pagar parcelas mensais." value="antecipar"></v-radio>
-                  <v-radio label="Crédito na hora sem precisar pagar parcelas mensais." value="credito_hora"></v-radio>
-                </template>
-
-                <!-- Resposta anterior(2): "Antecipar valores sem precisar pagar parcelas mensais." -->
-                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'antecipar'">
-                  <h3>O que você pretende antecipar?</h3>
-                  <v-radio label="13º salário." value="13-terceiro"></v-radio>
-                  <v-radio label="Restituição do IRPF." value="IRPF"></v-radio>
-                  <v-radio label="Saque aniversário do FGTS." value="FGTS"></v-radio>
-                </template>
-
-                <!-- Resposta anterior(3): "13º salário." -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === '13-terceiro' && rotaPerguntas === '/perguntas/13-terceiro'">
-                  <h3>Quanto você vai receber?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do 13º salário"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])">
-                  </v-text-field>
-                </template>
-
-                <!-- Resposta anterior(3): "Restituição do IRPF." -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'IRPF' && rotaPerguntas === '/perguntas/IRPF'">
-                  <h3>Quanto você vai receber?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor da restituição do IRPF"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])">
-                  </v-text-field>
-                </template>
-
-                <!-- Resposta anterior(3): "Saque aniversário do FGTS." -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'FGTS' && rotaPerguntas === '/perguntas/FGTS'">
-                  <h3>quanto você tem de saldo no FGTS?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
-                    label="Saldo FGTS">
-                  </v-text-field>
-                </template>
-
-                <!-- Resposta anterior(4): preenchimento do campo com o valor a receber -->
-                <!-- <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] !== ''">
-                  <h3>Qual será a data de recebimento do valor?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_5']" label="Data de recebimento do valor"
-                  @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
-                  >
-                  </v-text-field>
-                </template> -->
-
-                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] !== ''">
-                  <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :nudge-right="40"
-                    :return-value.sync="respostasSelecionadas['pergunta_' + perguntaAtual]"
-                    transition="scale-transition" offset-y min-width="290px">
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-text-field v-model="respostasSelecionadas['pergunta_' + perguntaAtual]"
-                        label="Data de recebimento do valor" prepend-icon="mdi-calendar" readonly v-bind="attrs"
-                        v-on="on" @click="menu = true" <!-- Abre o menu ao clicar no campo -->
-                        ></v-text-field>
-                    </template>
-                    <!-- Fecha o menu ao selecionar a data -->
-                    <v-date-picker v-model="respostasSelecionadas['pergunta_' + perguntaAtual]" @change="menu = false"
-                      :max="new Date().toISOString().substr(0, 10)" locale="pt-br"></v-date-picker>
-                  </v-menu>
-                </template>
-
-                <!-- Resposta anterior(2): Crédito na hora  -->
-
-                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'credito_hora'">
-                  <h3>De quanto você precisa?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_' + perguntaAtual]"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
-                    label="Valor do crédito"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    prefix="R$"                    
-                    ></v-text-field>
-                </template>
-
-                <template
-                  v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] !== '' && ">
-                  <h3>Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_3']"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
-                    label="Número de parcelas">
-                  </v-text-field>
-                </template>
-
-                <!-- DINHEIRO NA CONTA END-PATH -->
-
-                <!-- Resposta anterior(X): "..." -->
-
-                <!-- Resposta anterior(0): "financiamentos_sonhos" -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas['pergunta_0'] === 'financiamentos_sonhos'">
-                  <h3>Eu quero um financiamento para realizar meus sonhos</h3>
-                  <v-radio label="Eu quero os clássicos, imobiliário e veículos" value="classicos"></v-radio>
-                  <v-radio label="Procuro algo que só o BB possui" value="diferenciado"></v-radio>
-                  <v-radio label="Busco algo voltado para o agronegócio" value="agronegocio"></v-radio>
-                </template>
-
-                <!-- Resposta anterior (1): Eu quero os clássicos, imobiliário e veículos-->
-                <template
-                  v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'eu_quero_os_classicos_imobiliario_e_veiculos'">
-                  <h3>Seja mais específico</h3>
-                  <v-radio label="Financiamento imobiliário" value="financiamento_imobiliario"></v-radio>
-                  <v-radio label="Financiamento carro" value="financiamento_carro"></v-radio>
-                  <v-radio label="Financiamento moto" value="financiamento_moto"></v-radio>
-                </template>
-
-                <!-- Resposta anterior(X): "..." -->
-                <template
-                  v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'financiamento_imobiliario'">
-                  <h3>Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_2']"
-                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
-                    label="Número de parcelas">Valor do crédito">
-                  </v-text-field>
-                </template>
-
                 <!-- Resposta anterior(X): "..." -->
                 <template>
                   <h3></h3>
@@ -225,27 +100,6 @@
                   <v-radio label="" value=""></v-radio>
                   <v-radio label="" value=""></v-radio>
                   <v-radio label="" value=""></v-radio>
-                </template>
-
-                <!-- DAQUI PARA BAIXO FOI MANTIDO POIS O FLUXO PERMANECE O MESMO, MAS FALTA MODIFICAR A APARIÇÃO DAS RESPECTIVAS LINHAS E OS ÍNDICES MANIPULADOS NOS v-if. -->
-                <!-- Renovação de Empréstimos -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Renovação de Empréstimos</li>
-                    </ul>
-                  </v-alert>
-                </template>
-
-                <!-- Portabilidade -->
-                <template v-if="perguntaAtual === 1 && respostasSelecionadas['pergunta_1'] === 'portabilidade'">
-                  <v-alert type="success">
-                    Linhas de Crédito Recomendadas:
-                    <ul>
-                      <li>Portabilidade de Empréstimo</li>
-                    </ul>
-                  </v-alert>
                 </template>
 
               </v-radio-group>
@@ -253,14 +107,13 @@
               <!-- Botões de navegação -->
               <v-row>
                 <v-col cols="6">
-                  <v-btn class="line-buttongeral" :disabled="perguntaAtual === 0"
+                  <v-btn class="line-buttonbeforeafter" v-if="perguntaAtual === 0" @click="proximaPergunta">Começar</v-btn>
+                  <v-btn class="line-buttonbeforeafter" v-else
                     @click="perguntaAnterior">Anterior</v-btn>
                 </v-col>
                 <v-col cols="6" class="text-right">
-                  <!-- O v-if do botão de proximaPergunta e enviarRespostas precisam aparecer de acordo com a perguntaAtual e a respostaFinal-->
-                  <v-btn class="line-buttongeral" @click="proximaPergunta">Próxima</v-btn>
-                  <v-btn class="line-buttongeral"
-                    v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === '13_terceiro'"
+                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === false && perguntaAtual !== 0"  @click="proximaPergunta">Próxima</v-btn>
+                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true"
                     @click="enviarResposta">Enviar Respostas</v-btn>
                 </v-col>
               </v-row>
@@ -300,6 +153,7 @@ export default {
       verificacao: this.perguntaAtual < this.totalDePerguntas,
       menu: false, // controla a abertura do calendário
       rotaPerguntas: '',
+      fimDaRota: false,
     };
   },
   methods: {
