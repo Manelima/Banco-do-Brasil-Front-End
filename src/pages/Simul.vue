@@ -14,21 +14,43 @@
 
   <v-spacer></v-spacer>
   <v-main class="simul-container-main">
+
+    <div class="text_homesim">
+      <h2>Home / Simular Investimentos </h2>
+    </div>
+   
+    <div class="text_headertext">
+      <h1> Investimentos</h1>
+    </div>
+    <div class="text_descyellow">
+      <h3> Invista em seus sonhos, do <br>
+      seu jeito com zero <br>
+      complicação</h3>
+    </div>
+    <div class="text_descwhite">
+      <h2>Fundos, Tesouro Direto, Ações? No BB,
+        você investe do seu jeito e conta com a 
+        assessoria dos nossos especialistas em 
+        todos os momentos, com sugestões 
+        personalizadas focadas no seu perfil
+        e objetivos.</h2>
+    </div>
+
+    <div class="text_descwhite2">
+      <h4>Continue navegando</h4>
+    </div>
+    
     <v-container class="mx-auto mt-10 pa-4 pb-6">
       <v-container>
-        <v-card
-          class="simul-card simul-card_info_topo pa-4 transparent-bg mb-10"
-          elevation="3"
-        >
-          <v-card-text class="simul-texto_card">
-            Olá, este simulador de investimentos proporciona uma maneira fácil
-            de calcular o retorno do seu capital após uma aplicação em uma taxa
-            e um prazo específicos. Esse cálculo considera também eventuais
-            contribuições durante o período e um valor inicial investido. A
-            calculadora disponibilizada é útil para estimar o retorno do seu
-            investimento em aplicações simples.
-          </v-card-text>
-        </v-card>
+
+         <h2 class="simul-card simul-card_info_topo pa-4"
+         elevation="3">
+         Compare investimentos ao longo do tempo
+         </h2>
+
+         <h2 class="simul-info_preench">Preencha os valores para simular a rentabilidade de diferentes tipos de produtos.</h2>
+            
+          
 
         <v-row class="my-6" align-items="center" justify="center">
           <v-btn
@@ -52,12 +74,9 @@
           <v-col cols="6" class="simul-coluna_formulario">
             <v-card class="simul-card pa-4 transparent-bg mb-10" elevation="3">
               <v-card-title class="simul-titulo_card text-h4">
-                Simule seu Investimento 
+                -> Tipo de Ativo
               </v-card-title>
-              <v-card-subtitle class="subsimul-titulo_card mb-5">
-                Preencha os valores para simular a rentabilidade de diferentes
-                tipos de investimentos.
-              </v-card-subtitle>
+              
 
               <v-form>
                 <v-row class="simul-simul-linha_botoes_form">
@@ -239,7 +258,10 @@
             >
               {{ resumoInvestimento }}
             </v-alert>
-            <bar-chart :data="gerarDataGrafico()"></bar-chart>
+            <div class="mt-6">
+              <bar-chart :data="gerarDataGrafico()"></bar-chart>
+            </div>
+           
           </v-col>
         </v-row>
       </v-container>
@@ -300,7 +322,7 @@
               class="simul-card_pos_form pa-4 transparent-bg mb-10"
               elevation="3"
             >
-              <v-card-title class="simul-titulo_card">LCI e LCA</v-card-title>
+              <v-card-title class="simul-titulo_card" color="#465EFF">LCI e LCA</v-card-title>
               <v-card-text class="simul-texto_card">
                 São títulos de crédito imobiliário e do agronegócio, que têm a
                 vantagem de serem isentos de Imposto de Renda para pessoas

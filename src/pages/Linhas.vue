@@ -18,9 +18,11 @@
         <div class="line-div_maintext">
           <h1>Linhas de Crédito, Rápido e Prático</h1>
         </div>
-        <div>
+        <div class="line-div_subtext">
           <h5>Dinheiro sem burocracia, acesse agora mesmo, em nosso site!</h5>
         </div>
+          
+        
         <v-row>
           <v-col cols="4">
             <v-card class="line-card_filho_topo">
@@ -70,7 +72,7 @@
 
                 <!-- Pergunta 1: O que você procura? -->
                 <template v-if="perguntaAtual === 1">
-                  <h3>O que você procura?</h3>
+                  <h3 classe="line-h3_form">O que você procura?</h3>
                   <v-radio class="line-form_ratio" label="Dinheiro na conta para usar como eu quiser" value="dinheiro_conta"></v-radio>
                   <v-radio class="line-form_ratio" label="Financiamento para realizar meus sonhos" value="financiamento_sonhos"></v-radio>
                   <v-radio class="line-form_ratio" label="Quero renovar empréstimos que já possuo" value="renovar_emprestimo"></v-radio>
@@ -78,25 +80,126 @@
                     value="portabilidade"></v-radio>
                 </template>
 
-                <!-- Resposta anterior(X): "..." -->
+                <!-- Resposta anterior(1): "Dinheiro na conta para usar como eu quiser" -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'dinheiro_conta'">
+                  <h3 classe="line-h3_form">Você quer usar um imóvel ou veículo como garantia desse empréstimo? Isso pode deixar sua taxa de
+                    juros mais baixa</h3>
+                  <v-radio class="line-form_ratio" label="Não quero usar garantias" value="sem_garantia"></v-radio>
+                  <v-radio class="line-form_ratio" label="Sim, quero usar garantias e ter juros baixos" value="com_garantia"></v-radio>
+                </template>
+
+                <!-- Resposta anterior(2): "Não quero usar garantias" -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'sem_garantia'">
+                  <h3 classe="line-h3_form">Você prefere pagar parcelas mensais(linhas CDC), ou tem algum valor a receber no futuro(linhas de antecipação), para quitar o empréstimo?</h3>
+                  <v-radio class="line-form_ratio" label="Antecipar valores sem precisar pagar parcelas mensais" value="antecipar"></v-radio>
+                  <v-radio class="line-form_ratio" label="Crédito na hora com pagamento de parcelas mensais" value="credito_hora"></v-radio>
+                </template>
+
+                <!-- Resposta anterior(3): Crédito na hora com pagamento de parcelas mensais -->
+                 <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'com_garantia'">
+                  <h3 classe="line-h3_form">O que você deseja usar como garantia?</h3>
+                  <v-radio class="line-form_ratio" label="Imóvel" value="emprestimo_garant_imovel"></v-radio>
+                  <v-radio class="line-form_ratio" label="Veículo" value="emprestimo_garant_veiculo"></v-radio>
+                  <v-radio class="line-form_ratio" label="Investimentos" value="emprestimo_garant_investimentos"></v-radio>
+                </template>
+
+                <!-- Resposta anterior(3): "Antecipar valores sem precisar pagar parcelas mensais" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'antecipar'">
+                  <h3 classe="line-h3_form">O que você pretende antecipar?</h3>
+                  <v-radio class="line-form_ratio" label="13º salário." value="13-terceiro"></v-radio>
+                  <v-radio class="line-form_ratio" label="Restituição do IRPF." value="IRPF"></v-radio>
+                  <v-radio class="line-form_ratio" label="Saque aniversário do FGTS." value="FGTS"></v-radio>
+                </template>
+
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'">
+                  <h3 classe="line-h3_form">Quanto você precisa?</h3>
+                </template>
+                
+                <!-- Resposta anterior(4): "13º salário." -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === '13-terceiro' && rotaPerguntas === '/perguntas/13-terceiro'">
+                  <h3 classe="line-h3_form">Quanto você vai receber?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do 13º salário"
+                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])">
+                  </v-text-field>
+                </template>
+                
+                <!-- UMA ROTA FINALIZADA ACIMA DAQUI! -->
+
+                <!-- Resposta anterior(4): "Restituição do IRPF." -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'IRPF' && rotaPerguntas === '/perguntas/IRPF'">
+                  <h3 classe="line-h3_form"> Quanto você vai receber? </h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_5']" label="Valor da restituição do IRPF"
+                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_5'])">
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(5): "Valor da restituição do IRPF" -->
                 <template>
-                  <h3></h3>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
+                  <h3 classe="line-h3_form">Qual será a data de recebimento do valor?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor"
+                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_6'])">
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(3): "Saque aniversário do FGTS." -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'FGTS' && rotaPerguntas === '/perguntas/FGTS'">
+                  <h3 classe="line-h3_form">quanto você tem de saldo no FGTS?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']"
+                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
+                    label="Saldo FGTS">
+                  </v-text-field>
+                </template>
+
+                <!-- DINHEIRO NA CONTA END-PATH -->
+
+                <!-- Resposta anterior(X): "..." -->
+
+                <!-- Resposta anterior(1): "financiamentos_sonhos" -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos'">
+                  <h3 classe="line-h3_form">Eu quero um financiamento para realizar meus sonhos</h3>
+                  <v-radio class="line-form_ratio" label="Eu quero os clássicos, imobiliário e veículos" value="classicos"></v-radio>
+                  <v-radio class="line-form_ratio" label="Procuro algo que só o BB possui" value="diferenciado"></v-radio>
+                </template>
+
+                <!-- Resposta anterior (2): Eu quero os clássicos, imobiliário e veículos-->
+                <template
+                  v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'classicos'">
+                  <h3 classe="line-h3_form">Seja mais específico</h3>
+                  <v-radio class="line-form_ratio" label="Financiamento imobiliário" value="financiamento_imobiliario"></v-radio>
+                  <v-radio class="line-form_ratio" label="Financiamento carro" value="financiamento_carro"></v-radio>
+                  <v-radio class="line-form_ratio" label="Financiamento moto" value="financiamento_moto"></v-radio>
+                </template>
+
+                <!-- Resposta anterior(3): "Financiamento Imobiliário" -->
+                <template
+                  v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario'">
+                  <h3 classe="line-h3_form">Qual o valor do Imovél?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_2']"
+                    @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"
+                    label="Qual Valor ">
+                  </v-text-field>
+                </template>
+
+                <!-- FINANCIAMENTO SONHOS END-PATH-->
+
+                <!-- Respota anterior(2): "Num sei oq" -->
+
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo'">
+                  <h3 classe="line-h3_form">Qual empréstimo existente você deseja renovar</h3>
+                  <v-radio class="line-form_ratio" label="Placeholder" value=""></v-radio>
+                  <v-radio class="line-form_ratio" label="Placeholder_2" value=""></v-radio>
+                  <v-radio class="line-form_ratio" label="Placeholder_3" value=""></v-radio>
+                </template>
+
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'portabilidade'">
+                  <h3 classe="line-h3_form"></h3>
+                  <v-radio class="line-form_ratio" label="Portabilidade" value=""></v-radio>
+                  
                 </template>
 
                 <!-- Resposta anterior(X): "..." -->
                 <template>
-                  <h3></h3>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                </template>
-
-                <!-- Resposta anterior(X): "..." -->
-                <template>
-                  <h3></h3>
+                  <h3 classe="line-h3_form"></h3>
                   <v-radio label="" value=""></v-radio>
                   <v-radio label="" value=""></v-radio>
                   <v-radio label="" value=""></v-radio>
@@ -127,7 +230,7 @@
 
         <!-- Exibir as opções de crédito recomendadas -->
         <v-container v-if="mostrarResultados" class="line-container_resultados">
-          <h3>Linhas de Crédito Recomendadas:</h3>
+          <h3 classe="line-h3_form">Linhas de Crédito Recomendadas:</h3>
           <v-list>
             <v-list-item v-for="linha in linhasRecomendadas" :key="linha">
               <v-list-item-content>{{ linha }}</v-list-item-content>
@@ -158,13 +261,13 @@ export default {
   },
   methods: {
     definirRotaPerguntas() {
-      if(this.perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === '13-terceiro'){
+      if(this.perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === '13-terceiro'){
         this.rotaPerguntas = '/perguntas/13-terceiro';
       }
-      else if(this.perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'IRPF'){
+      else if(this.perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'IRPF'){
         this.rotaPerguntas = '/perguntas/IRPF';
       }
-      else if(this.perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'FGTS'){
+      else if(this.perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'FGTS'){
         this.rotaPerguntas = '/perguntas/FGTS';
       }
     },
@@ -199,15 +302,11 @@ export default {
             linhas.push('Empréstimo Consignado', 'Empréstimo Automático', 'Crédito Benefício', 'Crédito Salário');
           }
         }
-      }
-
-      else if (this.respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos') {
+      } else if (this.respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos') {
         if (this.respostasSelecionadas['pergunta_2'] === 'classicos') {
           linhas.push('Financiamento Imobiliário', 'Financiamento de Veículos', 'Financiamento de Motos');
         } else if (this.respostasSelecionadas['pergunta_2'] === 'diferenciado') {
           linhas.push('Crédito Mobilidade', 'Crédito Realiza', 'Crédito Energia Renovável', 'Bens e Serviços para PCDs');
-        } else if (this.respostasSelecionadas['pergunta_2'] === 'agronegocio') {
-          linhas.push('Pronaf Grupo A/C', 'Pronaf Agricultura Familiar', 'Crédito Rural Pronamp Custeio', 'Custeio Agropecuário');
         }
       } else if (this.respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo') {
         linhas.push('Renovação de Empréstimos');

@@ -1,7 +1,7 @@
 .simul-container-main{
   margin-top: 50px;
-  background-color:#465EFF;
-  background-image: url('@/images/imagem_investimentos.jpg');
+  background-color:#FFF;
+  background-image: url('@/images/Invest_women.png');
   background-size: 100%;
 }
 /* ================= HEADER ================= */
@@ -26,6 +26,40 @@
   font-weight: bold;
 }
 
+.text_headertext{
+  color: #fcfc30 !important;
+  font-size: 30px;
+  font-weight: bold;
+  width: 521px;
+  height: 85px;
+  top: 324px;
+  margin-left: 15%;
+  
+}
+.text_homesim{
+  color: #fcfc30 !important;
+  margin-left: 15%;
+  margin-top: 5%;
+  width: 512px;
+}
+.text_descyellow{
+  color:#FCFC30;
+  margin-left: 15%;
+  font-size: 20px;
+  height: 10px;
+}
+.text_descwhite{
+  display: inline-flex;
+  color: #FFF;
+  margin-left: 15%;
+  margin-top: 7.5%;
+  width: 25%;
+}
+.text_descwhite2{
+  color: #FFF;
+  margin-left: 45%;
+  margin-top: 13%;
+}
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
@@ -39,10 +73,22 @@
 }
 
 /* =================== BODY ================== */
+
 .simul-card_info_topo{
-  margin-top: 515px!important;
+  margin-top: 50px!important;
+  font-size: 40px;
+  color: #465EFF;
 }
 
+.simul-info_preench{
+  color: #000;
+  font-size: 20px;
+  font-style: bold;
+  height: 92px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  
+}
 .simul-card{
   background-color: #FFF!important;
 }
@@ -72,6 +118,7 @@
 
 .simul-titulo_card{
   font-weight: 400!important;
+  color: #465EFF!important;
 }
 
 .simul-subtitulo_card{
@@ -115,7 +162,7 @@
 }
 
 .simul-coluna_grafico{
-  background-color: #FFF!important;
+  background-color: #fff;
   height: 505px;
   margin-top: 15px;
 }
