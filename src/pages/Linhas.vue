@@ -238,6 +238,56 @@
 
                 <!-- ACIMA ESTÁ A ROTA DO IMOVEL_COMO_GARANTIA -->
 
+                <!-- Resposta anterior(3): "Veículo" -->
+                <template v-if="
+                  perguntaAtual === 4 &&
+                  respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia'
+                ">
+                  <h3 class="line-h3_form">Qual é o valor do veículo?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do veículo"
+                    type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do veículo -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/veiculo_como_garantia'">
+                  <h3 class="line-h3_form">Qual é o valor do empréstimo desejado?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
+                    type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(5): Input do valor do empréstimo -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/veiculo_como_garantia'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO VEICULO_COMO_GARANTIA -->
+
+                <!-- Resposta anterior(3): "Investimentos" -->
+                <template v-if="
+                  perguntaAtual === 4 &&
+                  respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia'
+                ">
+                  <h3 class="line-h3_form">O quanto, em patrimônios, você possui investido?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor dos investimentos" type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor dos investimentos -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/investimentos_como_garantia'">
+                  <h3 class="line-h3_form">Qual é o valor do empréstimo desejado?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
+                    type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(5): Input do valor do empréstimo -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/investimentos_como_garantia'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO INVESTIMENTOS_COMO_GARANTIA -->
+
+
                 <!-- Daqui para baixo falta analisar(ordens, índices e etc.)! -->
                 <!-- UMA ROTA FINALIZADA ACIMA DAQUI! -->
 
@@ -361,7 +411,7 @@ export default {
     return {
       perguntaAtual: 0,
       totalDePerguntas: 0,
-      respostasSelecionadas: { 'pergunta_0': 'Este índice não possui alternativas!' }, // Agora é um objeto
+      respostasSelecionadas: { 'pergunta_0': 'Este índice não possui alternativas!' }, // Agora é um objeto(o valor pré-estabelecido serve apenas para não provocar retorno 'undefined' ao averiguar os console.logs)
       mostrarResultados: false,
       linhasRecomendadas: [],
       verificacao: this.perguntaAtual < this.totalDePerguntas,
