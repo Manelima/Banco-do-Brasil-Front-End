@@ -200,20 +200,45 @@
                     min="1" step="1"></v-text-field>
                 </template>
 
-                <!-- Daqui para baixo falta analisar(ordens, índices e etc.)! -->
-                <template v-if="
-                  perguntaAtual === 3 &&
-                  respostasSelecionadas['pergunta_2'] === 'com_garantia'
-                ">
-                  <h3 class="line-h3_form">
-                    O que você deseja usar como garantia?
-                  </h3>
-                  <v-radio class="line-form_ratio" label="Imóvel" value="emprestimo_garant_imovel"></v-radio>
-                  <v-radio class="line-form_ratio" label="Veículo" value="emprestimo_garant_veiculo"></v-radio>
-                  <v-radio class="line-form_ratio" label="Investimentos"
-                    value="emprestimo_garant_investimentos"></v-radio>
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_HORA(FINALIZADA) -->
+
+                <!-- Resposta anterior(2): "Sim, quero usar garantias e ter juros baixos" -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'com_garantia'">
+                  <h3>O que você deseja usar como garantia?</h3>
+                  <v-radio class="line-form_ratio" label="Imóvel" value="imovel_como_garantia"></v-radio>
+                  <v-radio class="line-form_ratio" label="Veículo" value="veiculo_como_garantia"></v-radio>
+                  <v-radio class="line-form_ratio" label="Investimentos" value="investimentos_como_garantia"></v-radio>
                 </template>
 
+                <!-- Resposta anterior(3): "Imóvel" -->
+                <template v-if="
+                  perguntaAtual === 4 &&
+                  respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia'
+                ">
+                  <h3 class="line-h3_form">Qual é o valor do imóvel?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do imóvel"
+                    type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do imóvel -->
+                <template v-if="
+                  perguntaAtual === 5 &&
+                  rotaPerguntas === '/perguntas/imovel_como_garantia'
+                ">
+                  <h3 class="line-h3_form">Qual é o valor do empréstimo desejado?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
+                    type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(5): Input do valor do empréstimo -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/imovel_como_garantia'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO IMOVEL_COMO_GARANTIA -->
+
+                <!-- Daqui para baixo falta analisar(ordens, índices e etc.)! -->
                 <!-- UMA ROTA FINALIZADA ACIMA DAQUI! -->
 
                 <!-- DINHEIRO NA CONTA END-PATH -->
@@ -336,7 +361,7 @@ export default {
     return {
       perguntaAtual: 0,
       totalDePerguntas: 0,
-      respostasSelecionadas: {'pergunta_0' : 'Este índice não possui alternativas!'}, // Agora é um objeto
+      respostasSelecionadas: { 'pergunta_0': 'Este índice não possui alternativas!' }, // Agora é um objeto
       mostrarResultados: false,
       linhasRecomendadas: [],
       verificacao: this.perguntaAtual < this.totalDePerguntas,
@@ -347,20 +372,20 @@ export default {
   },
   methods: {
     definirRotaPerguntas() {
-      if (
-        this.respostasSelecionadas["pergunta_4"] === "13-terceiro"
-      ) {
+      if (this.respostasSelecionadas["pergunta_4"] === "13-terceiro") {
         this.rotaPerguntas = "/perguntas/13-terceiro";
-      } else if (
-        this.respostasSelecionadas["pergunta_4"] === "IRPF"
-      ) {
+      } else if (this.respostasSelecionadas["pergunta_4"] === "IRPF") {
         this.rotaPerguntas = "/perguntas/IRPF";
-      } else if (
-        this.respostasSelecionadas["pergunta_4"] === "FGTS"
-      ) {
+      } else if (this.respostasSelecionadas["pergunta_4"] === "FGTS") {
         this.rotaPerguntas = "/perguntas/FGTS";
       } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_hora') {
         this.rotaPerguntas = "/perguntas/credito_hora";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia') {
+        this.rotaPerguntas = "/perguntas/imovel_como_garantia";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia') {
+        this.rotaPerguntas = "/perguntas/veiculo_como_garantia";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia') {
+        this.rotaPerguntas = "/perguntas/investimentos_como_garantia";
       }
     },
     proximaPergunta() {
