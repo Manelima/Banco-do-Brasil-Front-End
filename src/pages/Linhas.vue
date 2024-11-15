@@ -287,53 +287,69 @@
 
                 <!-- ACIMA ESTÁ A ROTA DO INVESTIMENTOS_COMO_GARANTIA -->
 
-
-                <!-- Daqui para baixo falta analisar(ordens, índices e etc.)! -->
-                <!-- UMA ROTA FINALIZADA ACIMA DAQUI! -->
-
-                <!-- DINHEIRO NA CONTA END-PATH -->
-
-                <!-- Resposta anterior(X): "..." -->
-
-                <!-- Resposta anterior(1): "financiamentos_sonhos" -->
-                <template v-if="
-                  perguntaAtual === 2 &&
-                  respostasSelecionadas['pergunta_1'] ===
-                  'financiamento_sonhos'
-                ">
-                  <h3 class="line-h3_form">
-                    Eu quero um financiamento para realizar meus sonhos
-                  </h3>
+                <!-- Resposta anterior(1): "Financiamentos para realizar meus sonhos" -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos'">
+                  <h3 class="line-h3_form">Qual dessas opções te representa?</h3>
                   <v-radio class="line-form_ratio" label="Eu quero os clássicos, imobiliário e veículos"
                     value="classicos"></v-radio>
                   <v-radio class="line-form_ratio" label="Procuro algo que só o BB possui"
                     value="diferenciado"></v-radio>
                 </template>
 
-                <!-- Resposta anterior (2): Eu quero os clássicos, imobiliário e veículos-->
-                <template v-if="
-                  perguntaAtual === 3 &&
-                  respostasSelecionadas['pergunta_2'] === 'classicos'
-                ">
-                  <h3 class="line-h3_form">Seja mais específico</h3>
-                  <v-radio class="line-form_ratio" label="Financiamento imobiliário"
-                    value="financiamento_imobiliario"></v-radio>
+                <!-- Resposta anterior (2): "Eu quero os clássicos, imobiliário e veículos" -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'classicos'">
+                  <h3 class="line-h3_form">Escolha dentre as opções a seguir:</h3>
+                  <v-radio class="line-form_ratio" label="Financiamento imobiliário" value="financiamento_imobiliario"></v-radio>
                   <v-radio class="line-form_ratio" label="Financiamento carro" value="financiamento_carro"></v-radio>
                   <v-radio class="line-form_ratio" label="Financiamento moto" value="financiamento_moto"></v-radio>
                 </template>
 
                 <!-- Resposta anterior(3): "Financiamento Imobiliário" -->
-                <template v-if="
-                  perguntaAtual === 4 &&
-                  respostasSelecionadas['pergunta_3'] ===
-                  'financiamento_imobiliario'
-                ">
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario'">
                   <h3 class="line-h3_form">Qual o valor do Imovél?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_2']" label="Qual Valor ">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do imóvel" type="number" min="0" step="0.01">
                   </v-text-field>
                 </template>
 
-                <!-- FINANCIAMENTO SONHOS END-PATH-->
+                <!-- Resposta anterior(4): Input do valor do imóvel -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_imobiliario'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_IMOBILIARIO(FINALIZADA) -->
+
+                <!-- OS PROXIMOS SÃO FINANCIAMENTO_CARRO E MOTO, QUE POSSUEM AS MESMAS DUAS PERGUNTAS SOBRE O VALOR E A QUANTIDADE DE PARCELAS A PAGAR O FINANCIAMENTO -->
+
+                <!-- Resposta anterior(3): "Financiamento Carro" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_carro'">
+                  <h3 class="line-h3_form">Qual o valor do Carro?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do carro" type="number" min="0" step="0.01">
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do carro -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_carro'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_CARRO(FINALIZADA) -->
+
+                <!-- Resposta anterior(3): "Financiamento Moto" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_moto'">
+                  <h3 class="line-h3_form">Qual o valor da Moto?</h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor da moto" type="number" min="0" step="0.01">
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor da moto -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_moto'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_MOTO(FINALIZADA) -->
 
                 <!-- Respota anterior(2): "Num sei oq" -->
 
@@ -436,6 +452,12 @@ export default {
         this.rotaPerguntas = "/perguntas/veiculo_como_garantia";
       } else if (this.respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia') {
         this.rotaPerguntas = "/perguntas/investimentos_como_garantia";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario') {
+        this.rotaPerguntas = "/perguntas/financiamento_imobiliario";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_carro') {
+        this.rotaPerguntas = "/perguntas/financiamento_carro";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_moto') {
+        this.rotaPerguntas = "/perguntas/financiamento_moto";
       }
     },
     proximaPergunta() {
