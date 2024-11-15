@@ -233,7 +233,8 @@
                 <!-- Resposta anterior(5): Input do valor do empréstimo -->
                 <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/imovel_como_garantia'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO IMOVEL_COMO_GARANTIA -->
@@ -258,7 +259,8 @@
                 <!-- Resposta anterior(5): Input do valor do empréstimo -->
                 <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/veiculo_como_garantia'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO VEICULO_COMO_GARANTIA -->
@@ -269,7 +271,8 @@
                   respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia'
                 ">
                   <h3 class="line-h3_form">O quanto, em patrimônios, você possui investido?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor dos investimentos" type="number" min="0" step="0.01"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor dos investimentos"
+                    type="number" min="0" step="0.01"></v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor dos investimentos -->
@@ -282,7 +285,8 @@
                 <!-- Resposta anterior(5): Input do valor do empréstimo -->
                 <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/investimentos_como_garantia'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO INVESTIMENTOS_COMO_GARANTIA -->
@@ -299,22 +303,26 @@
                 <!-- Resposta anterior (2): "Eu quero os clássicos, imobiliário e veículos" -->
                 <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'classicos'">
                   <h3 class="line-h3_form">Escolha dentre as opções a seguir:</h3>
-                  <v-radio class="line-form_ratio" label="Financiamento imobiliário" value="financiamento_imobiliario"></v-radio>
+                  <v-radio class="line-form_ratio" label="Financiamento imobiliário"
+                    value="financiamento_imobiliario"></v-radio>
                   <v-radio class="line-form_ratio" label="Financiamento carro" value="financiamento_carro"></v-radio>
                   <v-radio class="line-form_ratio" label="Financiamento moto" value="financiamento_moto"></v-radio>
                 </template>
 
                 <!-- Resposta anterior(3): "Financiamento Imobiliário" -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario'">
+                <template
+                  v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario'">
                   <h3 class="line-h3_form">Qual o valor do Imovél?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do imóvel" type="number" min="0" step="0.01">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do imóvel" type="number"
+                    min="0" step="0.01">
                   </v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do imóvel -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_imobiliario'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_IMOBILIARIO(FINALIZADA) -->
@@ -324,14 +332,16 @@
                 <!-- Resposta anterior(3): "Financiamento Carro" -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_carro'">
                   <h3 class="line-h3_form">Qual o valor do Carro?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do carro" type="number" min="0" step="0.01">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor do carro" type="number"
+                    min="0" step="0.01">
                   </v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do carro -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_carro'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_CARRO(FINALIZADA) -->
@@ -339,19 +349,86 @@
                 <!-- Resposta anterior(3): "Financiamento Moto" -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_moto'">
                   <h3 class="line-h3_form">Qual o valor da Moto?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor da moto" type="number" min="0" step="0.01">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_4']" label="Valor da moto" type="number"
+                    min="0" step="0.01">
                   </v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor da moto -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/financiamento_moto'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_MOTO(FINALIZADA) -->
 
-                <!-- Respota anterior(2): "Num sei oq" -->
+                <!-- Resposta anterior(2): "Procuro algo diferenciado que só o BB possui" -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'diferenciado'">
+                  <h3>Escolha entre as opções a seguir:</h3>
+                  <v-radio class="line-form_ratio" label="Crédito mobilidade" value="credito_mobilidade"></v-radio>
+                  <v-radio class="line-form_ratio" label="Crédito realiza" value="credito_realiza"></v-radio>
+                  <v-radio class="line-form_ratio" label="Crédito energia renovável"
+                    value="credito_energia_renovavel"></v-radio>
+                  <v-radio class="line-form_ratio" label="Bens e serviços para PCDs"
+                    value="bens_e_servicos_pcds"></v-radio>
+                </template>
+
+                <!-- Respota anterior(3): "Crédito mobilidade" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_mobilidade'">
+                  <h3 class="line-h3_form">Qual o valor do item que deseja financiar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do item -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_mobilidade'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_MOBILIDADE(FINALIZADA) -->
+
+                <!-- Resposta anterior(3): "Crédito realiza" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_realiza'">
+                  <h3 class="line-h3_form">Qual o valor do item ou serviço que deseja financiar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço" type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do item/serviço -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_realiza'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_REALIZA(FINALIZADA) -->
+
+                <!-- Resposta anterior(3): "Crédito energia renovável" -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel'">
+                  <h3 class="line-h3_form">Qual o valor do item que deseja financiar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do item -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_energia_renovavel'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_ENERGIA_RENOVAVEL(FINALIZADA) -->
+
+                <!-- Resposta anterior(3): "Bens e serviços para PCDs -->
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'bens_e_servicos_pcds'">
+                  <h3 class="line-h3_form">Qual o valor do item/serviço que deseja financiar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço" type="number" min="0" step="0.01"></v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do item/serviço -->
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/bens_e_servicos_pcds'">
+                  <h3>Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DOS BENS_E_SERVICOS_PCDS -->
 
                 <template v-if="
                   perguntaAtual === 2 &&
