@@ -138,11 +138,7 @@
                 ">
                   <h3 class="line-h3_form">Quanto você vai receber?</h3>
                   <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do 13º salário"
-                    type="number" min="0" step="0.01" @input="
-                      formatarValorMonetario(
-                        respostasSelecionadas['pergunta_' + perguntaAtual]
-                      )
-                      ">
+                    type="number" min="0" step="0.01">
                   </v-text-field>
                 </template>
 
@@ -156,11 +152,7 @@
                 ">
                   <h3 class="line-h3_form">Quanto você vai receber?</h3>
                   <v-text-field v-model.number="respostasSelecionadas['pergunta_5']"
-                    label="Valor da restituição do IRPF" type="number" min="0" step="0.01" @input="
-                      formatarValorMonetario(
-                        respostasSelecionadas['pergunta_5']
-                      )
-                      ">
+                    label="Valor da restituição do IRPF" type="number" min="0" step="0.01">
                   </v-text-field>
                 </template>
 
@@ -169,11 +161,7 @@
                   <h3 class="line-h3_form">
                     Qual será a data de recebimento do valor?
                   </h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" @input="
-                    formatarValorMonetario(
-                      respostasSelecionadas['pergunta_6']
-                    )
-                    ">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor">
                   </v-text-field>
                 </template>
 
@@ -189,11 +177,7 @@
                     quanto você tem de saldo no FGTS?
                   </h3>
                   <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Saldo FGTS" type="number"
-                    min="0" step="0.01" @input="
-                      formatarValorMonetario(
-                        respostasSelecionadas['pergunta_' + perguntaAtual]
-                      )
-                      ">
+                    min="0" step="0.01">
                   </v-text-field>
                 </template>
 
@@ -204,16 +188,19 @@
                   perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'
                 ">
                   <h3 class="line-h3_form">De quanto você precisa?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Saldo FGTS" type="number" min="0" step="0.01" @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])">
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Saldo FGTS" type="number"
+                    min="0" step="0.01">
                   </v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor de "crédito na hora com pagamento de parcelas mensais" -->
-                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] !== 0">
+                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_hora'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" step="1" @input="formatarValorMonetario(respostasSelecionadas['pergunta_' + perguntaAtual])"></v-text-field>
-                </template> 
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="1" step="1"></v-text-field>
+                </template>
 
+                <!-- Daqui para baixo falta analisar(ordens, índices e etc.)! -->
                 <template v-if="
                   perguntaAtual === 3 &&
                   respostasSelecionadas['pergunta_2'] === 'com_garantia'
@@ -267,11 +254,7 @@
                   'financiamento_imobiliario'
                 ">
                   <h3 class="line-h3_form">Qual o valor do Imovél?</h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_2']" @input="
-                    formatarValorMonetario(
-                      respostasSelecionadas['pergunta_' + perguntaAtual]
-                    )
-                    " label="Qual Valor ">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_2']" label="Qual Valor ">
                   </v-text-field>
                 </template>
 
@@ -353,7 +336,7 @@ export default {
     return {
       perguntaAtual: 0,
       totalDePerguntas: 0,
-      respostasSelecionadas: {}, // Agora é um objeto
+      respostasSelecionadas: {'pergunta_0' : 'Este índice não possui alternativas!'}, // Agora é um objeto
       mostrarResultados: false,
       linhasRecomendadas: [],
       verificacao: this.perguntaAtual < this.totalDePerguntas,
@@ -365,20 +348,19 @@ export default {
   methods: {
     definirRotaPerguntas() {
       if (
-        this.perguntaAtual === 5 &&
-        respostasSelecionadas["pergunta_4"] === "13-terceiro"
+        this.respostasSelecionadas["pergunta_4"] === "13-terceiro"
       ) {
         this.rotaPerguntas = "/perguntas/13-terceiro";
       } else if (
-        this.perguntaAtual === 5 &&
-        respostasSelecionadas["pergunta_4"] === "IRPF"
+        this.respostasSelecionadas["pergunta_4"] === "IRPF"
       ) {
         this.rotaPerguntas = "/perguntas/IRPF";
       } else if (
-        this.perguntaAtual === 5 &&
-        respostasSelecionadas["pergunta_4"] === "FGTS"
+        this.respostasSelecionadas["pergunta_4"] === "FGTS"
       ) {
         this.rotaPerguntas = "/perguntas/FGTS";
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_hora') {
+        this.rotaPerguntas = "/perguntas/credito_hora";
       }
     },
     proximaPergunta() {
@@ -464,7 +446,7 @@ export default {
       return linhas;
     },
     //ANALISAR SE É NECESSÁRIO USAR A FUNÇÃO "FORMATAR O VALOR MONETÁRIO" E A "PARSE CURRENCY", CASO NECESSÁRIO, ADAPTÁ-LAS PARA O FORMULÁRIO DESTA PÁGINA.
-    formatarValorMonetario(campo) {
+    /* formatarValorMonetario(campo) {
       let valor = this.formulario[campo];
 
       // Remove todos os caracteres não numéricos
@@ -477,7 +459,7 @@ export default {
 
       // Atualiza o campo do formulário
       this.respostasSelecionadas[campo] = "R$ " + valor;
-    },
+    }, */
   },
 };
 </script>
