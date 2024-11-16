@@ -462,7 +462,7 @@
                 <v-col cols="6" class="text-right">
                   <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === false && perguntaAtual !== 0"
                     @click="proximaPergunta">Próxima</v-btn>
-                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true" @click="enviarResposta">Enviar
+                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true && perguntaAtual !== 0" @click="enviarResposta">Enviar
                     Respostas</v-btn>
                 </v-col>
               </v-row>
@@ -559,30 +559,29 @@ export default {
       }
     },
     definirFimDaRota() {
-      if(this.perguntaAtual === this.totalDePerguntas - 1) {
+      if(this.perguntaAtual === this.totalDePerguntas) {
         this.fimDaRota = true;
       }
+      console.log('O usuário chegou no fim da rota? ' + this.fimDaRota);
+      console.log('Pergunta atual: ' + this.perguntaAtual);
+      console.log('Total de perguntas: ' + this.totalDePerguntas);
     },
     proximaPergunta() {
-      console.log(
-        "Resposta da pergunta atual(" +
-        this.perguntaAtual +
-        "):" +
-        this.respostasSelecionadas["pergunta_" + this.perguntaAtual]
-      );
+      console.log("Resposta da pergunta atual(" + this.perguntaAtual + "):" + this.respostasSelecionadas["pergunta_" + this.perguntaAtual]);
 
       this.definirRotaETotalDePerguntas();
 
       this.perguntaAtual++;
 
+      if(this.rotaPerguntas !== ''){
+        console.log('Rota atual: ' + this.rotaPerguntas + ' e total de perguntas: ' + this.totalDePerguntas);
+      }
       this.definirFimDaRota();
     },
     perguntaAnterior() {
       if (this.perguntaAtual > 0) {
         this.perguntaAtual--;
       }
-      console.log(this.respostasSelecionadas["pergunta_" + this.perguntaAtual]);
-      console.log(this.perguntaAtual);
     },
     enviarResposta() {
       this.mostrarResultados = true;
