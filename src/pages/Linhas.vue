@@ -430,6 +430,7 @@
 
                 <!-- ACIMA ESTÁ A ROTA DOS BENS_E_SERVICOS_PCDS -->
 
+                <!-- 
                 <template v-if="
                   perguntaAtual === 2 &&
                   respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo'
@@ -441,7 +442,7 @@
                   <v-radio class="line-form_ratio" label="Placeholder_2" value=""></v-radio>
                   <v-radio class="line-form_ratio" label="Placeholder_3" value=""></v-radio>
                 </template>
-
+                 -->
                 <template v-if="
                   perguntaAtual === 2 &&
                   respostasSelecionadas['pergunta_1'] === 'portabilidade'
@@ -558,7 +559,9 @@ export default {
       }
     },
     definirFimDaRota() {
-
+      if(this.perguntaAtual === this.totalDePerguntas - 1) {
+        this.fimDaRota = true;
+      }
     },
     proximaPergunta() {
       console.log(
@@ -571,6 +574,8 @@ export default {
       this.definirRotaETotalDePerguntas();
 
       this.perguntaAtual++;
+
+      this.definirFimDaRota();
     },
     perguntaAnterior() {
       if (this.perguntaAtual > 0) {
