@@ -449,14 +449,6 @@
                   <h3 class="line-h3_form"></h3>
                   <v-radio class="line-form_ratio" label="Portabilidade" value=""></v-radio>
                 </template>
-
-                <!-- Resposta anterior(X): "..." -->
-                <template>
-                  <h3 class="line-h3_form"></h3>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                  <v-radio label="" value=""></v-radio>
-                </template>
               </v-radio-group>
 
               <!-- Botões de navegação -->
@@ -514,28 +506,59 @@ export default {
     };
   },
   methods: {
-    definirRotaPerguntas() {
+    definirRotaETotalDePerguntas() {
       if (this.respostasSelecionadas["pergunta_4"] === "13-terceiro") {
         this.rotaPerguntas = "/perguntas/13-terceiro";
+        this.totalDePerguntas = 5;
       } else if (this.respostasSelecionadas["pergunta_4"] === "IRPF") {
         this.rotaPerguntas = "/perguntas/IRPF";
+        this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas["pergunta_4"] === "FGTS") {
         this.rotaPerguntas = "/perguntas/FGTS";
+        this.totalDePerguntas = 5;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_hora') {
         this.rotaPerguntas = "/perguntas/credito_hora";
+        this.totalDePerguntas = 5;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia') {
         this.rotaPerguntas = "/perguntas/imovel_como_garantia";
+        this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia') {
         this.rotaPerguntas = "/perguntas/veiculo_como_garantia";
+        this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia') {
         this.rotaPerguntas = "/perguntas/investimentos_como_garantia";
+        this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario') {
         this.rotaPerguntas = "/perguntas/financiamento_imobiliario";
+        this.totalDePerguntas = 4;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_carro') {
         this.rotaPerguntas = "/perguntas/financiamento_carro";
+        this.totalDePerguntas = 4;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_moto') {
         this.rotaPerguntas = "/perguntas/financiamento_moto";
+        this.totalDePerguntas = 4;
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_mobilidade') {
+        this.rotaPerguntas = "/perguntas/credito_mobilidade";
+        this.totalDePerguntas = 5;
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_realiza') {
+        this.rotaPerguntas = "/perguntas/credito_realiza";
+        this.totalDePerguntas = 5;
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel') {
+        this.rotaPerguntas = "/perguntas/credito_energia_renovavel";
+        this.totalDePerguntas = 5;
+      } else if (this.respostasSelecionadas['pergunta_3'] === 'bens_e_servicos_pcds') {
+        this.rotaPerguntas = "/perguntas/bens_e_servicos_pcds";
+        this.totalDePerguntas = 5;
+      } else if (this.respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo') {
+        this.rotaPerguntas = "/perguntas/renovar_emprestimo";
+        this.totalDePerguntas = 1;
+      } else if (this.respostasSelecionadas['pergunta_1'] === 'portabilidade') {
+        this.rotaPerguntas = "/perguntas/portabilidade";
+        this.totalDePerguntas = 1;
       }
+    },
+    definirFimDaRota() {
+
     },
     proximaPergunta() {
       console.log(
@@ -545,7 +568,7 @@ export default {
         this.respostasSelecionadas["pergunta_" + this.perguntaAtual]
       );
 
-      this.definirRotaPerguntas();
+      this.definirRotaETotalDePerguntas();
 
       this.perguntaAtual++;
     },
