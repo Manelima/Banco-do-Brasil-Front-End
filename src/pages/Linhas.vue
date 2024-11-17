@@ -148,7 +148,7 @@
                     Qual será a data de recebimento do valor?
                   </h3>
                   <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
-                    :min="minDate" :max="maxDate">
+                    :min="minDate_13" :max="maxDate_13">
                   </v-text-field>
                 </template>
 
@@ -168,11 +168,12 @@
                 </template>
 
                 <!-- Resposta anterior(5): "Valor da restituição do IRPF" -->
-                <template>
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/IRPF'">
                   <h3 class="line-h3_form">
                     Qual será a data de recebimento do valor?
                   </h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor">
+                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
+                    :min="minDate_IRPF" :max="maxDate_IRPF">
                   </v-text-field>
                 </template>
 
@@ -195,12 +196,13 @@
                 <!-- ACIMA ESTÁ A ROTA DO FGTS(FINALIZADA) -->
 
                 <!-- Resposta anterior(3): Crédito na hora com pagamento de parcelas mensais -->
-                <template v-if="
-                  perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'
-                ">
-                  <h3 class="line-h3_form">De quanto você precisa?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Saldo FGTS" type="number"
-                    min="0" step="0.01">
+                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'">
+                  <h3 class="line-h3_form">
+                    Qual será a data de recebimento do valor?
+                  </h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
+                    ">
+                    <!-- definir :min e :max desse, pois tinha antes, ao que parece. -->
                   </v-text-field>
                 </template>
 
@@ -523,11 +525,31 @@ export default {
       menu: false, // controla a abertura do calendário
       rotaPerguntas: "",
       fimDaRota: false,
-      minDate: '2024-11-01',
-      maxDate: '2024-12-31',
+      minDate_13: '2024-11-01',
+      maxDate_13: '2024-12-31',
+      minDate_IRPF: '',
+      maxDate_IRPF: '',
     };
   },
   methods: {
+    // Adicionada a nova função para definir intervalo de datas
+    atualizarIntervaloDatas() {
+      const hoje = new Date();
+      const diaSeguinte = new Date(hoje);
+      diaSeguinte.setDate(hoje.getDate() + 1);
+
+      const fimDoAno = new Date(hoje.getFullYear(), 11, 31); // Mês 11 é dezembro (baseado em zero)
+
+      const formatarData = (data) => {
+        const ano = data.getFullYear();
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const dia = String(data.getDate()).padStart(2, '0');
+        return `${ano}-${mes}-${dia}`;
+      };
+
+      this.minDate_IRPF = formatarData(diaSeguinte);
+      this.maxDate_IRPF = formatarData(fimDoAno);
+    },
     definirRotaETotalDePerguntas() {
       if (this.respostasSelecionadas["pergunta_4"] === "13-terceiro") {
         this.rotaPerguntas = "/perguntas/13-terceiro";
@@ -682,6 +704,9 @@ export default {
       // Atualiza o campo do formulário
       this.respostasSelecionadas[campo] = "R$ " + valor;
     }, */
+  },
+  created() {
+    this.atualizarIntervaloDatas(); // Chamada ao carregar o componente
   },
 };
 </script>
