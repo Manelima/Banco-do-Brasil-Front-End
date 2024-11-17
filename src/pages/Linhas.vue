@@ -142,6 +142,17 @@
                   </v-text-field>
                 </template>
 
+                <!-- Resposta anterior(5): "Valor do 13º salário" -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/13-terceiro'">
+                  <h3 class="line-h3_form">
+                    Qual será a data de recebimento do valor?
+                  </h3>
+                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
+                    :min="minDate" :max="maxDate">
+                  </v-text-field>
+                </template>
+
+
                 <!-- ACIMA ESTÁ A ROTA DO 13º(FINALIZADA) -->
 
                 <!-- Resposta anterior(4): "Restituição do IRPF." -->
@@ -375,13 +386,15 @@
                 <!-- Respota anterior(3): "Crédito mobilidade" -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_mobilidade'">
                   <h3 class="line-h3_form">Qual o valor do item que deseja financiar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number" min="500" max="50000" step="0.01"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number"
+                    min="500" max="50000" step="0.01"></v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do item -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_mobilidade'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="5" max="60" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="5" max="60" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO CREDITO_MOBILIDADE(FINALIZADA) -->
@@ -389,27 +402,32 @@
                 <!-- Resposta anterior(3): "Crédito realiza" -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_realiza'">
                   <h3 class="line-h3_form">Qual o valor do item ou serviço que deseja financiar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço" type="number" min="100" max="50000" step="0.01"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço"
+                    type="number" min="100" max="50000" step="0.01"></v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do item/serviço -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_realiza'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1" max="60" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="1" max="60" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO CREDITO_REALIZA(FINALIZADA) -->
 
                 <!-- Resposta anterior(3): "Crédito energia renovável" -->
-                <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel'">
+                <template
+                  v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel'">
                   <h3 class="line-h3_form">Qual o valor do item que deseja financiar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number" min="2000" max="100000" step="0.01"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number"
+                    min="2000" max="100000" step="0.01"></v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do item -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_energia_renovavel'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="2" max="96" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="2" max="96" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DO CREDITO_ENERGIA_RENOVAVEL(FINALIZADA) -->
@@ -417,13 +435,15 @@
                 <!-- Resposta anterior(3): "Bens e serviços para PCDs -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'bens_e_servicos_pcds'">
                   <h3 class="line-h3_form">Qual o valor do item/serviço que deseja financiar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço" type="number" min="70" max="30000" step="0.01"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço"
+                    type="number" min="70" max="30000" step="0.01"></v-text-field>
                 </template>
 
                 <!-- Resposta anterior(4): Input do valor do item/serviço -->
                 <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/bens_e_servicos_pcds'">
                   <h3>Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="2" max="60" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
+                    min="2" max="60" step="1"></v-text-field>
                 </template>
 
                 <!-- ACIMA ESTÁ A ROTA DOS BENS_E_SERVICOS_PCDS -->
@@ -460,7 +480,8 @@
                 <v-col cols="6" class="text-right">
                   <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === false && perguntaAtual !== 0"
                     @click="proximaPergunta">Próxima</v-btn>
-                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true && perguntaAtual !== 0" @click="enviarResposta">Enviar
+                  <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true && perguntaAtual !== 0"
+                    @click="enviarResposta">Enviar
                     Respostas</v-btn>
                 </v-col>
               </v-row>
@@ -502,13 +523,15 @@ export default {
       menu: false, // controla a abertura do calendário
       rotaPerguntas: "",
       fimDaRota: false,
+      minDate: '2024-11-01',
+      maxDate: '2024-12-31',
     };
   },
   methods: {
     definirRotaETotalDePerguntas() {
       if (this.respostasSelecionadas["pergunta_4"] === "13-terceiro") {
         this.rotaPerguntas = "/perguntas/13-terceiro";
-        this.totalDePerguntas = 5;
+        this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas["pergunta_4"] === "IRPF") {
         this.rotaPerguntas = "/perguntas/IRPF";
         this.totalDePerguntas = 6;
@@ -557,7 +580,7 @@ export default {
       }
     },
     definirFimDaRota() {
-      if(this.perguntaAtual === this.totalDePerguntas) {
+      if (this.perguntaAtual === this.totalDePerguntas) {
         this.fimDaRota = true;
       }
       console.log('O usuário chegou no fim da rota? ' + this.fimDaRota);
@@ -571,7 +594,7 @@ export default {
 
       this.perguntaAtual++;
 
-      if(this.rotaPerguntas !== ''){
+      if (this.rotaPerguntas !== '') {
         console.log('Rota atual: ' + this.rotaPerguntas + ' e total de perguntas: ' + this.totalDePerguntas);
       }
       this.definirFimDaRota();
