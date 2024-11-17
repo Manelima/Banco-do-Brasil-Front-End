@@ -197,11 +197,8 @@
 
                 <!-- Resposta anterior(3): Crédito na hora com pagamento de parcelas mensais -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'">
-                  <h3 class="line-h3_form">
-                    Qual será a data de recebimento do valor?
-                  </h3>
-                  <v-text-field v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
-                    ">
+                  <h3 class="line-h3_form">De quanto você precisa?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="number">
                     <!-- definir :min e :max desse, pois tinha antes, ao que parece. -->
                   </v-text-field>
                 </template>
