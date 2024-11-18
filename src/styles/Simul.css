@@ -26,6 +26,59 @@
   font-weight: bold;
 }
 
+.text_headertext{
+  color: #fcfc30;
+  font-size: 40px;
+  font-weight: bold;
+  width: 521px;
+  height: 85px;
+  top: 324px;
+  margin-bottom: 50px;
+  margin-left: 15%;  
+}
+.text_homesim{
+  color: #fcfc30 !important;
+  margin-left: 17.5%;
+  margin-top: -5%;
+  width: 512px;
+  font-size: medium;
+  margin-bottom: 0.5%;
+}
+.text_homesim-img{
+  display: inline-flex;
+  margin-left: 15%;
+  margin-top: 8%;
+  margin-bottom: 3%;
+}
+.text_descyellow{
+  color:#FCFC30;
+  margin-left: 15%;
+  font-size: 20px;
+  height: 10px;
+  margin-top: 1%;
+}
+.text_descwhite{
+  display: inline-flex;
+  color: #FFF;
+  margin-left: 15%;
+  margin-top: 6%;
+
+}
+.text_descwhite2-img{
+  display: flex;
+  margin-left: 10px;
+  color: #FFF;
+  margin-left: 43.5%;
+  margin-top: 7%;
+}
+
+.text_descwhite3{
+  display: flex;
+  color: #FFF;
+  margin-left: 45%;
+  font-size: 17px;
+  margin-top: -01.15% ;
+}
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
@@ -36,6 +89,37 @@
   background-color: #465EFF;
   border-radius: 80px;
   color: #FFF!important;
+}
+
+.simul-buttonrun{
+  background-color: #FCFC30;
+  border-radius: 10px;
+  color: #465EFF!important;
+}
+.simul-buttonrun:hover{
+  background-color: #FCFC30!important;
+  border-radius: 10px;
+  color: #465EFF!important;
+}
+
+/* ================ SVG ============== */
+
+.svg-icon-arrow{
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #465EFF;
+  color: #fff;
+}
+
+.svg-icon-home{
+  display: flex;
+  width: 30px;
+  height: 30px;  
+  background-color: #FCFC30;
+  margin-left: 15%;
+  
 }
 
 /* =================== BODY ================== */
@@ -124,3 +208,11 @@
 .simul-card_selic{
   height: 235.56px!important;
 }
+
+
+
+
+
+
+
+

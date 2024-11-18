@@ -14,6 +14,41 @@
 
   <v-spacer></v-spacer>
   <v-main class="simul-container-main">
+    <div class="text_homesim-img">
+      <img src="@/assets/home-variant-outline.svg" alt="Home_img" class="svg-icon-home"/>
+    </div>
+    
+    <div class="text_homesim">
+      <h2>Home / Simular Investimentos</h2>
+    </div>
+
+    <div class="text_headertext">
+      <h1>Investimentos</h1>
+    </div>
+    <div class="text_descyellow">
+      <h3>
+        Invista em seus sonhos, do <br />
+        seu jeito com zero <br />
+        complicação
+      </h3>
+    </div>
+    <div class="text_descwhite">
+      <h2>
+        Fundos, Tesouro Direto, Ações? No BB,<br> você investe do seu jeito e conta
+        com a<br> assessoria dos nossos especialistas em <br> todos os momentos, com
+        sugestões <br>personalizadas focadas no seu perfil<br> e objetivos.
+      </h2>
+    </div>
+
+    <div class="text_descwhite2-img">
+      <img src="@/assets/arrow-down.svg" alt="Seta para baixo" class="svg-icon-arrow" />
+    </div>
+    <div class="text_descwhite3">
+      <h4>Continue navegando</h4>
+    </div>
+      
+   
+
     <v-container class="mx-auto mt-10 pa-4 pb-6">
       <v-container>
         <v-card
@@ -185,7 +220,11 @@
                   {{ resumoRentabilidade }}
                 </v-alert>
 
-                <v-btn block class="simul-buttongeral" @click="simularInvestimento">
+                <v-btn
+                  block
+                  class="simul-buttonrun"
+                  @click="simularInvestimento"
+                >
                   Simular investimento
                 </v-btn>
               </v-form>
@@ -841,7 +880,7 @@ export default {
 
       return this.rendimentoBrutoPreFixado;
     },
-    //-------------------------------------------FIM
+    //------------------------------------------- FIM ----------------------------------------
 
     //--------------Calculos IPCA+---------------
     calcularRendimentoIPCA(investimentoMensal, meses) {
@@ -940,3 +979,11 @@ export default {
   },
 };
 </script>
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@
     <v-btn to="/linhas" class="blog-buttongeral mx-1">Linhas</v-btn>
     <v-btn to="/operacoes" class="blog-buttongeral mx-1">Operações</v-btn>
     
-    
+   
 
   </v-app-bar>
 
@@ -17,7 +17,11 @@
   <v-main>
     <v-container>
       
-      
+  <div>
+    Safadeza
+    <svg-icon :path="path" class="icon" />
+  </div>
+
     </v-container>
 
   </v-main>
@@ -31,9 +35,12 @@
   
   <script>
    import "@/styles/Blog.css";
+   import SvgIcon from "@jamescoyle/vue-icon";
+   import { mdiAccount } from "@mdi/js";
    
   export default {
     name: 'Blog',
+    components: { SvgIcon },
   }
   </script>
   
