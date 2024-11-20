@@ -1,0 +1,73 @@
+.login-lado_form {
+  background-color: #3d5aff;
+  margin: 0;
+}
+
+.login-lado_img_form {
+  padding: 0px !important;
+}
+
+.login-elementos_top_form{
+    padding-left: 5%;
+    align-items: center;
+    display: flex;
+    align-content: center;
+}
+
+.login-div_line_form {
+  height: 45px;
+  background-color: #fff;
+  width: 3px;
+  margin-inline: 5%;
+}
+
+.login-titulo_superior_form {
+  color: #fff;
+}
+
+.login-titulo_2_form {
+  color: #fff;
+}
+
+.login-titulo_3_form {
+  color: #fcfc30;
+}
+
+.login-col_titulos_form{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.login-titulo_interno_form{
+    color: white;
+    margin-block: 5%;
+    text-align: center;
+}
+
+.login-form{
+    background-color: #2B43CC;
+    padding-inline: 10%;
+    padding-top: 2.5%;
+    height: 85%!important;
+}
+
+.login-campo_1_form{
+  padding-right: 5%;
+}
+
+.login-campo_2_form{
+}
+
+.login-btn_entrar_form{
+  color: #3D5AFF!important;
+  background-color: #FCFC30;
+  width: 100%;
+}
+
+.login-link_esqueci_senha_form{
+  text-align: center!important;
+}
