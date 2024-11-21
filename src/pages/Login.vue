@@ -10,25 +10,27 @@
                         <h2 class="login-titulo_superior_form">Autoatendimento</h2>
                     </v-row>
                     <v-col class="login-col_titulos_form">
-                        <h1 class="login-titulo_2_form">Acesse sua conta</h1>
-                        <h1 class="login-titulo_3_form">Banco do Brasil</h1>
+                        <h2 class="login-titulo_2_form">Acesse sua conta</h2>
+                        <h2 class="login-titulo_3_form">Banco do Brasil</h2>
                     </v-col>
                     <v-col class="login-col_form">
                         <v-form class="login-form" height="500">
                             <h2 class="login-titulo_interno_form">Agência e Conta</h2>
                             <v-row class="login-row_interno_1_form">
                                 <v-col cols="6">
-                                    <v-text-field primary v-model.number="agencia" label="Agência" variant="outlined"
+                                    <v-text-field v-model.number="agencia" color="#FFF" label="Agência" variant="outlined"
                                         type="number" class="login-campo_1_form"></v-text-field>
                                 </v-col>
                                 <v-col cols="6">
-                                    <v-text-field v-model.number="conta" label="Conta" variant="outlined" type="number"
+                                    <v-text-field v-model.number="conta"
+                                    color="#FFF" label="Conta" variant="outlined" type="number"
                                         class="login-campo_2_form"></v-text-field>
                                 </v-col>
                             </v-row>
                             <v-row class="login-row_interno_2_form">
                                 <v-col cols="12">
-                                    <v-text-field v-model="senha" label="Senha" variant="outlined" type="password"
+                                    <v-text-field v-model="senha"
+                                    color="#FFF" label="Senha" variant="outlined" type="password"
                                         class="login-campo_3_form"></v-text-field>
                                 </v-col>
                             </v-row>
@@ -36,7 +38,7 @@
                                 <v-btn @click="entrar" class="login-btn_entrar_form" color="#FCFC30">Entrar</v-btn>
                             </v-row>
                             <v-row class="login-row_interno_4_form d-flex align-center justify-center">
-                                <router-link to="/esqueci-minha-senha" class="login-link_esqueci_senha_form">Esqueci minha senha</router-link>
+                                <router-link to="/esqueci-minha-senha" class="login-link_esqueci_senha_form my-5">Esqueci minha senha</router-link>
                             </v-row>
                         </v-form>
                     </v-col>

@@ -53,10 +53,11 @@
     padding-inline: 10%;
     padding-top: 2.5%;
     height: 85%!important;
+    border-radius: 25px!important;
 }
 
 .login-campo_1_form{
-  padding-right: 5%;
+  margin-right: 5%;
 }
 
 .login-campo_2_form{
@@ -70,4 +71,15 @@
 
 .login-link_esqueci_senha_form{
   text-align: center!important;
+  color: white;
 }
+
+/* .v-text-field .v-field--active input {
+  background-color: #3D5AFF; 
+} */
+
+/* .v-text-field .v-field--no-label input, .v-text-field .v-field--active input {
+  background-color: #3D5AFF!important;
+  padding: 0px !important;
+  border: 1px solid white !important;
+} */
