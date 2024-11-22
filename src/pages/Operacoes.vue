@@ -5,53 +5,123 @@
     <v-app-bar-title class="opera-titulo_nav_bar">Banco do Brasil</v-app-bar-title>
 
     <v-btn to="/" class="opera-buttongeral mx-1">Home</v-btn>
-    <v-btn to="/simul" class="opera-buttongeral mx-1">Simulação</v-btn>
+    <v-btn to="/simul" class="opera-buttongeral mx-1">Simular Investimentos</v-btn>
     <v-btn to="/linhas" class="opera-buttongeral mx-1">Linhas</v-btn>
     <v-btn to="/blog" class="opera-buttongeral mx-1">Blog</v-btn>
   </v-app-bar>
 
   <v-main>
+    <v-text class="opera-text_saldo">Saldo Disponível</v-text>
+
+    <div class="opera-yellowline">Suas Operações</div>
+
     <v-container class="opera-container_main">
+      
+        
+      
       <v-container class="opera-container_operacoes">
-        <div class="opera-div_saudacao">Olá, {{nomeDeUsuario}}</div>
-
+       
+      
         <v-row>
-          <v-col cols="4" class="opera-coluna_um mt-5">
-            <v-btn class="opera-buttontipos d-flex justify-center align-center mb-5" size="x-large" @click="selecionarOperacao('saque')">
-              Saque Móvel
-            </v-btn>
+          <div class="opera-div_operacoes">
 
-            <v-btn class="opera-buttontipos d-flex justify-center align-center mb-5" size="x-large" @click="selecionarOperacao('transferencia')">
-              Transferência
+          
+          <v-col cols="1" class="opera-coluna_um mx-16">
+         
+
+            <div class="opera-item">
+
+            
+            <v-btn variant="text" class="opera-buttontipos" size="x-large" @click="selecionarOperacao('saque')">
+              <img src="@/assets/saque.png" class="opera-img_saque" />
             </v-btn>
+          
+          <v-text class="opera-texto-desc-saque">  Saque  </v-text>
+          </div>
+
           </v-col>
 
-          <v-col cols="4" class="opera-coluna_dois mt-5">
-            <v-btn class="opera-buttontipos d-flex justify-center align-center mb-5" size="x-large" @click="selecionarOperacao('deposito')">
-              Depósito
+          <v-col cols="1" class="opera-coluna_um mx-16">
+           <div class="opera-item">
+              <v-btn variant="text" class="opera-buttontipos" size="x-large" @click="selecionarOperacao('deposito')">
+              <img src="@/assets/deposito.png" class="opera-img_deposito" />
             </v-btn>
 
-            <v-btn class="opera-buttontipos d-flex justify-center align-center mb-5" size="x-large" @click="selecionarOperacao('historico')">
-              Histórico
-            </v-btn>
+          
+            
+            <v-text class="opera-texto-desc-deposito"> Depósito </v-text>
+
+           </div>
           </v-col>
+          
+
+          <v-col cols="1" class="opera-coluna_um mx-16">
+            <div class="opera-item">
+
+            
+
+            
+            <v-btn variant="text"class="opera-buttontipos" size="x-large" @click="selecionarOperacao('transferencia')">
+              <img src="@/assets/transferencia.png" class="opera-img_transferencia" />
+            </v-btn>
+
+
+          <v-text class="opera-texto-desc-transf"> <strong>Transferir para usuário </strong>   </v-text>
+
+          </div>
+          </v-col>
+
+          <v-col cols="1" class="opera-coluna_um mx-16">
+          
+          <div class="opera-item">
+          
+            
+            <v-btn variant="text" class="opera-buttontipos" size="x-large" @click="selecionarOperacao('historico')">
+              <img src="@/assets/recibo.png" class="opera-img_recibo" />
+            </v-btn>
+
+
+           <v-text class="opera-texto-desc-historico">  Histórico de Movimentações  </v-text>
+          </div>
+          </v-col>
+
+        </div>
         </v-row>
-
+      
         <!-- Exibe o card baseado na operação selecionada -->
         <v-card v-if="operacaoSelecionada === 'saque'" class="opera-card_operacao_selecionada">
-          <v-card-title class="white--text">Saque Móvel</v-card-title>
-          <v-card-text>
+           
+          <v-card-title class="opera-title-operacao-selecionada"> <img src="@/assets/oper_cash.png" class="opera-cash.icon"><b>Saque</b></v-card-title>
+          <v-card-text class="opera-cardtext-saque">
+            Saldo Disponível: R$ {{ saldoDisponivel }}
+          </v-card-text>
+
+          <v-card-text class="opera-cardtext-saque">
+            Quanto deseja sacar?
+          </v-card-text>
+
+           <v-card-text class="opera-cardtext-saque">
             <v-form>
-              <v-text-field label="Valor do Saque" v-model="valorSaque" prefix="R$" type="number" outlined class="white--text" color="white"></v-text-field>
+              <v-text-field label="" v-model="valorSaque" prefix="R$" type="number" outlined class="opera-textfield-saque" color="white"></v-text-field>
             </v-form>
           </v-card-text>
-          <v-card-actions>
-            <v-btn @click="confirmarSaque" class="white--text" outlined color="white"> Confirmar Saque </v-btn>
+
+          <v-card-text class="opera-cardtext-saque">
+            Saldo após o saque:
+          </v-card-text>
+
+          <v-card-text class="opera-cardtext-saque">
+            Deseja confirmar essa operação?
+          </v-card-text>
+          <v-card-actions class="justify-center">
+            <v-btn @click="cancelarSaque" class="opera-btn-saque" outlined color="white"> NÃO </v-btn>
+            <v-btn @click="confirmarSaque" class="opera-btn-saque" outlined color="white"> SIM </v-btn>
           </v-card-actions>
         </v-card>
 
         <v-card v-if="operacaoSelecionada === 'transferencia'" class="opera-card_operacao_selecionada">
-          <v-card-title class="white--text">Transferência</v-card-title>
+         
+          <v-card-title class="opera-title-operacao-selecionada">  <img src="@/assets/oper_cash.png" class="opera-cash.icon"> Transferência</v-card-title>
           <v-card-text>
             <v-form>
               <v-text-field label="Conta de Destino" v-model="contaDestino" outlined class="white--text" color="white"></v-text-field>
@@ -65,9 +135,11 @@
             </v-card-actions>
         </v-card>
 
+        
 
         <v-card v-if="operacaoSelecionada === 'deposito'" class="opera-card_operacao_selecionada">
-          <v-card-title class="white--text">Depósito</v-card-title>
+          
+          <v-card-title class="opera-title-operacao-selecionada"> <img src="@/assets/oper_cash.png" class="opera-cash.icon"> Depósito</v-card-title>
           <v-card-text>
             <v-form>
               <v-text-field label="Valor do Depósito" v-model="valorDeposito" prefix="R$" type="number" outlined class="white--text" color="white"></v-text-field>
@@ -81,7 +153,8 @@
         </v-card>
 
         <v-card v-if="operacaoSelecionada === 'historico'" class="opera-card_operacao_selecionada">
-          <v-card-title class="white--text">Histórico de Transações</v-card-title>
+          
+          <v-card-title class="opera-title-operacao-selecionada"> <img src="@/assets/oper_cash.png" class="opera-cash.icon">Histórico de Transações</v-card-title>
           <v-card-text>
             <v-simple-table>
               <thead>
@@ -106,9 +179,80 @@
     </v-container>
   </v-main>
 
-  <v-footer app class="opera-footer">
-    <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
+ 
+  <v-footer class="opera-footer">
+    
+    <div class="opera-footer-azul">
+      <img src="@/assets/bb-yellow.png" alt="Logo Banco" class="bb-icon-opera" />
+      <div class="opera-footer-column"> 
+       
+        
+          <p class="p-title-text">Central de Relacionamento BB</p>
+        <strong>  
+          <p class="p-sub-text">4004 0001 / 0800 729 0001</p> 
+        </strong> 
+     
+        <br>
+       
+          <p class="p-title-text">Deficientes Auditivos/Fala</p> 
+        <strong> 
+          <p class="p-sub-text">0800 729 0088</p> 
+        </strong> 
+      </div>
+
+      <div class="opera-footer-column2">
+        
+          <p class="p-title-text">SAC</p>
+        <strong>
+          <p class="p-sub-text">0800 729 0722</p>
+        </strong>
+        <br>
+          <p class="p-title-text">WhatsApp</p>
+
+        <strong>
+          <p class="p-sub-text">61 4004 0001</p>
+        </strong>
+       
+      </div>
+      <div class="opera-footer-column3">
+        <p class="p-title-text">Ouvidoria BB</p>
+        <strong>
+          <p class="p-sub-text">0800 729 5678</p>
+        </strong>
+        
+        <br>
+         <p class="p-title-text">Canal de Denúncias BB</p>
+          
+          <strong>
+            <p class="p-sub-text">0800 300 4455</p>
+          </strong>
+
+      </div>
+     
+      <img class="acess-icon-opera" src="@/assets/acess.png" alt="acess-icon">
+      
+    </div>
+      <div class="opera-footer-amarelo">
+        <h3 class="opera-texto-footer-location">
+          © Banco do Brasil S/A - CNPJ 00.000.000/0001-91 SAUN QD 5 LT
+          <br>B, Asa Norte, Brasília-DF, Brasil - CEP 70040-911
+        </h3>
+      </div>
+
+     <div class="opera-footer-links">
+        <div class="opera-footer-button-group">
+          <img src="@/assets/eye-outline.svg" alt="Eye" class="opera-eye-footer" />
+          <v-btn class="opera-texto-footer-priv">Minha privacidade</v-btn>
+        </div>
+        <div class="opera-footer-button-group">
+          <img src="@/assets/help-circle-outline.svg" alt="Help" class="opera-help-footer" />
+          <v-btn to="/blog" class="opera-texto-footer-help">Ajuda</v-btn>
+        </div>
+     </div>
+
+     
   </v-footer>
+
 </template>
 
 <script>

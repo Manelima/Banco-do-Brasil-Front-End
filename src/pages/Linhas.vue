@@ -7,7 +7,7 @@
     </v-app-bar-title>
 
     <v-btn to="/" class="line-buttongeral mx-1">Home</v-btn>
-    <v-btn to="/simul" class="line-buttongeral mx-1">Simulação</v-btn>
+    <v-btn to="/simul" class="line-buttongeral mx-1">Simular Investimentos</v-btn>
     <v-btn to="/operacoes" class="line-buttongeral mx-1">Operações</v-btn>
     <v-btn to="/blog" class="line-buttongeral mx-1">Blog</v-btn>
   </v-app-bar>
@@ -222,6 +222,79 @@
       </v-container>
     </v-container>
   </v-main>
+
+  <v-footer class="line-footer">
+    
+    <div class="line-footer-azul">
+      <img src="@/assets/bb-yellow.png" alt="Logo Banco" class="bb-icon-line" />
+      <div class="line-footer-column"> 
+       
+        
+          <p class="p-title-text">Central de Relacionamento BB</p>
+        <strong>  
+          <p class="p-sub-text">4004 0001 / 0800 729 0001</p> 
+        </strong> 
+     
+        <br>
+       
+          <p class="p-title-text">Deficientes Auditivos/Fala</p> 
+        <strong> 
+          <p class="p-sub-text">0800 729 0088</p> 
+        </strong> 
+      </div>
+
+      <div class="line-footer-column2">
+        
+          <p class="p-title-text">SAC</p>
+        <strong>
+          <p class="p-sub-text">0800 729 0722</p>
+        </strong>
+        <br>
+          <p class="p-title-text">WhatsApp</p>
+
+        <strong>
+          <p class="p-sub-text">61 4004 0001</p>
+        </strong>
+       
+      </div>
+      <div class="line-footer-column3">
+        <p class="p-title-text">Ouvidoria BB</p>
+        <strong>
+          <p class="p-sub-text">0800 729 5678</p>
+        </strong>
+        
+        <br>
+         <p class="p-title-text">Canal de Denúncias BB</p>
+          
+          <strong>
+            <p class="p-sub-text">0800 300 4455</p>
+          </strong>
+
+      </div>
+     
+      <img class="acess-icon-line" src="@/assets/acess.png" alt="acess-icon">
+      
+    </div>
+      <div class="line-footer-amarelo">
+        <h3 class="line-texto-footer-location">
+          © Banco do Brasil S/A - CNPJ 00.000.000/0001-91 SAUN QD 5 LT
+          <br>B, Asa Norte, Brasília-DF, Brasil - CEP 70040-911
+        </h3>
+      </div>
+
+     <div class="line-footer-links">
+        <div class="line-footer-button-group">
+          <img src="@/assets/eye-outline.svg" alt="Eye" class="line-eye-footer" />
+          <v-btn class="line-texto-footer-priv">Minha privacidade</v-btn>
+        </div>
+        <div class="line-footer-button-group">
+          <img src="@/assets/help-circle-outline.svg" alt="Help" class="line-help-footer" />
+          <v-btn to="/blog" class="line-texto-footer-help">Ajuda</v-btn>
+        </div>
+     </div>
+
+     
+  </v-footer>
 </template>
 
 <script>

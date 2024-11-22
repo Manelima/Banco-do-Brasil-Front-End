@@ -109,7 +109,104 @@
     padding: 5%;
   }
   
-  /* ================= FOOTER ================ */
-  .line-footer{
-    background-color: #FCFC30!important;
+ /* ================= FOOTER ================ */
+
+
+.line-footer {
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  margin-top: 50px; 
+  }
+  
+  .line-footer-amarelo {
+	background-color: #fcfc30; /* Cor de fundo amarela */
+	width: 105%; /* Largura total */
+	height: 50px; /* Altura da parte amarela */
+	display: flex; /* Usar flexbox para organização */
+	justify-content: space-between; /* Espaçamento entre os elementos */
+	align-items: center; /* Centralizar os itens verticalmente */
+	padding: 0 5%; /* Espaçamento interno */
+  }
+  .line-footer-azul {
+	background-color: #465EFF!important;
+	width: 105%; 
+	height: 202px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	color: #fff; 
+  }
+  /* Estilo para o texto */
+  .line-texto-footer-location {
+	color: #000; 
+	font-weight: bold; 
+	font-size: 14px; 
+	text-align: left; 
+	margin-left: 5%;
+  }
+
+  .line-texto-footer-priv{
+	margin-left: 05%;
+	background: transparent;
+	margin-bottom: 22%;
+  }
+  .line-texto-footer-help{
+	background: transparent;
+	margin-left: 05%;
+	margin-bottom: 22%;
+  }
+  .line-footer-button-group {
+	display: flex;
+	height: 0;
+	align-items: center;
+  }
+  .line-footer-column{
+	display: inline;
+	margin-right: 10%;
+  }
+  .line-footer-column2{
+	display: inline;
+	margin-right: 10%;
+  }
+  .line-footer-column3{
+      display: inline;
+	  margin-right: 10%;
+  }
+  .p-title-text{
+	font-size: 16px;
+	line-height: 18.16px;
+  }
+  .p-sub-text{
+	font-size: 20px;
+	line-height: 23.2px;
+  }
+  
+  /* ================= SVG ================ */
+  .bb-icon-line {
+	width: 50px; 
+	height: 50px;
+	margin-left: -12.5%;
+	margin-right: 7.5%;
   } 
+
+  .line-eye-footer{
+	margin-bottom: 20%;
+	margin-left: 250%;
+	width: 30px;
+	height: 30px;	
+  }
+
+  .line-help-footer{
+	margin-bottom: 20%;
+	margin-left: 365%;
+    width: 30px; 
+	height: 30px;
+  }
+
+  .acess-icon-line{
+      width: 108px;
+	  height: 45px;
+  }

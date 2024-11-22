@@ -33,14 +33,116 @@
 	color: #FFF!important;
 }
   
-  /* ================= FOOTER ================ */
+/* ================= FOOTER ================ */
 
-.home-footer{
-	background-color: #FCFC30!important;
-}
+
+.home-footer {
+	position: fixed; /* Fixar o footer na parte inferior */
+	bottom: 0; /* Garantir que fique na parte de baixo */
+	width: 100%; /* Largura total */
+	display: flex; /* Flexbox para organizar conteúdo */
+	flex-direction: column; /* Dividir em duas partes verticais */
+	z-index: 10; /* Garantir que fique acima de outros elementos */
+  }
   
-.home-texto_footer{
-	color: #465EFF;
-	font-weight: bold;
+  .home-footer-amarelo {
+	background-color: #fcfc30; /* Cor de fundo amarela */
+	width: 105%; /* Largura total */
+	height: 50px; /* Altura da parte amarela */
+	display: flex; /* Usar flexbox para organização */
+	justify-content: space-between; /* Espaçamento entre os elementos */
+	align-items: center; /* Centralizar os itens verticalmente */
+	padding: 0 5%; /* Espaçamento interno */
+  }
+  .home-footer-azul {
+	background-color: #465EFF!important;
+	width: 105%; 
+	height: 202px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	color: #fff; 
+  }
+  /* Estilo para o texto */
+  .home-texto-footer-location {
+	color: #000; 
+	font-weight: bold; 
+	font-size: 14px; 
+	text-align: left; 
+	margin-left: 5%;
+  }
+
+  .home-texto-footer-priv{
+	margin-left: 05%;
+	background: transparent;
+	margin-bottom: 22%;
+  }
+  .home-texto-footer-help{
+	background: transparent;
+	margin-left: 05%;
+	margin-bottom: 22%;
+  }
+  .home-footer-button-group {
+	display: flex;
+	height: 0;
+	align-items: center;
+  }
+  .home-footer-column{
+	display: inline;
+	margin-right: 10%;
+  }
+  .home-footer-column2{
+	display: inline;
+	margin-right: 10%;
+  }
+  .home-footer-column3{
+      display: inline;
+	  margin-right: 10%;
+  }
+  .p-title-text{
+	font-size: 16px;
+	line-height: 18.16px;
+  }
+  .p-sub-text{
 	font-size: 20px;
-}
+	line-height: 23.2px;
+  }
+  
+  /* ================= SVG ================ */
+  .bb-icon-home {
+	width: 50px; 
+	height: 50px;
+	margin-left: -12.5%;
+	margin-right: 7.5%;
+  } 
+
+  .home-eye-footer{
+	margin-bottom: 20%;
+	margin-left: 250%;
+	width: 30px;
+	height: 30px;	
+  }
+
+  .home-help-footer{
+	margin-bottom: 20%;
+	margin-left: 365%;
+    width: 30px; 
+	height: 30px;
+  }
+
+  .acess-icon-home{
+      width: 108px;
+	  height: 45px;
+  }  
+  .svg-icon-home{
+    width: 30px;
+    height: 30px;
+    background: #FCFC30;
+    margin-bottom: 10%;
+  }
+  .svg-icon-arrow{
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+    background-color: #465EFF;
+  }

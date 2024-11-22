@@ -27,10 +27,20 @@
 	color: #465EFF!important;
 	border-radius: 80px;
 }
+
 .opera-buttontipos{
+
+	margin-left: 80px;
+
+	align-items: right ;
+
 	color: #465EFF!important;
+
 	width: 200px;
 
+	background: none; 
+
+	border: none;
 }
   /* Precisa ter outra classe pra dimensionar os buttons aí*/
 .opera-buttongeral:hover{
@@ -38,40 +48,388 @@
 	border-radius: 80px;
 	color: #FFF!important;
 }
+.opera-btn-saque{
+	width: 17.5%;
+	background-color:#3D5AFF;
+	color: #FCFC30!important;
+	border-radius: 10px;
+}
+/* ================ Imgs ============== */
+
+.opera-img_saque{
+
+	justify-items: space-between;
+
+	width: 183px;
+
+	height: 157px;
+
+	gap: 0px;
+
+	opacity: 0px;
+
+	border-color: #E3E7FF!important;
+
+	background-color: #E3E7FF!important;
+
+	margin-top:  -8.5%;
+}
+.opera-img_deposito{
+
+	width: 203px;
+
+	height: 185px;
+
+	gap: 0px;
+
+	opacity: 0px;
+
+
+	border-color: #E3E7FF!important;
+
+	background-color: #E3E7FF!important;
+
+	margin-top:  -15%;
+
+	margin-left: 30%;
+
+}
+.opera-img_transferencia{
+
+	width: 195px;
+
+	height: 187px;
+
+	gap: 0px;
+
+	opacity: 0px;
+	
+	background-color: #E3E7FF!important;
+
+	border-color: #E3E7FF!important;
+
+	margin-left: 30%;
+
+	margin-top:  -15%;
+}
+
+.opera-img_historico{
+
+	width: 185px;
+
+	height: 233px;
+
+	border-color: #E3E7FF!important;
+
+	background-color: #E3E7FF!important;
+
+	margin-top: -10%;
+
+	margin-left: 30%;
+}
 
 /* ===================== BODY ================== */
 
+.opera-text_saldo{
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+	color: #2e3192 !important;;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 34.05px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+
+.opera-item {
+	display: flex;
+	flex-direction: column; 
+	align-items: center; 
+	text-align: center; 
+	gap: px; 
+  }
+
+.opera-yellowline {
+	position: relative;
+	font-size: 24px; 
+	font-weight: bold;
+	color: #2e3192 !important;
+	display: inline-block;
+	margin-top: 5%;
+	margin-left: 20%;
+	/* Cria a linha amarela como um "sombra" atrás do texto */
+	box-shadow: 0px 10px 0px #FCFC30; /* Eleva a linha */
+  }
+
+.opera-div-icons{
+	display: flex;
+	justify-items: space-between;
+
+}
+
+
+
 .opera-container_main{
-	width: 40%;
-	background-color: #FCFC30;
+	margin-top: 3%;
+	width: 70%;
+	height: 50.5%;
+	background-color: #E3E7FF !important;
+	border-radius: 35px;
+	
+
 }
 
 .opera-coluna_um{
-	margin-left: 15%;
+	display: flex;
+
+	justify-items: space-between;
+	
+	height: 263px;
+
+
 }
 
-.opera-coluna_dois
-
 .opera-container_operacoes{
-	height: 800px;
+	height: 100%;
+	width: 100%;
+	
 }
 
 .opera-div_saudacao{
 	font-size: 2em;
+	
+}
+
+.opera-div_operacoes{
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	width: 100%; 
+	margin: 0 auto;
+	padding: 20px; 
+	gap: 90px; 
+	margin-left: -15%;
 }
 
 .opera-card_operacao_selecionada{
-	height: 600px;
+	width: 60%;
+	height: 450px;
+	border-radius: 50px;
+	flex-direction: column; /* Para organizar os elementos verticalmente */
+	align-items: center;    /* Centraliza horizontalmente */
+	justify-content: center;
 }
 
+.opera-title-operacao-selecionada{
+	text-align: center;
+	color: #2e3192 !important;
+	font-size: 24px;
+}
+
+.opera-textfield-saque{
+
+	justify-self: center;
+	width: 35%;
+}
+.opera-cardtext-saque{
+
+	text-align: center;
+	color: #2e3192 !important;
+	font-style: bold;
+
+}
+
+.opera-texto-desc-saque{
+	margin-top: 210px;
+	font-family: BancoDoBrasil Textos;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 27.24px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+	width: 72px;
+	height: 27px;
+	top: 589px;
+	left: 172px;
+	gap: 0px;
+	opacity: 0px;
+
+	margin-left: 27.5%;
+	margin-top: 100px;
+	height: 200px;
+	color:  #2E3192;
+
+}
+
+.opera-texto-desc-transf{
+	display: flex;
+	font-family: BancoDoBrasil Textos;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 27.24px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+
+	margin-left: 27.5%;
+	margin-top: 105px;
+	width: 106px;
+	height: 670px;
+	left: 500px;
+	gap: 0px;
+	opacity: 0px;
+	color:  #2E3192;
+}
+
+.opera-texto-desc-deposito{
+
+	width: 106px;
+	height: 27px;
+	top: 589px;
+	left: 500px;
+	gap: 0px;
+	opacity: 0px;
+
+	font-family: BancoDoBrasil Textos;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 30.4px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+	margin-left: 55%;
+	margin-top: 100px;
+	color: #2E3192 !important;
+}
+
+.opera-texto-desc-historico{
+
+	width: 185px;
+	height: 54px;
+	top: 582px;
+	left: 1138px;
+	gap: 0px;
+	opacity: 0px;
+
+	font-family: BancoDoBrasil Textos;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 27.24px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+	margin-left: 25%;
+	margin-top: 100px;
+	color: #2E3192 !important;
+}
 /* ================= FOOTER ================ */
 
-.opera-footer{
-	background-color: #FCFC30!important;
-}
+
+.opera-footer {
+	position: relative; 
+	bottom: 0; 
+	width: 100%; 
+	display: flex; 
+	flex-direction: column; 
+	margin-top: 50px; 
+  }
   
-.opera-texto_footer{
-	color: #465EFF;
-	font-weight: bold;
+  .opera-footer-amarelo {
+	background-color: #fcfc30; /* Cor de fundo amarela */
+	width: 105%; /* Largura total */
+	height: 50px; /* Altura da parte amarela */
+	display: flex; /* Usar flexbox para organização */
+	justify-content: space-between; /* Espaçamento entre os elementos */
+	align-items: center; /* Centralizar os itens verticalmente */
+	padding: 0 5%; /* Espaçamento interno */
+  }
+  .opera-footer-azul {
+	background-color: #465EFF!important;
+	width: 105%; 
+	height: 202px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	color: #fff; 
+  }
+  /* Estilo para o texto */
+  .opera-texto-footer-location {
+	color: #000; 
+	font-weight: bold; 
+	font-size: 14px; 
+	text-align: left; 
+	margin-left: 5%;
+  }
+
+  .opera-texto-footer-priv{
+	margin-left: 05%;
+	background: transparent;
+	margin-bottom: 22%;
+  }
+  .opera-texto-footer-help{
+	background: transparent;
+	margin-left: 05%;
+	margin-bottom: 22%;
+  }
+  .opera-footer-button-group {
+	display: flex;
+	height: 0;
+	align-items: center;
+  }
+  .opera-footer-column{
+	display: inline;
+	margin-right: 10%;
+  }
+  .opera-footer-column2{
+	display: inline;
+	margin-right: 10%;
+  }
+  .opera-footer-column3{
+      display: inline;
+	  margin-right: 10%;
+  }
+  .p-title-text{
+	font-size: 16px;
+	line-height: 18.16px;
+  }
+  .p-sub-text{
 	font-size: 20px;
-}
+	line-height: 23.2px;
+  }
+  
+  /* ================= SVG ================ */
+  .bb-icon-opera {
+	width: 50px; 
+	height: 50px;
+	margin-left: -12.5%;
+	margin-right: 7.5%;
+  } 
+
+  .opera-eye-footer{
+	margin-bottom: 20%;
+	margin-left: 250%;
+	width: 30px;
+	height: 30px;	
+  }
+
+  .opera-help-footer{
+	margin-bottom: 20%;
+	margin-left: 365%;
+    width: 30px; 
+	height: 30px;
+  }
+
+  .opera-cash.icon{
+	width: 19%;
+  }
+  .acess-icon-opera{
+      width: 108px;
+	  height: 45px;
+  }
