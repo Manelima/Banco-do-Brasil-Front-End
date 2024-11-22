@@ -152,7 +152,6 @@
                   </v-text-field>
                 </template>
 
-
                 <!-- ACIMA ESTÁ A ROTA DO 13º(FINALIZADA) -->
 
                 <!-- Resposta anterior(4): "Restituição do IRPF." -->
@@ -197,20 +196,60 @@
 
                 <!-- Resposta anterior(3): Crédito na hora com pagamento de parcelas mensais -->
                 <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'">
+                  <h3 class="line-h3_form">Escolha uma das seguintes opções</h3>
+                  <v-radio class="line-form_radio" label="Crédito Salário para quem recebe o salário no BB e tem conta corrente ativa(possui melhores taxas e prazos)" value="credito_salario"></v-radio>
+                  <v-radio class="line-form_radio" label="Crédito Benefício para aposentados ou pensionistas do INSS que recebem o benefício na conta corrente do BB(com taxas de juros atraticas)" value="credito_beneficio"></v-radio>
+                  <v-radio class="line-form_radio" label="Empréstimo Automático, opção ideal para quem precisa de dinheiro para emergências, colocar as contas em dia ou usar como quiser" value="emprestimo_automatico"></v-radio>
+                </template>
+
+                <!-- Resposta anterior(4): Crédito Salário para quem recebe o salário no bb... -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'credito_salario'">
                   <h3 class="line-h3_form">De quanto você precisa?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="number">
-                    <!-- definir :min e :max desse, pois tinha antes, ao que parece. -->
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+                    <!-- definir :min e :max desse -->
                   </v-text-field>
                 </template>
 
-                <!-- Resposta anterior(4): Input do valor de "crédito na hora com pagamento de parcelas mensais" -->
-                <template v-if="perguntaAtual === 5 && rotaPerguntas === '/perguntas/credito_hora'">
+                <!-- Resposta anterior(5): Input do valor do crédito salário -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/credito_salario'">
                   <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
-                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number"
-                    min="1" step="1"></v-text-field>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number"
+                    min="1" max="96" step="1"></v-text-field>
                 </template>
 
-                <!-- ACIMA ESTÁ A ROTA DO CREDITO_HORA(FINALIZADA) -->
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_SALARIO(FINALIZADA) -->
+
+                <!-- Resposta anterior(4): Crédito Benefício para aposentados ou pensionistas... -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'credito_beneficio'">
+                  <h3 class="line-h3_form">Qual o valor do benefício?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+                    <!-- definir :min e :max desse -->
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(5): Input do valor do benefício -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/credito_beneficio'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" max="72" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO CREDITO_BENEFICIO(FINALIZADA) -->
+
+                <!-- Resposta anterior(4): Empréstimo Automático, opção ideal para quem... -->
+                <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'emprestimo_automatico'">
+                  <h3 class="line-h3_form">Qual o valor do empréstimo?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+                    <!-- definir :min e :max desse -->
+                  </v-text-field>
+                </template>
+
+                <!-- Resposta anterior(4): Input do valor do empréstimo -->
+                <template v-if="perguntaAtual === 6 && rotaPerguntas === '/perguntas/emprestimo_automatico'">
+                  <h3 class="line-h3_form">Em quantas parcelas você deseja pagar?</h3>
+                  <v-text-field v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1" max="72" step="1"></v-text-field>
+                </template>
+
+                <!-- ACIMA ESTÁ A ROTA DO EMPRESTIMO_AUTOMATICO(FINALIZADA) -->
 
                 <!-- Resposta anterior(2): "Sim, quero usar garantias e ter juros baixos" -->
                 <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'com_garantia'">
@@ -557,10 +596,16 @@ export default {
       } else if (this.respostasSelecionadas["pergunta_4"] === "FGTS") {
         this.rotaPerguntas = "/perguntas/FGTS";
         this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_hora') {
-        this.rotaPerguntas = "/perguntas/credito_hora";
-        this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia') {
+      } else if(this.respostasSelecionadas['pergunta_4'] === 'credito_salario'){
+        this.rotaPerguntas = "/perguntas/credito_salario";
+        this.totalDePerguntas = 6;
+      }else if (this.respostasSelecionadas['pergunta_4'] === 'credito_beneficio'){
+        this.rotaPerguntas = "/perguntas/credito_beneficio";
+        this.totalDePerguntas = 6;
+      }else if (this.respostasSelecionadas['pergunta_4'] === 'emprestimo_automatico'){
+        this.rotaPerguntas = "/perguntas/emprestimo_automatico";
+        this.totalDePerguntas = 6;
+      }else if (this.respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia') {
         this.rotaPerguntas = "/perguntas/imovel_como_garantia";
         this.totalDePerguntas = 6;
       } else if (this.respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia') {
