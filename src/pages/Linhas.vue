@@ -7,9 +7,8 @@
     </v-app-bar-title>
 
     <v-btn to="/" class="line-buttongeral mx-1">Home</v-btn>
-
     <v-btn to="/simul" class="line-buttongeral mx-1">Simulação</v-btn>
-    <v-btn to="/operacoes" class="line-buttongeral mx-1">Operacoes</v-btn>
+    <v-btn to="/operacoes" class="line-buttongeral mx-1">Operações</v-btn>
     <v-btn to="/blog" class="line-buttongeral mx-1">Blog</v-btn>
   </v-app-bar>
 
@@ -29,8 +28,7 @@
                 src="https://cdn.bb.com.br/wp-content/uploads/2023/05/Cards-Banner-Full-Credito-pra-voce-v2.png"
                 cover></v-img>
               <v-card-subtitle class="line-subtitle_card">Crédito para você</v-card-subtitle>
-              <v-card-text>Acesse opções de crédito pessoal com taxas de juros que cabem
-                no seu bolso.</v-card-text>
+              <v-card-text>Acesse opções de crédito pessoal com taxas de juros que cabem no seu bolso.</v-card-text>
             </v-card>
           </v-col>
           <v-col cols="4">
@@ -61,70 +59,138 @@
           </v-col>
           <v-col cols="6" class="line-lado_direito d-flex align-center justify-center">
             <v-form class="line-form_def_linhas">
-              <!-- Etapas das perguntas -->
-              <v-radio-group v-model="respostaSelecionada" class="line-pergunta_form">
-                <template v-if="perguntaAtual === 1">
-                  <h3>Qual é o seu principal objetivo ao buscar crédito?</h3>
-                  <v-radio label="Renovar um empréstimo já existente." value="renovar"></v-radio>
-                  <v-radio label="Obter crédito para uma compra ou necessidade específica." value="compra"></v-radio>
-                  <v-radio label="Antecipar um valor que receberei futuramente." value="antecipar"></v-radio>
-                  <v-radio label="Financiar um imóvel." value="imovel"></v-radio>
-                  <v-radio label="Financiar um veículo." value="veiculo"></v-radio>
-                  <v-radio label="Aumentar o limite do meu cartão de crédito." value="cartao"></v-radio>
+              <v-radio-group v-model="respostasSelecionadas[perguntaAtual]" class="line-pergunta_form">
+
+                <!-- Pergunta 1: O que você procura? -->
+                <template v-if="perguntaAtual === 0">
+                  <h3>O que você procura?</h3>
+                  <v-radio label="Dinheiro na conta para usar como eu quiser" value="dinheiro_conta"></v-radio>
+                  <v-radio label="Financiamento para realizar meus sonhos" value="financiamento_sonhos"></v-radio>
+                  <v-radio label="Quero renovar empréstimos que já possuo" value="renovar_emprestimo"></v-radio>
+                  <v-radio label="Fazer a portabilidade de um empréstimo de outro banco ou instituição financeira"
+                    value="portabilidade"></v-radio>
                 </template>
 
-                <template v-if="perguntaAtual === 2">
-                  <h3>Você já possui um empréstimo contratado que deseja renovar?</h3>
-                  <v-radio label="Sim" value="sim_renovar"></v-radio>
-                  <v-radio label="Não" value="nao_renovar"></v-radio>
+                <!-- Pergunta 2: Dinheiro na conta para usar como eu quiser -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'dinheiro_conta'">
+                  <h3>Deseja usar garantias?</h3>
+                  <v-radio label="Sim, quero usar garantias e juros baixos" value="com_garantia"></v-radio>
+                  <v-radio label="Não quero usar garantias" value="sem_garantia"></v-radio>
                 </template>
 
-                <template v-if="perguntaAtual === 3">
-                  <h3>Você prefere realizar o pagamento do crédito em:</h3>
-                  <v-radio label="Várias parcelas mensais." value="parcelas"></v-radio>
-                  <v-radio label="Um pagamento único na data de recebimento de um valor futuro."
-                    value="pagamento_unico"></v-radio>
+                <!-- Linhas recomendadas com garantias -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'com_garantia'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Empréstimo com Garantia de Imóvel</li>
+                      <li>Empréstimo com Garantia de Veículo</li>
+                      <li>Empréstimo com Garantia de Investimentos</li>
+                    </ul>
+                  </v-alert>
                 </template>
 
-                <template v-if="perguntaAtual === 4">
-                  <h3>Você recebe seu salário ou benefícios de forma consignada (desconto direto na folha de pagamento)?
-                  </h3>
-                  <v-radio label="Sim, sou funcionário público." value="publico"></v-radio>
-                  <v-radio label="Sim, trabalho em empresa privada." value="privado"></v-radio>
-                  <v-radio label="Não" value="nao_consignado"></v-radio>
+                <!-- Pergunta 3: Sem garantias -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'sem_garantia'">
+                  <h3>O que você prefere?</h3>
+                  <v-radio label="Antecipar valores sem precisar pagar parcelas mensais" value="antecipacao"></v-radio>
+                  <v-radio label="Crédito na hora com pagamento de parcelas mensais" value="credhora"></v-radio>
                 </template>
 
-                <template v-if="perguntaAtual === 5">
-                  <h3>Qual tipo de bem ou serviço você deseja financiar?</h3>
-                  <v-radio label="Imóvel" value="financiar_imovel"></v-radio>
-                  <v-radio label="Veículo" value="financiar_veiculo"></v-radio>
-                  <v-radio label="Bens e serviços (educação, reforma, viagens, etc.)" value="bens_servicos"></v-radio>
-                  <v-radio label="Energias renováveis ou mobilidade sustentável" value="sustentavel"></v-radio>
-                  <v-radio label="Equipamentos de acessibilidade" value="acessibilidade"></v-radio>
+                <!-- Linhas recomendadas: Antecipação -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas[3] === 'antecipacao'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Antecipar 13º</li>
+                      <li>Restituição do IRPF</li>
+                      <li>Saque aniversário do FGTS</li>
+                    </ul>
+                  </v-alert>
                 </template>
 
-                <template v-if="perguntaAtual === 6">
-                  <h3>Você precisa de um crédito com garantia?</h3>
-                  <v-radio label="Sim, posso oferecer um bem como garantia." value="sim_garantia"></v-radio>
-                  <v-radio label="Não, prefiro um crédito sem garantia." value="nao_garantia"></v-radio>
+                <!-- Linhas recomendadas: Crédito na hora -->
+                <template v-if="perguntaAtual === 3 && respostasSelecionadas[3] === 'credhora'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Empréstimo Consignado</li>
+                      <li>Empréstimo Automático</li>
+                      <li>Crédito Benefício</li>
+                      <li>Crédito Salário</li>
+                    </ul>
+                  </v-alert>
                 </template>
 
-                <template v-if="perguntaAtual === 7">
-                  <h3>Você gostaria de antecipar um valor específico que irá receber futuramente?</h3>
-                  <v-radio label="Sim, 13º salário." value="decimo_terceiro"></v-radio>
-                  <v-radio label="Sim, restituição do imposto de renda (IRPF)." value="irpf"></v-radio>
-                  <v-radio label="Sim, saque-aniversário do FGTS." value="fgts"></v-radio>
-                  <v-radio label="Não" value="nao_antecipar"></v-radio>
+                <!-- Financiamento para realizar meus sonhos -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'financiamento_sonhos'">
+                  <h3>Seja mais específico:</h3>
+                  <v-radio label="Eu quero os clássicos: imobiliário e veículos" value="classicos"></v-radio>
+                  <v-radio label="Procuro algo diferenciado que só o BB possui" value="diferenciado"></v-radio>
+                  <v-radio label="Busco algo voltado para o agronegócio" value="agronegocio"></v-radio>
                 </template>
 
-                <template v-if="perguntaAtual === 8">
-                  <h3>Você está pensando em transferir (portar) um empréstimo de outro banco para o nosso?</h3>
-                  <v-radio label="Sim, estou interessado em portar meu empréstimo." value="portabilidade"></v-radio>
-                  <v-radio label="Não, estou buscando um novo crédito." value="novo_credito"></v-radio>
+                <!-- Linhas recomendadas: Clássicos -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'classicos'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Financiamento Imobiliário</li>
+                      <li>Financiamento de Veículos</li>
+                      <li>Financiamento de Motos</li>
+                    </ul>
+                  </v-alert>
                 </template>
+
+                <!-- Linhas recomendadas: Diferenciado -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'diferenciado'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Crédito Mobilidade</li>
+                      <li>Crédito Realiza</li>
+                      <li>Crédito Energia Renovável</li>
+                      <li>Bens e Serviços para PCDs</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Linhas recomendadas: Agronegócio -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'agronegocio'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Pronaf Grupo A/C</li>
+                      <li>Pronaf Agricultura Familiar</li>
+                      <li>Crédito Rural Pronamp Custeio</li>
+                      <li>Custeio Agropecuário</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Renovação de Empréstimos -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'renovar_emprestimo'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Renovação de Empréstimos</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Portabilidade -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'portabilidade'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Portabilidade de Crédito</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
               </v-radio-group>
 
-              <!-- Botões para navegação -->
+              <!-- Botões de navegação -->
               <v-row>
                 <v-col cols="6">
                   <v-btn class="line-buttongeral" :disabled="perguntaAtual === 1"
@@ -140,7 +206,11 @@
           </v-col>
         </v-row>
 
-        <!-- Exibir as opções de crédito recomendadas (MERAMENTE ILUSTRATIVA!!!)-->
+        <v-alert type="success" v-if="mostrarResultados">
+          Suas respostas foram enviadas! Confira abaixo as linhas de crédito recomendadas para você:
+        </v-alert>
+
+        <!-- Exibir as opções de crédito recomendadas -->
         <v-container v-if="mostrarResultados" class="line-container_resultados">
           <h3>Linhas de Crédito Recomendadas:</h3>
           <v-list>
@@ -152,75 +222,93 @@
       </v-container>
     </v-container>
   </v-main>
-
-  <v-footer app class=" line-footer">
-    <v-col class="text-center line-texto_footer">© 2024 - Tropa do BB</v-col>
-  </v-footer>
 </template>
-
 <script>
-
 import '@/styles/line.css';
 
 export default {
   data() {
     return {
-      perguntaAtual: 1,
-      totalDePerguntas: 8,
-      respostaSelecionada: null,
-      respostas: [],
+      perguntaAtual: 0,
+      totalDePerguntas: 3,
+      respostasSelecionadas: [],
       mostrarResultados: false,
       linhasRecomendadas: []
     };
   },
   methods: {
     proximaPergunta() {
-      if (this.respostaSelecionada) {
-        this.respostas.push(this.respostaSelecionada);
-        this.respostaSelecionada = null;
-        if (this.perguntaAtual < this.totalDePerguntas) {
-          this.perguntaAtual++;
-        }
+      if (this.perguntaAtual < this.totalDePerguntas) {
+        this.perguntaAtual++;
       }
     },
     perguntaAnterior() {
       if (this.perguntaAtual > 1) {
         this.perguntaAtual--;
-        this.respostas.pop();
       }
     },
     enviarResposta() {
-      // Coleta todas as respostas e realiza a lógica para sugerir linhas de crédito
-      this.respostas.push(this.respostaSelecionada);
-
-      this.linhasRecomendadas = this.getlinhasRecomendadas();
       this.mostrarResultados = true;
+      this.linhasRecomendadas = this.getLinhasRecomendadas();
     },
-    getlinhasRecomendadas() {
-      // Lógica simples de exemplo, ajustada com base nas respostas
-      let linhas = [];
+    getLinhasRecomendadas() {
+      // Implementar lógica de recomendação de linhas de crédito com base nas respostas selecionadas
+      // Aqui você pode adicionar as condições de verificação de respostas para determinar as linhas recomendadas
+      let recomendacoes = [];
 
-      if (this.respostas.includes("renovar")) {
-        linhas.push("Renovação de Empréstimos");
-      }
-      if (this.respostas.includes("compra")) {
-        linhas.push("Crédito Novo (CDC)");
-      }
-      if (this.respostas.includes("antecipar")) {
-        linhas.push("Antecipação de Crédito (13º salário, IRPF, FGTS)");
-      }
-      if (this.respostas.includes("imovel")) {
-        linhas.push("Financiamento de Imóveis");
-      }
-      if (this.respostas.includes("veiculo")) {
-        linhas.push("Financiamento de Veículos");
-      }
-      if (this.respostas.includes("portabilidade")) {
-        linhas.push("Portabilidade de Crédito");
+      if (this.respostasSelecionadas[0] === 'dinheiro_conta') {
+        if (this.respostasSelecionadas[1] === 'com_garantia') {
+          recomendacoes = [
+            'Empréstimo com Garantia de Imóvel',
+            'Empréstimo com Garantia de Veículo',
+            'Empréstimo com Garantia de Investimentos'
+          ];
+        } else if (this.respostasSelecionadas[1] === 'sem_garantia') {
+          if (this.respostasSelecionadas[2] === 'antecipacao') {
+            recomendacoes = [
+              'Antecipar 13º',
+              'Restituição do IRPF',
+              'Saque aniversário do FGTS'
+            ];
+          } else if (this.respostasSelecionadas[2] === 'credhora') {
+            recomendacoes = [
+              'Empréstimo Consignado',
+              'Empréstimo Automático',
+              'Crédito Benefício',
+              'Crédito Salário'
+            ];
+          }
+        }
+      } else if (this.respostasSelecionadas[0] === 'financiamento_sonhos') {
+        if (this.respostasSelecionadas[1] === 'classicos') {
+          recomendacoes = [
+            'Financiamento Imobiliário',
+            'Financiamento de Veículos',
+            'Financiamento de Motos'
+          ];
+        } else if (this.respostasSelecionadas[1] === 'diferenciado') {
+          recomendacoes = [
+            'Crédito Mobilidade',
+            'Crédito Realiza',
+            'Crédito Energia Renovável',
+            'Bens e Serviços para PCDs'
+          ];
+        } else if (this.respostasSelecionadas[1] === 'agronegocio') {
+          recomendacoes = [
+            'Pronaf Grupo A/C',
+            'Pronaf Agricultura Familiar',
+            'Crédito Rural Pronamp Custeio',
+            'Custeio Agropecuário'
+          ];
+        }
+      } else if (this.respostasSelecionadas[0] === 'renovar_emprestimo') {
+        recomendacoes = ['Renovação de Empréstimos'];
+      } else if (this.respostasSelecionadas[0] === 'portabilidade') {
+        recomendacoes = ['Portabilidade de Crédito'];
       }
 
-      return linhas;
+      return recomendacoes;
     }
-  },
+  }
 };
 </script>

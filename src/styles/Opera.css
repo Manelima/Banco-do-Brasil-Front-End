@@ -25,16 +25,17 @@
 
 .opera-buttongeral{
 	color: #465EFF!important;
+	border-radius: 80px;
 }
 .opera-buttontipos{
 	color: #465EFF!important;
 	width: 200px;
-	
 
 }
   /* Precisa ter outra classe pra dimensionar os buttons aí*/
 .opera-buttongeral:hover{
 	background-color: #465EFF;
+	border-radius: 80px;
 	color: #FFF!important;
 }
 

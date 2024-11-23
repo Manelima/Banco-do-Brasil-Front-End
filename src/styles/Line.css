@@ -25,11 +25,13 @@
 
 .line-buttongeral{
   color: #465EFF!important;
+  border-radius: 80px;
 }
 
 .line-buttongeral:hover{
   background-color: #465EFF;
   color: #FFF!important;
+  border-radius: 80px;
 }
 
 /* =================== BODY(CONTAINER 1) ================== */

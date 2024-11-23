@@ -24,10 +24,12 @@
 
 .home-buttongeral{
 	color: #465EFF!important;
+	border-radius: 80px;
 }
   
 .home-buttongeral:hover{
 	background-color: #465EFF;
+	border-radius: 80px;
 	color: #FFF!important;
 }
   
