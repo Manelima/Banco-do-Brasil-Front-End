@@ -891,6 +891,7 @@ export default {
       this.valorAplicadoPoupanca = this.valorAplicado;
       const taxaPoupanca = 0.0057; // 0.57% ao mês
 
+      let valorInicial = valorAplicado;
       for (let i = 0; i < meses; i++) {
         this.valorAplicadoPoupanca =
           this.valorAplicadoPoupanca * (1 + taxaPoupanca) + investimentoMensal;
