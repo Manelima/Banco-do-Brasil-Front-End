@@ -1,116 +1,64 @@
 <template>
-  <v-app-bar class="home-header">
-    
-    <v-img src="@/images/bb.png" class="home-logo"></v-img>
-    <div class="home-linha_preta_vertical"></div>
-
-    <v-app-bar-title class="home-titulo_nav_bar">
-      Banco do Brasil
-    </v-app-bar-title>
-
-    <v-btn to="/simul" class="home-buttongeral mx-1">Simular Investimentos</v-btn>
-    <v-btn to="/operacoes" class="home-buttongeral mx-1">Operações</v-btn>
-    <v-btn to="/linhas" class="home-buttongeral mx-1">Linhas de Crédito</v-btn>
-    <v-btn to="/blog" class="home-buttongeral mx-1">Blog</v-btn>
-    
-  </v-app-bar>
-
-
   <v-main>
-    <v-container>
+
+    <div class="header"></div>
+
+    <div class="background">
       <div class="container">
         
-      </div>
-      
-    </v-container>
-  </v-main>
-  
-    
-  <v-footer app class="home-footer">
-    
-    <div class="home-footer-azul">
-      <img src="@/assets/bb-yellow.png" alt="Logo Banco" class="bb-icon-home" />
-      <div class="home-footer-column"> 
-       
-        
-          <p class="p-title-text">Central de Relacionamento BB</p>
-        <strong>  
-          <p class="p-sub-text">4004 0001 / 0800 729 0001</p> 
-        </strong> 
-     
-        <br>
-       
-          <p class="p-title-text">Deficientes Auditivos/Fala</p> 
-        <strong> 
-          <p class="p-sub-text">0800 729 0088</p> 
-        </strong> 
-      </div>
+        <div class="secao1">
+          <div class="img-secao1">
+            <h3 class="titulo-secao1">Linhas de Crédito</h3>
+            <p class="texto-secao1">Quer saber qual o crédito ideal para você?
+              Simule e veja qual a linha feita pra você</p>
+              <br>
+          </div>
+        </div>
 
-      <div class="home-footer-column2">
-        
-          <p class="p-title-text">SAC</p>
-        <strong>
-          <p class="p-sub-text">0800 729 0722</p>
-        </strong>
-        <br>
-          <p class="p-title-text">WhatsApp</p>
+        <div class="secao2">
 
-        <strong>
-          <p class="p-sub-text">61 4004 0001</p>
-        </strong>
-       
-      </div>
-      <div class="home-footer-column3">
-        <p class="p-title-text">Ouvidoria BB</p>
-        <strong>
-          <p class="p-sub-text">0800 729 5678</p>
-        </strong>
+          <div class="img-secao2-1">
+            <h3 class="titulo-secao2-1">Simular Investimentos</h3>
+            <p class="texto-secao2-1">Quer saber onde investir? Simule e veja 
+              quanto seu dinheiro pode render no BB</p>
+              <br>
+          </div>
+
+          <div class="img-secao2-2">
+            <h3 class="titulo-secao2-2">Blog</h3>
+            <p class="texto-secao2-2">Dicas, sugestões, notícias, tudo que é importante
+              para você está aqui no nosso Blog</p>
+              <br>
+          </div>
+
+        </div>
         
-        <br>
-         <p class="p-title-text">Canal de Denúncias BB</p>
-          
-          <strong>
-            <p class="p-sub-text">0800 300 4455</p>
-          </strong>
+        <div class="secao3">
+          <div class="img-secao3">
+            <h3 class="titulo-secao1">Minhas Operações</h3>
+            <p class="texto-secao1">Faça suas operações com facilidade. Aqui no
+              BB, você pode fazer tudo com um clique</p>
+            <br>
+          </div>
+        </div>
 
       </div>
-     
-      <img class="acess-icon-home" src="@/assets/acess.png" alt="acess-icon">
-      
     </div>
-      <div class="home-footer-amarelo">
-        <h3 class="home-texto-footer-location">
-          © Banco do Brasil S/A - CNPJ 00.000.000/0001-91 SAUN QD 5 LT
-          <br>B, Asa Norte, Brasília-DF, Brasil - CEP 70040-911
-        </h3>
-      </div>
-
-     <div class="home-footer-links">
-        <div class="home-footer-button-group">
-          <img src="@/assets/eye-outline.svg" alt="Eye" class="home-eye-footer" />
-          <v-btn class="home-texto-footer-priv">Minha privacidade</v-btn>
-        </div>
-        <div class="home-footer-button-group">
-          <img src="@/assets/help-circle-outline.svg" alt="Help" class="home-help-footer" />
-          <v-btn to="/blog" class="home-texto-footer-help">Ajuda</v-btn>
-        </div>
-     </div>
-
-     
-  </v-footer>
   
- 
+  
+    <div class="footer"></div>
+
+  </v-main>
 </template>
   
-  <script>
-  import "@/styles/Home.css";
+<script>
+  import "@/styles/home.css";
+  import "@/styles/reset.css";
 
   export default {
     name: 'Home',
   }
-  </script>
+</script>
   
-  <style>
- 
-  </style>
+
   
