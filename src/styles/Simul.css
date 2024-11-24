@@ -1,7 +1,7 @@
 .simul-container-main{
   margin-top: 50px;
-  background-color:#465EFF;
-  background-image: url('@/images/imagem_investimentos.jpg');
+  background-color:#FFF;
+  background-image: url('@/images/Invest_women.png');
   background-size: 100%;
 }
 /* ================= HEADER ================= */
@@ -26,6 +26,59 @@
   font-weight: bold;
 }
 
+.text_headertext{
+  color: #fcfc30;
+  font-size: 40px;
+  font-weight: bold;
+  width: 521px;
+  height: 85px;
+  top: 324px;
+  margin-bottom: 50px;
+  margin-left: 15%;  
+}
+.text_homesim{
+  color: #fcfc30 !important;
+  margin-left: 17.5%;
+  margin-top: -5%;
+  width: 512px;
+  font-size: medium;
+  margin-bottom: 0.5%;
+}
+.text_homesim-img{
+  display: inline-flex;
+  margin-left: 15%;
+  margin-top: 8%;
+  margin-bottom: 3%;
+}
+.text_descyellow{
+  color:#FCFC30;
+  margin-left: 15%;
+  font-size: 20px;
+  height: 10px;
+  margin-top: 1%;
+}
+.text_descwhite{
+  display: inline-flex;
+  color: #FFF;
+  margin-left: 15%;
+  margin-top: 6%;
+
+}
+.text_descwhite2-img{
+  display: flex;
+  margin-left: 10px;
+  color: #FFF;
+  margin-left: 43.5%;
+  margin-top: 7%;
+}
+
+.text_descwhite3{
+  display: flex;
+  color: #FFF;
+  margin-left: 45%;
+  font-size: 17px;
+  margin-top: -01.15% ;
+}
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
@@ -38,11 +91,34 @@
   color: #FFF!important;
 }
 
-/* =================== BODY ================== */
-.simul-card_info_topo{
-  margin-top: 515px!important;
+.simul-buttonrun{
+  background-color: #FCFC30!important;
+  border-radius: 10px;
+  color: #465EFF!important;
+}
+.simul-buttonrun:hover{
+  background-color: #FCFC30!important;
+  border-radius: 10px;
+  color: #465EFF!important;
 }
 
+/* =================== BODY ================== */
+
+.simul-card_info_topo{
+  margin-top: 50px!important;
+  font-size: 40px;
+  color: #465EFF;
+}
+
+.simul-info_preench{
+  color: #000;
+  font-size: 20px;
+  font-style: bold;
+  height: 92px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  
+}
 .simul-card{
   background-color: #FFF!important;
 }
@@ -72,6 +148,7 @@
 
 .simul-titulo_card{
   font-weight: 400!important;
+  color: #465EFF!important;
 }
 
 .simul-subtitulo_card{
@@ -98,29 +175,126 @@
 
 /* ================= FOOTER ================ */
 
-.simul-footer{
-  background-color: #FCFC30!important;
-}
 
-.simul-texto_footer{
-  color: #465EFF;
-  font-weight: bold;
-  font-size: 20px;
+.simul-footer {
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  margin-top: 50px; 
 }
+  
+  .simul-footer-amarelo {
+	background-color: #fcfc30;
+	width: 105%; 
+  min-height: 0px;
+	height: 56px; 
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	padding: 0 5%; 
+  box-sizing: border-box;
+  }
+  .simul-footer-azul {
+	background-color: #465EFF!important;
+	width: 105%; 
+	height: 202px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	color: #fff; 
+  box-sizing: border-box;
+  }
 
-.simul-container_grafico{
-  background-color: #FFF!important;
-  height: 475px;
-  justify-self: right;
-}
+  .simul-texto-footer-location {
+	color: #000; 
+	font-weight: bold; 
+	font-size: 14px; 
+	text-align: left; 
+	margin-left: 5%;
+  }
 
-.simul-coluna_grafico{
-  background-color: #FFF!important;
-  height: 505px;
-  margin-top: 15px;
-}
+  .simul-texto-footer-priv{
+	margin-left: 05%;
+	background: transparent;
+	margin-bottom: 22%;
+  }
+  .simul-texto-footer-help{
+	background: transparent;
+	margin-left: 05%;
+	margin-bottom: 22%;
+  }
+  .simul-footer-button-group {
+	display: flex;
+	height: 0;
+	align-items: center;
+  }
+  .simul-footer-column{
+	display: inline;
+	margin-right: 10%;
+  }
+  .simul-footer-column2{
+	display: inline;
+	margin-right: 10%;
+  }
+  .simul-footer-column3{
+      display: inline;
+	  margin-right: 10%;
+  }
+  .p-title-text{
+	font-size: 16px;
+	line-height: 18.16px;
+  }
+  .p-sub-text{
+	font-size: 20px;
+	line-height: 23.2px;
+  }
+  
+  /* ================= SVG ================ */
+  .bb-icon-simul {
+    width: 50px; 
+    height: 50px;
+    margin-left: -12.5%;
+    margin-right: 7.5%;
+  } 
 
+  .simul-eye-footer{
+    margin-bottom: 20%;
+    margin-left: 250%;
+    width: 30px;
+    height: 30px;	
+  }
 
-.simul-card_selic{
-  height: 235.56px!important;
-}
+  .simul-help-footer{
+    margin-bottom: 20%;
+    margin-left: 365%;
+    width: 30px; 
+    height: 30px;
+  }
+
+  .acess-icon-simul{
+    width: 108px;
+	  height: 45px;
+  }
+ 
+  html, body {
+    height: 100%; /* Garante altura total */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Controle de espaçamento */
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Para ocupar toda a altura da página */
+  }
+  
+  main {
+    flex: 1; /* Ocupa o espaço restante, empurrando o footer */
+  }
+  
+  .simul-footer {
+    flex-shrink: 0; /* Impede que o footer encolha */
+  }
