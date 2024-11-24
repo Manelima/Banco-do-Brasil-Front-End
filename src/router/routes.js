@@ -7,14 +7,15 @@ import Simul from '@/pages/Simul.vue';
 import Operacoes from '@/pages/Opera.vue';
 import Blog from '@/pages/Blog.vue';
  */
+
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'Login',
     component: Login,
   }
 /*   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home,
   },

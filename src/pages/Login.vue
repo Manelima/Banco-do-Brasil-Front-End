@@ -1,73 +1,110 @@
 <template>
     <v-main>
-        <v-container>
-            <v-row class="login-conjunto_form_imagem">
-                <v-col class="login-lado_form" cols="5">
-                    <v-row class="login-elementos_top_form">
-                        <v-img src="../images/bb2.png" width="55" max-width="55" height="55"
-                            style="margin-inline: 0;"></v-img>
-                        <div class="login-div_line_form"></div>
-                        <h2 class="login-titulo_superior_form">Autoatendimento</h2>
-                    </v-row>
-                    <v-col class="login-col_titulos_form">
-                        <h2 class="login-titulo_2_form">Acesse sua conta</h2>
-                        <h2 class="login-titulo_3_form">Banco do Brasil</h2>
-                    </v-col>
-                    <v-col class="login-col_form">
-                        <v-form class="login-form" height="500">
-                            <h2 class="login-titulo_interno_form">Agência e Conta</h2>
-                            <v-row class="login-row_interno_1_form">
-                                <v-col cols="6">
-                                    <v-text-field v-model.number="agencia" color="#FFF" label="Agência" variant="outlined"
-                                        type="number" class="login-campo_1_form"></v-text-field>
-                                </v-col>
-                                <v-col cols="6">
-                                    <v-text-field v-model.number="conta"
-                                    color="#FFF" label="Conta" variant="outlined" type="number"
-                                        class="login-campo_2_form"></v-text-field>
-                                </v-col>
-                            </v-row>
-                            <v-row class="login-row_interno_2_form">
-                                <v-col cols="12">
-                                    <v-text-field v-model="senha"
-                                    color="#FFF" label="Senha" variant="outlined" type="password"
-                                        class="login-campo_3_form"></v-text-field>
-                                </v-col>
-                            </v-row>
-                            <v-row class="login-row_interno_3_form">
-                                <v-btn @click="entrar" class="login-btn_entrar_form" color="#FCFC30">Entrar</v-btn>
-                            </v-row>
-                            <v-row class="login-row_interno_4_form d-flex align-center justify-center">
-                                <router-link to="/esqueci-minha-senha" class="login-link_esqueci_senha_form my-5">Esqueci minha senha</router-link>
-                            </v-row>
-                        </v-form>
-                    </v-col>
-                </v-col>
-                <v-col class="login-lado_img_form" cols="6">
-                    <v-img class="login-img_form" src="../images/laptop_woman_login.png"></v-img>
-                </v-col>
-            </v-row>
-        </v-container>
+        <div class="lados-container">
+            
+            <div class="lado-esquerdo">
+                <div class="background">
+                    <br>
+                    <div class="header-container">
+                        <img class = "header-logo" src="@/images/bb2.png">
+                        <div class = "header-line"></div>
+                        <h1 class = "header-texto">Autoatendimento</h1>
+                    </div>
+                    
+                    <div class="apresentacao-container">
+                        <h2 class="apresentacao-texto1">Acesse sua conta</h2>
+                        <h2 class="apresentacao-texto2">Banco do Brasil</h2>
+                    </div>
+        
+                    <div class="formulario-container">
+                        
+                        <h2 class="formulario-texto">Agência e Conta</h2>
+                        
+                        <form class="login-form" @submit.prevent="login">
+                            <div class="input-row">
+                                <div class="input-group row">
+                                    <label for="agencia">Agência</label>
+                                    <input type="text" id="agencia" name="agencia" v-model="agencia" required>
+                                </div>
+                                <div class="input-group row">
+                                    <label for="conta">Conta</label>
+                                    <input type="text" id="conta" name="conta" v-model="conta" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width">
+                                <label for="senha">Senha</label>
+                                <input type="password" id="senha" name="senha" v-model="senha" required>
+                            </div>
+
+                            <div class="btn-link-container">
+                                <button type="submit" class="btn-entrar">ENTRAR</button>
+                                <a href="#" class="forgot-password">Esqueci minha senha</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            
+            </div>                
+    
+            <div class="lado-direito">
+                <img class="lado-direito-img" src="@/images/laptop_woman_login.png">
+            </div>
+        </div>
+
+
+
     </v-main>
 </template>
 
 <script>
-
 import "@/styles/login.css";
+import "@/styles/reset.css";
+import axios from 'axios';
 
 export default {
     data() {
         return {
-            agencia: 0,
-            conta: 0,
-            senha: '',
-        }
+            agencia: '',
+            conta: '',
+            senha: ''
+        };
     },
     methods: {
-    },
-    created() {
+        async login() {
+            try {
+                const api = axios.create({
+                    baseURL: 'https://sought-hare-ultimate.ngrok-free.app',
+                    timeout: 5000,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
 
+                const response = await api.post('/cliente/login', { 
+                    agencia: this.agencia, 
+                    conta: this.conta, 
+                    senha: this.senha 
+                });
+
+                if (response.data) {
+                    console.log("Login bem-sucedido:", response.data);
+                    localStorage.setItem('token', JSON.stringify(response.data.token));
+                    this.$router.push('/home');
+                }
+    
+            } catch (error) {
+                const errorMessage = error.response?.data?.message || 'Login ou senha inválidos';
+                console.error("Erro ao logar:", error);
+
+                this.agencia = '';
+                this.conta = '';
+                this.senha = '';
+
+                this.mostrarMsg = true;
+            }
+        }
     }
-}
-
+};
 </script>
