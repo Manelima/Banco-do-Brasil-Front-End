@@ -1,435 +1,468 @@
 /* ============= HEADER ============ */
 
-.opera-header{
-	background-color: #FCFC30!important;
-}
-  
-.opera-logo{
-  max-width: 68px!important;
+.opera-header {
+  background-color: #fcfc30 !important;
 }
 
-.opera-linha_preta_vertical{
+.opera-logo {
+  max-width: 68px !important;
+}
+
+.opera-linha_preta_vertical {
   height: 60%;
   background-color: #000;
   width: 1px;
 }
-  
+
 .opera-titulo_nav_bar {
-	color: #465EFF;
-	font-size: 24px;
-	margin-left: 10px;
-	font-weight: bold;
+  color: #465eff;
+  font-size: 24px;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 /* ================ BOTOES ============== */
 
-.opera-buttongeral{
-	color: #465EFF!important;
-	border-radius: 80px;
+.opera-buttongeral {
+  color: #465eff !important;
+  border-radius: 80px;
 }
 
-.opera-buttontipos{
+.opera-button_tipos {
+  /* margin-left: 80px; */
 
-	margin-left: 80px;
+  /* align-items: right ; */
 
-	align-items: right ;
+  color: #465eff !important;
 
-	color: #465EFF!important;
+  /* width: 200px;
 
-	width: 200px;
+	height: 200px; */
 
-	background: none; 
+  background: none;
 
-	border: none;
+  border: none;
 }
-  /* Precisa ter outra classe pra dimensionar os buttons aí*/
-.opera-buttongeral:hover{
-	background-color: #465EFF;
-	border-radius: 80px;
-	color: #FFF!important;
+
+/* Precisa ter outra classe pra dimensionar os buttons aí*/
+.opera-buttongeral:hover {
+  background-color: #465eff;
+  border-radius: 80px;
+  color: #fff !important;
 }
-.opera-btn-saque{
-	width: 17.5%;
-	background-color:#3D5AFF;
-	color: #FCFC30!important;
-	border-radius: 10px;
+.opera-btn-confirm {
+  width: 100%;
+  bottom: 80%;
+  background-color: #3d5aff;
+  color: #fcfc30 !important;
+  font-size: 100%;
+  text-align: center;
+  border-radius: 10px;
 }
 /* ================ Imgs ============== */
 
-.opera-img_saque{
+.opera-img_saque {
+  justify-items: space-between;
 
-	justify-items: space-between;
+  width: 183px;
 
-	width: 183px;
+  height: 157px;
 
-	height: 157px;
+  gap: 0px;
 
-	gap: 0px;
+  opacity: 0px;
 
-	opacity: 0px;
+  border-color: #e3e7ff !important;
 
-	border-color: #E3E7FF!important;
+  background-color: #e3e7ff !important;
 
-	background-color: #E3E7FF!important;
-
-	margin-top:  -8.5%;
+  margin-top: -8.5%;
 }
-.opera-img_deposito{
+.opera-img_deposito {
+  width: 203px;
 
-	width: 203px;
-
-	height: 185px;
-
-	gap: 0px;
-
-	opacity: 0px;
-
-
-	border-color: #E3E7FF!important;
-
-	background-color: #E3E7FF!important;
-
-	margin-top:  -15%;
-
-	margin-left: 30%;
-
+  height: 185px;
 }
-.opera-img_transferencia{
+.opera-img_transferencia {
+  width: 195px;
 
-	width: 195px;
-
-	height: 187px;
-
-	gap: 0px;
-
-	opacity: 0px;
-	
-	background-color: #E3E7FF!important;
-
-	border-color: #E3E7FF!important;
-
-	margin-left: 30%;
-
-	margin-top:  -15%;
+  height: 187px;
 }
 
-.opera-img_historico{
+.opera-img_historico {
+  width: 185px;
 
-	width: 185px;
+  height: 233px;
 
-	height: 233px;
+  border-color: #e3e7ff !important;
 
-	border-color: #E3E7FF!important;
+  background-color: #e3e7ff !important;
 
-	background-color: #E3E7FF!important;
+  margin-top: -10%;
 
-	margin-top: -10%;
-
-	margin-left: 30%;
+  margin-left: 30%;
 }
 
 /* ===================== BODY ================== */
 
-.opera-text_saldo{
-	display: flex;
-	margin-top: 50px;
-	justify-content: center;
-	color: #2e3192 !important;;
-	font-size: 30px;
-	font-weight: 700;
-	line-height: 34.05px;
-	text-align: left;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
+.opera-text_saldo {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  color: #2e3192 !important;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34.05px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 .opera-item {
-	display: flex;
-	flex-direction: column; 
-	align-items: center; 
-	text-align: center; 
-	gap: px; 
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
 
 .opera-yellowline {
-	position: relative;
-	font-size: 24px; 
-	font-weight: bold;
-	color: #2e3192 !important;
-	display: inline-block;
-	margin-top: 5%;
-	margin-left: 20%;
-	/* Cria a linha amarela como um "sombra" atrás do texto */
-	box-shadow: 0px 10px 0px #FCFC30; /* Eleva a linha */
-  }
-
-.opera-div-icons{
-	display: flex;
-	justify-items: space-between;
-
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e3192 !important;
+  display: inline-block;
+  margin-top: 5%;
+  margin-left: 20%;
+  /* Cria a linha amarela como um "sombra" atrás do texto */
+  box-shadow: 0px 10px 0px #fcfc30; /* Eleva a linha */
 }
 
-
-
-.opera-container_main{
-	margin-top: 3%;
-	width: 70%;
-	height: 50.5%;
-	background-color: #E3E7FF !important;
-	border-radius: 35px;
-	
-
+.opera-div-icons {
+  display: flex;
+  justify-items: space-between;
 }
 
-.opera-coluna_um{
-	display: flex;
-
-	justify-items: space-between;
-	
-	height: 263px;
-
-
+.opera-container_main {
+  margin-top: 3%;
+  width: 70%;
+  height: 50.5%;
+  background-color: #e3e7ff !important;
+  border-radius: 35px;
 }
 
-.opera-container_operacoes{
-	height: 100%;
-	width: 100%;
-	
+.opera-coluna_um {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 263px;
 }
 
-.opera-div_saudacao{
-	font-size: 2em;
-	
+.opera-container_operacoes {
+  height: 100%;
+  width: 100%;
 }
 
-.opera-div_operacoes{
-	display: flex; 
-	justify-content: space-between; 
-	align-items: center; 
-	width: 100%; 
-	margin: 0 auto;
-	padding: 20px; 
-	gap: 90px; 
-	margin-left: -15%;
+.opera-div_saudacao {
+  font-size: 2em;
 }
 
-.opera-card_operacao_selecionada{
-	width: 60%;
-	height: 450px;
-	border-radius: 50px;
-	flex-direction: column; /* Para organizar os elementos verticalmente */
-	align-items: center;    /* Centraliza horizontalmente */
-	justify-content: center;
+.opera-div_operacoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 90px;
+  margin-left: -15%;
 }
 
-.opera-title-operacao-selecionada{
-	text-align: center;
-	color: #2e3192 !important;
-	font-size: 24px;
+.opera-card_operacao_selecionada {
+  width: 60%;
+  margin-inline: 20% !important;
+  height: 500px; /* antes estava em 450. */
+  border-radius: 50px;
+  flex-direction: column; /* Para organizar os elementos verticalmente */
+  display: flex;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center;
+}
+.opera-card_operacao_selecionada_hist {
+  width: 60%;
+  margin-inline: 20% !important;
+  height: 500px; /* antes estava em 450. */
+  border-radius: 50px;
+  flex-direction: column; /* Para organizar os elementos verticalmente */
+  display: flex;
+  align-items: left; /* Centraliza horizontalmente */
+  justify-content: center;
 }
 
-.opera-textfield-saque{
-
-	justify-self: center;
-	width: 35%;
-}
-.opera-cardtext-saque{
-
-	text-align: center;
-	color: #2e3192 !important;
-	font-style: bold;
-
+.opera-title-operacao-selecionada-saque {
+  margin-top: -10%;
+  margin-left: 10%;
+  text-align: center;
+  color: #2e3192 !important;
+  font-size: 34px;
 }
 
-.opera-texto-desc-saque{
-	margin-top: 210px;
-	font-family: BancoDoBrasil Textos;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 27.24px;
-	text-align: left;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
+.opera-title-operacao-selecionada-deposito {
+  margin-top: -10%;
+  margin-left: 15%;
+  text-align: center;
+  color: #2e3192 !important;
+  font-size: 34px;
+}
+.opera-title-operacao-selecionada-transferencia {
+  display: block;
+  margin-top: -10%;
+  margin-left: 22%;
+  text-align: center;
+  color: #2e3192 !important;
+  font-size: 34px;
+}
 
-	width: 72px;
-	height: 27px;
-	top: 589px;
+.opera-title-operacao-selecionada-hist {
+  margin-top: -8%;
+  margin-left: 15%;
+  text-align: left;
+  color: #2e3192 !important;
+  font-size: 28px;
+}
+
+.opera-textfield {
+  margin-top: -15%;
+  justify-self: center;
+  width: 100%;
+  border-bottom: #2e3192;
+}
+.opera-cardtext {
+  text-align: center;
+  color: #2e3192 !important;
+  font-style: bold;
+  font-size: 20px;
+}
+.opera-cardtext_saldos {
+  margin-top: -5%;
+  text-align: center;
+  color: #2e3192 !important;
+  font-size: 20px;
+}
+.opera-cardtext-saldos-hist {
+  text-align: left;
+  color: #2e3192 !important;
+  font-size: 16px;
+}
+.opera-cardtext-desac {
+  text-align: center;
+  color: #2e3192 !important;
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: -5%;
+}
+.opera-cardtext_qnt {
+  margin-top: -5%;
+  text-align: left;
+  color: #2e3192 !important;
+  font-size: 16px;
+}
+.opera-cardtext-contacorrente {
+  text-align: left;
+  color: #2e3192 !important;
+  font-size: 16px;
+}
+.opera-texto-desc-saque {
+  font-family: BancoDoBrasil Textos;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27.24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  width: 72px;
+  height: 27px;
+  /* 	top: 589px;
 	left: 172px;
 	gap: 0px;
-	opacity: 0px;
+	opacity: 0px; */
 
-	margin-left: 27.5%;
-	margin-top: 100px;
-	height: 200px;
-	color:  #2E3192;
-
+  color: #2e3192;
 }
-
-.opera-texto-desc-transf{
-	display: flex;
-	font-family: BancoDoBrasil Textos;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 27.24px;
-	text-align: left;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
-
-
-	margin-left: 27.5%;
-	margin-top: 105px;
-	width: 106px;
-	height: 670px;
+.opera-thead-trans {
+  margin-right: 20%;
+}
+.opera-texto-desc-transf {
+  /* 	display: flex; */
+  font-family: BancoDoBrasil Textos;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27.24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  /* 	
 	left: 500px;
 	gap: 0px;
-	opacity: 0px;
-	color:  #2E3192;
+	opacity: 0px; */
+  color: #2e3192;
 }
 
-.opera-texto-desc-deposito{
-
+.opera-texto-desc-deposito {
+  /* 
 	width: 106px;
 	height: 27px;
 	top: 589px;
 	left: 500px;
 	gap: 0px;
-	opacity: 0px;
+	opacity: 0px; */
 
-	font-family: BancoDoBrasil Textos;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 30.4px;
-	text-align: left;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
+  font-family: BancoDoBrasil Textos;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30.4px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 
-	margin-left: 55%;
-	margin-top: 100px;
-	color: #2E3192 !important;
+  color: #2e3192 !important;
 }
 
-.opera-texto-desc-historico{
-
-	width: 185px;
-	height: 54px;
-	top: 582px;
+.opera-form-textfield {
+  display: flex;
+  gap: 5%;
+}
+.opera-texto-desc-historico {
+  width: 185px;
+  height: 54px;
+  /* top: 582px;
 	left: 1138px;
 	gap: 0px;
-	opacity: 0px;
+	opacity: 0px; */
 
-	font-family: BancoDoBrasil Textos;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 27.24px;
-	text-align: center;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
+  font-family: BancoDoBrasil Textos;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27.24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 
-	margin-left: 25%;
-	margin-top: 100px;
-	color: #2E3192 !important;
+  color: #2e3192 !important;
 }
 /* ================= FOOTER ================ */
 
-
 .opera-footer {
-	position: relative; 
-	bottom: 0; 
-	width: 100%; 
-	display: flex; 
-	flex-direction: column; 
-	margin-top: 50px; 
-  }
-  
-  .opera-footer-amarelo {
-	background-color: #fcfc30; /* Cor de fundo amarela */
-	width: 105%; /* Largura total */
-	height: 50px; /* Altura da parte amarela */
-	display: flex; /* Usar flexbox para organização */
-	justify-content: space-between; /* Espaçamento entre os elementos */
-	align-items: center; /* Centralizar os itens verticalmente */
-	padding: 0 5%; /* Espaçamento interno */
-  }
-  .opera-footer-azul {
-	background-color: #465EFF!important;
-	width: 105%; 
-	height: 202px; 
-	display: flex; 
-	align-items: center; 
-	justify-content: center; 
-	color: #fff; 
-  }
-  /* Estilo para o texto */
-  .opera-texto-footer-location {
-	color: #000; 
-	font-weight: bold; 
-	font-size: 14px; 
-	text-align: left; 
-	margin-left: 5%;
-  }
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
 
-  .opera-texto-footer-priv{
-	margin-left: 05%;
-	background: transparent;
-	margin-bottom: 22%;
-  }
-  .opera-texto-footer-help{
-	background: transparent;
-	margin-left: 05%;
-	margin-bottom: 22%;
-  }
-  .opera-footer-button-group {
-	display: flex;
-	height: 0;
-	align-items: center;
-  }
-  .opera-footer-column{
-	display: inline;
-	margin-right: 10%;
-  }
-  .opera-footer-column2{
-	display: inline;
-	margin-right: 10%;
-  }
-  .opera-footer-column3{
-      display: inline;
-	  margin-right: 10%;
-  }
-  .p-title-text{
-	font-size: 16px;
-	line-height: 18.16px;
-  }
-  .p-sub-text{
-	font-size: 20px;
-	line-height: 23.2px;
-  }
-  
-  /* ================= SVG ================ */
-  .bb-icon-opera {
-	width: 50px; 
-	height: 50px;
-	margin-left: -12.5%;
-	margin-right: 7.5%;
-  } 
+.opera-footer-amarelo {
+  background-color: #fcfc30; /* Cor de fundo amarela */
+  width: 105%; /* Largura total */
+  height: 50px; /* Altura da parte amarela */
+  display: flex; /* Usar flexbox para organização */
+  justify-content: space-between; /* Espaçamento entre os elementos */
+  align-items: center; /* Centralizar os itens verticalmente */
+  padding: 0 5%; /* Espaçamento interno */
+}
+.opera-footer-azul {
+  background-color: #465eff !important;
+  width: 105%;
+  height: 202px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+/* Estilo para o texto */
+.opera-texto-footer-location {
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 5%;
+}
 
-  .opera-eye-footer{
-	margin-bottom: 20%;
-	margin-left: 250%;
-	width: 30px;
-	height: 30px;	
-  }
+.opera-texto-footer-priv {
+  margin-left: 05%;
+  background: transparent;
+  margin-bottom: 22%;
+}
+.opera-texto-footer-help {
+  background: transparent;
+  margin-left: 05%;
+  margin-bottom: 22%;
+}
+.opera-footer-button-group {
+  display: flex;
+  height: 0;
+  align-items: center;
+}
+.opera-footer-column {
+  display: inline;
+  margin-right: 10%;
+}
+.opera-footer-column2 {
+  display: inline;
+  margin-right: 10%;
+}
+.opera-footer-column3 {
+  display: inline;
+  margin-right: 10%;
+}
+.p-title-text {
+  font-size: 16px;
+  line-height: 18.16px;
+}
+.p-sub-text {
+  font-size: 20px;
+  line-height: 23.2px;
+}
 
-  .opera-help-footer{
-	margin-bottom: 20%;
-	margin-left: 365%;
-    width: 30px; 
-	height: 30px;
-  }
+/* ================= SVG ================ */
+.bb-icon-opera {
+  width: 50px;
+  height: 50px;
+  margin-left: -12.5%;
+  margin-right: 7.5%;
+}
 
-  .opera-cash.icon{
-	width: 19%;
-  }
-  .acess-icon-opera{
-      width: 108px;
-	  height: 45px;
-  }
+.opera-eye-footer {
+  margin-bottom: 20%;
+  margin-left: 250%;
+  width: 30px;
+  height: 30px;
+}
+
+.opera-help-footer {
+  margin-bottom: 20%;
+  margin-left: 365%;
+  width: 30px;
+  height: 30px;
+}
+
+.opera-cash-icon {
+  margin-left: 35%;
+  margin-top: 5%;
+  width: 65px;
+}
+.opera-cash-icon-transf {
+  margin-left: 32%;
+  margin-top: 5%;
+  width: 65px;
+}
+.opera-cash-icon-hist {
+  margin-left: 6%;
+  margin-top: 5%;
+  width: 65px;
+}
+.acess-icon-opera {
+  width: 108px;
+  height: 45px;
+}
