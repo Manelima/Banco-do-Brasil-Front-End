@@ -18,7 +18,9 @@
 
   <v-main>
     <v-container>
-    
+      <div class="container">
+        
+      </div>
       
     </v-container>
   </v-main>
