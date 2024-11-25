@@ -1,21 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Login from '@/pages/Login.vue';
-/* import Home from '@/pages/Home.vue';
+import Home from '@/pages/Home.vue';
 import Linhas from '@/pages/Linhas.vue';
 import Simul from '@/pages/Simul.vue';
-import Operacoes from '@/pages/Opera.vue';
+import Operacoes from '@/pages/Operacoes.vue';
 import Blog from '@/pages/Blog.vue';
- */
+ 
 
 const routes = [
   {
     path: '/login',
     name: 'Login',
     component: Login,
-  }
-/*   {
-    path: '/home',
+  },
+   {
+    path: '/',
     name: 'Home',
     component: Home,
   },
@@ -38,7 +38,7 @@ const routes = [
     path: '/operacoes',
     name: 'Operacoes',
     component: Operacoes,
-  }, */
+  }, 
 ];
 
 const router = createRouter({

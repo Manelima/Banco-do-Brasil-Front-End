@@ -1,31 +1,4 @@
-/* ============= HEADER ============ */
-
-.line-header{
-  background-color: #FCFC30!important;
-}
-
-.line-logo{
-  max-width: 68px!important;
-}
-
-.line-linha_preta_vertical{
-  height: 60%;
-  background-color: #000;
-  width: 1px;
-}
-
-.line-titulo_nav_bar {
-  color: #465EFF;
-  font-size: 24px;
-  margin-left: 10px;
-  font-weight: bold;
-}
 /* ============= TEXTO ============*/
-.text_h1{
-  color: #FCFC30;
-  font-size: 40px;
- 
-}
 
 .text_h4{
   margin-top: 20%;
@@ -46,17 +19,22 @@
 }
 
 .line-buttonbeforeafter{
+  max-width: 40%;
+  font-size: 17px!important;
+  align-self: center;
+  justify-content: center;
   background-color: #FCFC30!important;
+  margin-left: 20%;
   color: #465EFF!important;
 } 
 
 /* =================== BODY(CONTAINER 1) ================== */
 
-.line-container-main{
-  background-image: url('@/images/blue_girl.jpg');
-  color: #FCFC30 ;
-  background-size: 100%;
-  margin-top: 3.5%;
+.line-container-main {
+  background-color: #ffffff; /* Ou a cor de fundo desejada */
+  display: flex;
+  height: 100vh; /* Altura total da tela */
+  overflow: hidden;
 }
 
 .line-container_card_topo{
@@ -96,36 +74,66 @@
   color: #FCFC30 !important;
   font-style: bold;
 }
+.line-title-zero{
+  color: #FCFC30!important;
+  font-size: 40px !important;
+  margin-left: 10%;
+  text-align: left;
+  margin-top: 20%;
+  font-weight: bold;
+  font-family: 'BancoDoBrasilTextos-Regular', sans-serif;
+}
+.line-subtitle-zero{
+  margin-top: 5%;
+  margin-left: 10%;
+  text-align: left;
+  font-family: 'BancoDoBrasilTextos-Regular', sans-serif;
+
+}
 .line-texto-emprestimo{
   color: #FCFC30;
   font-size: 24px;
   font-weight: bold;
 }
 
-/* =================== BODY(CONTAINER 2) ================== */
 
 .line-container_form{
   margin-top: 17.5%;
 }
 
-.line-lado_esquerdo{
-  padding: 0px;
+.line-lado_esquerdo {
+  background-color: #f4f4f4; /* Apenas para testar o layout, pode remover */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.line-lado_direito{
-  background-color: #465EFF!important;
+.line-lado_direito {
+  background-color: #465EFF !important;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5%;
+  overflow-y: auto; /* Caso o conteúdo exceda a altura da tela */
 }
 
 .line-form_def_linhas{
   color: white!important;
   background-color: #465EFF!important;
-  width: 100%;
+  width: 100%; /* Porfavor sabinão, altera aqui igual cê fez com o footer e o header*/
   height: 100%;
 }
 
-.line-h3_form{
-  margin-bottom: 20px;/* TENTAR ALTERAR ESSE VALOR PARA VER SE AS OPÇÕES SE AFASTAM DO TÍTULO! */
+.line-title-form{
+  margin-top: 5%;
+  display: flex;
+  gap: 10px;
+  margin-right: 40% ;
+  font-family: 'BancoDoBrasilTextos-Regular', sans-serif;
+  font-size: 35px!important;
+  text-align: left;
+  color: #FCFC30;
 }
 
 
@@ -148,8 +156,21 @@
   margin-top: 10%;
   padding: 5%;
 }
+/* ================ SVG ===================== */
 
-/* ================= FOOTER ================ */
-.line-footer{
-  background-color: #FCFC30!important;
-} 
+.arrow-right-svg{
+  margin-left: 10%;
+  margin-right: -5%;
+  width: 10%;
+  height: 1%;
+  color: #465EFF !important;
+}
+
+.arrow-left-svg{
+  text-align: left;
+  margin-top: 1%;
+  margin-left: -20%;
+  margin-right: -20%;
+  width: 50%;
+  height: 15%;
+}

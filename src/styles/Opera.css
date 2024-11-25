@@ -1,26 +1,3 @@
-/* ============= HEADER ============ */
-
-.opera-header{
-	background-color: #FCFC30!important;
-}
-  
-.opera-logo{
-  max-width: 68px!important;
-}
-
-.opera-linha_preta_vertical{
-  height: 60%;
-  background-color: #000;
-  width: 1px;
-}
-  
-.opera-titulo_nav_bar {
-	color: #465EFF;
-	font-size: 24px;
-	margin-left: 10px;
-	font-weight: bold;
-}
-
 /* ================ BOTOES ============== */
 
 .opera-buttongeral{
@@ -55,7 +32,7 @@
 .opera-btn-confirm{
 	width: 100%!important;
 	bottom: 80%;
-	background-color:#3D5AFF;
+	background-color: #3D5AFF!important;
 	color: #FCFC30!important;
 	font-size: 100%;
 	text-align: center;
@@ -160,9 +137,6 @@
 	justify-items: space-between;
 
 }
-
-
-
 .opera-container_main{
 	margin-top: 3%;
 	width: 70%;
@@ -263,7 +237,6 @@
 	margin-top: -18%;
 	justify-self: center;
 	width: 100%!important;
-	border-bottom: #2e3192;
 }
 .opera-cardtext{
 	text-align: center;
@@ -365,11 +338,6 @@
 
 	width: 185px;
 	height: 54px;
-	/* top: 582px;
-	left: 1138px;
-	gap: 0px;
-	opacity: 0px; */
-
 	font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
 	font-size: 20px;
 	font-weight: 700;
@@ -380,103 +348,8 @@
 
 	color: #2E3192 !important;
 }
-/* ================= FOOTER ================ */
 
-
-.opera-footer {
-	position: relative; 
-	bottom: 0; 
-	width: 100%; 
-	display: flex; 
-	flex-direction: column; 
-	margin-top: 50px; 
-  }
-  
-  .opera-footer-amarelo {
-	background-color: #fcfc30; /* Cor de fundo amarela */
-	width: 105%; /* Largura total */
-	height: 50px; /* Altura da parte amarela */
-	display: flex; /* Usar flexbox para organização */
-	justify-content: space-between; /* Espaçamento entre os elementos */
-	align-items: center; /* Centralizar os itens verticalmente */
-	padding: 0 5%; /* Espaçamento interno */
-  }
-  .opera-footer-azul {
-	background-color: #465EFF!important;
-	width: 105%; 
-	height: 202px; 
-	display: flex; 
-	align-items: center; 
-	justify-content: center; 
-	color: #fff; 
-  }
-  /* Estilo para o texto */
-  .opera-texto-footer-location {
-	color: #000; 
-	font-weight: bold; 
-	font-size: 14px; 
-	text-align: left; 
-	margin-left: 5%;
-  }
-
-  .opera-texto-footer-priv{
-	margin-left: 05%;
-	background: transparent;
-	margin-bottom: 22%;
-  }
-  .opera-texto-footer-help{
-	background: transparent;
-	margin-left: 05%;
-	margin-bottom: 22%;
-  }
-  .opera-footer-button-group {
-	display: flex;
-	height: 0;
-	align-items: center;
-  }
-  .opera-footer-column{
-	display: inline;
-	margin-right: 10%;
-  }
-  .opera-footer-column2{
-	display: inline;
-	margin-right: 10%;
-  }
-  .opera-footer-column3{
-      display: inline;
-	  margin-right: 10%;
-  }
-  .p-title-text{
-	font-size: 16px;
-	line-height: 18.16px;
-  }
-  .p-sub-text{
-	font-size: 20px;
-	line-height: 23.2px;
-  }
-  
-  /* ================= SVG ================ */
-  .bb-icon-opera {
-	width: 50px; 
-	height: 50px;
-	margin-left: -12.5%;
-	margin-right: 7.5%;
-  } 
-
-  .opera-eye-footer{
-	margin-bottom: 20%;
-	margin-left: 250%;
-	width: 30px;
-	height: 30px;	
-  }
-
-  .opera-help-footer{
-	margin-bottom: 20%;
-	margin-left: 365%;
-    width: 30px; 
-	height: 30px;
-  }
-
+/* ================= SVG ================ */
   .opera-cash-icon{
 	margin-left: 37%;
 	margin-top: 3%;
@@ -495,27 +368,4 @@
   .acess-icon-opera{
       width: 108px;
 	  height: 45px;
-  }
-
-  /* =================== Fonts =================== */
-
-  @font-face {
-	font-family: 'BancoDoBrasilTextos-Bold';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-  }
-  
-  @font-face {
-	font-family: 'BancoDoBrasilTextos-Medium';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Medium.ttf') format('truetype');
-	font-weight: 500; 
-	font-style: normal;
-  }
-  
-  @font-face {
-	font-family: 'BancoDoBrasilTextos-Regular';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
   }

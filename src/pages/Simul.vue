@@ -1,28 +1,21 @@
 <template>
-  <v-app-bar class="simul-header">
-    <v-img src="@/images/bb.png" class="line-logo"></v-img>
-    <div class="simul-linha_preta_vertical"></div>
-    <v-app-bar-title class="line-titulo_nav_bar">
-      Banco do Brasil
-    </v-app-bar-title>
 
-    <v-btn to="/" class="simul-buttongeral mx-1">Home</v-btn>
-    <v-btn to="/linhas" class="simul-buttongeral mx-1">Linhas de Crédito</v-btn>
-    <v-btn to="/operacoes" class="simul-buttongeral mx-1">Operações</v-btn>
-    <v-btn to="/blog" class="simul-buttongeral mx-1">Blog</v-btn>
-  </v-app-bar>
-
-  <v-spacer></v-spacer>
   <v-main class="simul-container-main">
+    <v-col>
     <div class="text_homesim-img">
-      <img src="@/assets/home-variant-outline.svg" alt="Home_img" class="svg-icon-home"/>
-    </div>
+  <img
+    @click="goToHome"
+    src="@/assets/home-variant-outline.svg"
+    alt="Home_img"
+    class="svg-icon-home"
+  />
+</div></v-col>
     
     <div class="text_homesim">
       <h2>Home / Simular Investimentos</h2>
     </div>
 
-    <div class="text_headertext">
+    <div class="text-titletext">
       <h1>Investimentos</h1>
     </div>
     <div class="text_descyellow">
@@ -40,13 +33,15 @@
       </h2>
     </div>
 
+    
     <div class="text_descwhite2-img">
       <img src="@/assets/arrow-down.svg" alt="Seta para baixo" class="svg-icon-arrow" />
     </div>
-    <div class="text_descwhite3">
+  
+      <div class="text_descwhite3">
       <h4>Continue navegando</h4>
-    </div>
-      
+    </div>  
+   <br>
    
 
     <v-container class="mx-auto mt-10 pa-4 pb-6">
@@ -371,81 +366,6 @@
     
   </v-main>
 
-  <v-footer class="simul-footer">
-    
-    <div class="simul-footer-azul">
-      <img src="@/assets/bb-yellow.png" alt="Logo Banco" class="bb-icon-simul" />
-      <div class="simul-footer-column"> 
-       
-        
-          <p class="p-title-text">Central de Relacionamento BB</p>
-        <strong>  
-          <p class="p-sub-text">4004 0001 / 0800 729 0001</p> 
-        </strong> 
-     
-        <br>
-       
-          <p class="p-title-text">Deficientes Auditivos/Fala</p> 
-        <strong> 
-          <p class="p-sub-text">0800 729 0088</p> 
-        </strong> 
-      </div>
-
-      <div class="simul-footer-column2">
-        
-          <p class="p-title-text">SAC</p>
-        <strong>
-          <p class="p-sub-text">0800 729 0722</p>
-        </strong>
-        <br>
-          <p class="p-title-text">WhatsApp</p>
-
-        <strong>
-          <p class="p-sub-text">61 4004 0001</p>
-        </strong>
-       
-      </div>
-      <div class="simul-footer-column3">
-        <p class="p-title-text">Ouvidoria BB</p>
-        <strong>
-          <p class="p-sub-text">0800 729 5678</p>
-        </strong>
-        
-        <br>
-         <p class="p-title-text">Canal de Denúncias BB</p>
-          
-          <strong>
-            <p class="p-sub-text">0800 300 4455</p>
-          </strong>
-
-      </div>
-     
-      <img class="acess-icon-simul" src="@/assets/acess.png" alt="acess-icon">
-      
-    </div>
-      <div class="simul-footer-amarelo">
-        <h3 class="simul-texto-footer-location">
-          © Banco do Brasil S/A - CNPJ 00.000.000/0001-91 SAUN QD 5 LT
-          <br>B, Asa Norte, Brasília-DF, Brasil - CEP 70040-911
-        </h3>
-      </div>
-
-     <div class="simul-footer-links">
-        <div class="simul-footer-button-group">
-          <img src="@/assets/eye-outline.svg" alt="Eye" class="simul-eye-footer" />
-          <v-btn class="simul-texto-footer-priv">Minha privacidade</v-btn>
-        </div>
-        <div class="simul-footer-button-group">
-          <img src="@/assets/help-circle-outline.svg" alt="Help" class="simul-help-footer" />
-          <v-btn to="/blog" class="simul-texto-footer-help">Ajuda</v-btn>
-        </div>
-     </div>
-
-     
-  </v-footer>
-
-
-  
 </template>
 
 <script>
@@ -519,6 +439,9 @@ export default {
     };
   },
   methods: {
+    goToHome() {
+      this.$router.push('/'); // Navega para a rota '/'
+    },
     gerarDataGrafico() {
       this.atualizarGrafico();
       return [

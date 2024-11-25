@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .background{
 	height: 80vh;
 
@@ -165,62 +164,3 @@
 .img-secao3:hover {
     transform: scale(1.05);
 }
-
-/* =============== */
-.header{
-	background-color: #ff3636;
-	height: 5rem;
-}
-
-.footer{
-	background-color: #17ce4b;
-	height: 12rem;
-}
-=======
-/* ============= HEADER ============ */
-
-.home-header{
-	background-color: #FCFC30!important;
-}
-  
-.home-logo{
-	max-width: 68px!important;
-}
-  
-.home-linha_preta_vertical{
-	height: 60%;
-	background-color: #000;
-	width: 1px;
-}
-.home-titulo_nav_bar {
-	color: #465EFF;
-	font-size: 24px;
-	margin-left: 10px;
-	font-weight: bold;
-}
-
-  /* ================ BOTOES ============== */
-
-.home-buttongeral{
-	color: #465EFF!important;
-	border-radius: 80px;
-}
-  
-.home-buttongeral:hover{
-	background-color: #465EFF;
-	border-radius: 80px;
-	color: #FFF!important;
-}
-  
-  /* ================= FOOTER ================ */
-
-.home-footer{
-	background-color: #FCFC30!important;
-}
-  
-.home-texto_footer{
-	color: #465EFF;
-	font-weight: bold;
-	font-size: 20px;
-}
->>>>>>> operacoes
