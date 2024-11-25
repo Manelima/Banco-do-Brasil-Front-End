@@ -2,8 +2,8 @@
   <v-main class="line-container-main">
     <v-container class="d-flex" fluid>
       <!-- Lado esquerdo: Imagem -->
-      <v-col cols="6" class="line-lado_esquerdo d-flex align-center justify-center">
-        <v-img src="@/images/mulher_form.webp" max-height="100%" max-width="100%"></v-img>
+      <v-col cols="6" class="line-lado_esquerdo">
+        <v-img src="@/images/mulher_form.webp" height="100%" width="100%"></v-img>
       </v-col>
 
       <!-- Lado direito: Formulário e perguntas -->
@@ -24,7 +24,7 @@
             <!-- Pergunta 1: O que você procura? -->
             <template v-if="perguntaAtual === 1">
              
-              <h3 class="line-title-form"> <img src="@/assets/arrow-left.svg" class="arrow-left-svg" alt="seta esquerda"> O que você precisa?</h3>
+              <h3 class="line-title-form"> <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg" alt="seta esquerda"> O que você precisa?</h3>
               <v-radio class="line-form_ratio" label="Dinheiro na conta para usar como eu quiser"
                 value="dinheiro_conta"></v-radio>
               <v-radio class="line-form_ratio" label="Financiamento para realizar meus sonhos"
@@ -206,10 +206,6 @@
                 max="72" step="1"></v-text-field>
             </template>
 
-            
-             
-          
-
             <!-- ACIMA ESTÁ A ROTA DO EMPRESTIMO_AUTOMATICO(FINALIZADA) -->
 
             <!-- Resposta anterior(2): "Sim, quero usar garantias e ter juros baixos" -->
@@ -236,10 +232,6 @@
                 <h3 class="line-title-form">Em quantas parcelas você deseja?</h3>
                 <v-text-field v-model.number="respostasSelecionadas['pergunta_4']" label="Parcelas" type="number" min="0" step="0.01"></v-text-field>
             </template>
-
-           
-
-        
 
             <!-- ACIMA ESTÁ A ROTA DO IMOVEL_COMO_GARANTIA -->
 
@@ -526,7 +518,7 @@
           </v-list-item>
         </v-list>
       </v-container>
-    </v-container>z
+    </v-container>
   </v-main>
 
 </template>

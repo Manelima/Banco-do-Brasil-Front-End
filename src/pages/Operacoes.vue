@@ -1,5 +1,4 @@
 <template>
-
   <v-main>
     <v-text class="opera-text_saldo">Saldo Disponível</v-text>
 
@@ -18,10 +17,10 @@
             <div class="opera-item">
               <v-btn variant="text" class="opera-button_tipos" width="200" height="200" @click="dialogSaque = true">
                 <v-img src="@/assets/saque.png" class="opera-img_saque" />
-                
+
               </v-btn>
               <v-text class="opera-texto-desc-saque" @click="dialogSaque = true"> Saque </v-text>
-              
+
             </div>
           </v-col>
 
@@ -41,12 +40,14 @@
 
           <v-col cols="3" class="opera-coluna_um">
             <div class="opera-item">
-              <v-btn variant="text" class="opera-button_tipos" width="200" height="200" @click="dialogTransferencia = true">
+              <v-btn variant="text" class="opera-button_tipos" width="200" height="200"
+                @click="dialogTransferencia = true">
                 <img src="@/assets/transferencia.png" class="opera-img_transferencia" />
               </v-btn>
-         
 
-              <v-text class="opera-texto-desc-transf"  @click="dialogTransferencia = true"> <b>Transferir para <br> usuário </b>
+
+              <v-text class="opera-texto-desc-transf" @click="dialogTransferencia = true"> <b>Transferir para <br> usuário
+                </b>
               </v-text>
 
             </div>
@@ -59,7 +60,8 @@
                 <img src="@/assets/recibo.png" class="opera-img_historico" />
               </v-btn>
 
-              <v-text @click="dialogHistorico = true" class="opera-texto-desc-historico"> Histórico de Movimentações </v-text>
+              <v-text @click="dialogHistorico = true" class="opera-texto-desc-historico"> Histórico de Movimentações
+              </v-text>
             </div>
           </v-col>
         </v-row>
@@ -90,10 +92,10 @@
 
               <v-form class="opera-form-textfield">
 
-             
+
                 <v-text-field label="" v-model="valorSaque" prefix="R$" type="number" outlined class="opera-textfield"
                   color="white"></v-text-field>
-                </v-form>
+              </v-form>
               <br>
               <v-card-text class="opera-cardtext-saldos">
                 <b>
@@ -137,8 +139,8 @@
               </v-card-text>
 
               <v-form>
-                <v-text-field label="" v-model="valorDeposito" prefix="R$" type="number" outlined
-                  class="opera-textfield" color="white"></v-text-field>
+                <v-text-field label="" v-model="valorDeposito" prefix="R$" type="number" outlined class="opera-textfield"
+                  color="white"></v-text-field>
               </v-form>
 
               <v-card-text class="opera-cardtext-saldos">
@@ -181,20 +183,17 @@
 
               <v-card-text class="opera-cardtext-saldos">
                 <b>
-                  Para quem deseja Transferir? 
+                  Para quem deseja Transferir?
                 </b>
 
               </v-card-text>
               <br>
-
-              <v-card-text>
-                <v-form class="opera-form-textfield">
-                  <v-text-field label="Agência" v-model="contaDestino" outlined class="opera-textfield"
-                    color="white"></v-text-field>
-                  <v-text-field label="Conta" v-model="valorTransferencia" prefix="R$" type="number"
-                    outlined class="opera-textfield" color="white"></v-text-field>
-                </v-form>
-              </v-card-text>
+              <v-form class="opera-form-textfield">
+                <v-text-field label="Agência" v-model="contaDestino" outlined class="opera-textfield"
+                  color="white"></v-text-field>
+                <v-text-field label="Conta" v-model="valorTransferencia" prefix="R$" type="number" outlined
+                  class="opera-textfield" color="white" min="0" max="saldoDisponivel"></v-text-field>
+              </v-form>
 
               <v-card-text class="opera-cardtext-qnt">
                 <b>
@@ -203,8 +202,8 @@
 
               </v-card-text>
               <v-form class="opera-form-textfield">
-                <v-text-field label="" v-model="contaDestino" outlined class="opera-textfield"
-                  color="white"></v-text-field>
+                <v-text-field label="Valor" v-model="contaDestino" outlined class="opera-textfield" color="white"
+                  ></v-text-field>
               </v-form>
               <v-card-text class="opera-cardtext-saldos">
                 <b>
@@ -237,7 +236,7 @@
                 </b>
               </v-card-text>
               <v-card-text class="opera-cardtext-contacorrente">
-                 Conta corrente 
+                Conta corrente
               </v-card-text>
 
               <v-card-text>
@@ -265,8 +264,6 @@
       </v-container>
     </v-container>
   </v-main>
-
-
 </template>
 
 <script>
@@ -285,7 +282,7 @@ export default {
       valorDeposito: 0.0,
       contaDestino: '',
       valorTransferencia: 0.0,
-      historicoTransacoes: [{'data': '01/01/2001', 'tipo': 'teste', 'valor': 999.99},],
+      historicoTransacoes: [{ 'data': '01/01/2001', 'tipo': 'teste', 'valor': 999.99 },],
       dialogSaque: false,
       dialogDeposito: false,
       dialogTransferencia: false,

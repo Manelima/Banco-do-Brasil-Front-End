@@ -7,40 +7,47 @@
 
 .text-titletext{
   color: #fcfc30 !important;
-  font-size: 30px;
+  font-size: 70px;
   font-weight: bold;
+	font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
   width: 521px;
   height: 85px;
   top: 324px;
   margin-bottom: 50px;
-  margin-left: 15%;  
+  margin-left: 12%;  
   
 }
 .text_homesim{
   color: #fcfc30 !important;
-  margin-left: 17.5%;
-  margin-top: -5%;
+  margin-left: 14.5%;
+  margin-top: -4.75%;
   width: 512px;
-  font-size: medium;
+  font-size: 20px;
   margin-bottom: 0.5%;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+
 }
 .text_homesim-img{
   display: inline-flex;
-  margin-left: 15%;
-  margin-top: 8%;
+  margin-left: 12%;
+  margin-top: 4%;
   margin-bottom: 3%;
 }
 .text_descyellow{
-  color:#FCFC30;
-  margin-left: 15%;
-  font-size: 20px;
+  color: #fcfc30 !important;;
+  margin-left: 12%;
+  font-size: 24px;
+  font-family: 'BancoDoBrasilTextos-Regular', sans-serif !important;
   height: 10px;
-  margin-top: -4%;
+  margin-top: -1%;
+  margin-bottom: 1%;
 }
 .text_descwhite{
   display: inline-flex;
   color: #FFF;
-  margin-left: 15%;
+  font-size: 23px;
+  font-family: 'BancoDoBrasilTextos-Regular', sans-serif !important;
+  margin-left: 12%;
   margin-top: 6%;
 
 }
@@ -49,7 +56,7 @@
   margin-left: 10px;
   color: #FFF;
   margin-left: 43.5%;
-  margin-top: 13%;
+  margin-top: 8%;
 }
 
 .text_descwhite3{
@@ -57,6 +64,8 @@
   color: #FFF;
   margin-left: 45%;
   font-size: 17px;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+
   margin-top: -01.15%;
 }
 /* ================ BOTOES ============== */
@@ -77,6 +86,7 @@
   border-radius: 10px;
   color: #465EFF!important;
 }
+
 .simul-buttonrun:hover{
   background-color: #FCFC30!important;
   border-radius: 10px;
@@ -89,12 +99,16 @@
   margin-top: 50px!important;
   font-size: 40px;
   color: #465EFF;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+
 }
 
 .simul-info_preench{
   color: #000;
   font-size: 20px;
   font-style: bold;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+
   height: 92px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -124,6 +138,7 @@
 .simul-card_pos_form
 
 .simul-card_tesouro_dir{
+  
   min-height: 100%!important;
 }
 
@@ -138,8 +153,9 @@
 }
 
 .simul-texto_card{
-  color: #000;
+  color: #465EFF;
   font-weight: 400!important;
+  font-family: 'BancoDoBrasilTextos-Medium', sans-serif !important;
 }
 
 .simul-info_curta{

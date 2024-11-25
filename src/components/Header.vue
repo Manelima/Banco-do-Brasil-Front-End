@@ -7,10 +7,11 @@
     </v-app-bar-title>
 
     <v-btn v-if="$route.path != '/'" to="/" class="buttongeral mx-1">Home</v-btn>
+    <v-btn v-if="$route.path != '/linhas'" to="/linhas" class="buttongeral mx-1">Linhas de Crédito</v-btn>
     <v-btn v-if="$route.path != '/simul'" to="/simul" class="buttongeral mx-1">Simular Investimentos</v-btn>
     <v-btn v-if="$route.path != '/operacoes'" to="/operacoes" class="buttongeral mx-1">Operações</v-btn>
     <v-btn v-if="$route.path != '/blog'" to="/blog" class="buttongeral mx-1">Blog</v-btn>
-    <v-btn v-if="$route.path != '/linhas'" to="/linhas" class="buttongeral mx-1">Linhas de Crédito</v-btn>
+    
   </v-app-bar>
 </template>
 

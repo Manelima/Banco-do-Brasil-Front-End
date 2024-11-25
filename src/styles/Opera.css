@@ -177,7 +177,7 @@
 .opera-dialog_operacao_selecionada{
 	width: 40%;
 	margin-inline: auto!important;
-	height: 500px; /* antes estava em 450. */
+	height: 675px; /* antes estava em 450. */
 	border-radius: 50px!important;
 	flex-direction: column; /* Para organizar os elementos verticalmente */
 	display: flex;
@@ -235,9 +235,10 @@
 
 .opera-textfield{
 	margin-top: -18%;
-	justify-self: center;
 	width: 100%!important;
+	/* height: ; */
 }
+
 .opera-cardtext{
 	text-align: center;
 	color: #2e3192!important;
@@ -333,6 +334,8 @@
 .opera-form-textfield{
 	display: flex;
 	gap: 5%;
+	height: 100px;
+	margin-top: 10px;
 }
 .opera-texto-desc-historico{
 
@@ -347,6 +350,11 @@
 	text-decoration-skip-ink: none;
 
 	color: #2E3192 !important;
+}
+
+ .v-field--no-label  {
+     opacity: 1!important; 
+	 background-color: none!important;
 }
 
 /* ================= SVG ================ */
