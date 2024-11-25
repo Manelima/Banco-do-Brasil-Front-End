@@ -65,7 +65,7 @@
             </div>
             <div class="footer-button-group">
                 <img src="@/assets/help-circle-outline.svg" alt="Help" class="help-footer" />
-                <v-btn variant="text" to="/blog" class="texto-footer-help">Ajuda</v-btn>
+                <p class="texto-footer-help">AJUDA</p>
             </div>
         </div>
     </v-footer>
@@ -74,16 +74,22 @@
 <style>
 /* ================= FOOTER ================ */
 .footer {
-position: relative; 
-bottom: 0; 
-width: 100%; 
-display: flex; 
-flex-direction: column; 
-margin-inline: 0!important;
-padding-inline: 0!important;
-margin-bottom: 0!important;
-padding-bottom: 0!important;
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    margin-inline: 0!important;
+    padding-inline: 0!important;
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+    font-family: "BancoDoBrasilTextos-Regular";
 }
+
+.footer-links{
+    margin-right: 10rem;
+}
+
 
 .footer-amarelo {
 background-color: #fcfc30; /* Cor de fundo amarela */
@@ -108,7 +114,6 @@ color: #fff;
 /* Estilo para o texto */
 .texto-footer-location {
 color: #000; 
-font-weight: bold; 
 font-size: 14px; 
 text-align: left; 
 margin-left: 5%;
@@ -119,10 +124,15 @@ margin-left: 05%;
 background: transparent;
 margin-bottom: 22%;
 }
+
 .texto-footer-help{
-background: transparent;
-margin-left: 05%;
-margin-bottom: 22%;
+    background: transparent;
+    margin-left: 05%;
+    margin-bottom: 22%;
+    cursor: pointer;
+}
+.texto-footer-help:hover{
+    background: transparent;
 }
 .footer-button-group {
 display: flex;
@@ -154,7 +164,7 @@ line-height: 23.2px;
 .bb-icon-footer {
 width: 50px; 
 height: 50px;
-margin-left: -12.5%;
+margin-left: 1.5rem;
 margin-right: 7.5%;
 } 
 
@@ -178,25 +188,25 @@ height: 30px;
 }
 
 @font-face {
-	font-family: 'BancoDoBrasilTextos-Bold';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-  }
-  
-  @font-face {
-	font-family: 'BancoDoBrasilTextos-Medium';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Medium.ttf') format('truetype');
-	font-weight: 500; 
-	font-style: normal;
-  }
-  
-  @font-face {
-	font-family: 'BancoDoBrasilTextos-Regular';
-	src: url('@/assets/fonts/BancoDoBrasilTextos-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-  }
+    font-family: 'BancoDoBrasilTextos-Bold';
+    src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BancoDoBrasilTextos-Medium';
+    src: url('@/assets/fonts/BancoDoBrasilTextos-Medium.ttf') format('truetype');
+    font-weight: 500; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BancoDoBrasilTextos-Regular';
+    src: url('@/assets/fonts/BancoDoBrasilTextos-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 </style>
 

@@ -3,7 +3,7 @@
         <div class="lados-container">
             
             <div class="lado-esquerdo">
-                <div class="background">
+                <div class="background-login">
                     <br>
                     <div class="header-container">
                         <img class = "header-logo" src="@/images/bb2.png">

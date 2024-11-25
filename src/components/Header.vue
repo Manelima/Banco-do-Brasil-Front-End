@@ -10,31 +10,34 @@
     <v-btn v-if="$route.path != '/simul'" to="/simul" class="buttongeral mx-1">Simular Investimentos</v-btn>
     <v-btn v-if="$route.path != '/operacoes'" to="/operacoes" class="buttongeral mx-1">Operações</v-btn>
     <v-btn v-if="$route.path != '/blog'" to="/blog" class="buttongeral mx-1">Blog</v-btn>
-    <v-btn v-if="$route.path != '/linhas'" to="/linhas" class="buttongeral mx-1">Linhas</v-btn>
+    <v-btn v-if="$route.path != '/linhas'" to="/linhas" class="buttongeral mx-1">Linhas de Crédito</v-btn>
   </v-app-bar>
 </template>
 
 <style>
 .header {
   background-color: #FCFC30 !important;
+  border-bottom: #465EFF 2px solid;
 }
 
 .bb-symbol-logo {
   width: 50px;
   max-width: 68px !important;
+  margin-left: 1rem;
 }
 
-.header-linha-preta-vertical {
+.linha_preta_vertical {
   height: 60%;
-  background-color: #000;
-  width: 1px;
+  background-color: #465EFF;
+  width: 2px;
 }
 
-.header-titulo-nav-bar {
+.titulo_nav_bar {
   color: #465EFF;
   font-size: 24px;
   margin-left: 10px;
   font-weight: bold;
+  font-family: 'BancoDoBrasilTextos-Bold';
 }
 
 /* ================ BOTOES ============== */
@@ -42,6 +45,8 @@
 .buttongeral {
   color: #465EFF !important;
   border-radius: 80px;
+  font-family: 'BancoDoBrasilTextos-Bold';
+  transition: ease .3s;
 }
 
 .buttongeral:hover {
