@@ -5,11 +5,19 @@
     <v-toolbar-title class="blog-titulo_nav_bar">Banco do Brasil</v-toolbar-title>
 
     <v-btn to="/" class="blog-buttongeral mx-1">Home</v-btn>
+<<<<<<< HEAD
     <v-btn to="/simul" class="blog-buttongeral mx-1">Meus investimentos</v-btn>
     <v-btn to="/linhas" class="blog-buttongeral mx-1">Linhas de Crédito</v-btn>
     <v-btn to="/Operacoes" class="blog-buttongeral mx-1">Operações</v-btn>
     
    
+=======
+    <v-btn to="/simul" class="blog-buttongeral mx-1">Simulação</v-btn>
+    <v-btn to="/linhas" class="blog-buttongeral mx-1">Linhas</v-btn>
+    <v-btn to="/operacoes" class="blog-buttongeral mx-1">Operações</v-btn>
+    
+    
+>>>>>>> linhas
 
   </v-app-bar>
 
@@ -17,16 +25,21 @@
   <v-main>
     <v-container>
       
+<<<<<<< HEAD
   <div>
  
    
   </div>
 
+=======
+      
+>>>>>>> linhas
     </v-container>
 
   </v-main>
 
   
+<<<<<<< HEAD
   <v-footer class="blog-footer">
     
     <div class="blog-footer-azul">
@@ -98,6 +111,10 @@
      </div>
 
      
+=======
+  <v-footer app class="blog-footer">
+    <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
+>>>>>>> linhas
   </v-footer>
 
 </template>
@@ -105,8 +122,11 @@
   <script>
    import "@/styles/Blog.css";
    
+<<<<<<< HEAD
 
    
+=======
+>>>>>>> linhas
   export default {
     name: 'Blog',
   }

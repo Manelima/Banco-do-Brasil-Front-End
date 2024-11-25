@@ -891,6 +891,25 @@ export default {
       this.valorAplicadoPoupanca = this.valorAplicado;
       const taxaPoupanca = 0.0057; // 0.57% ao mês
 
+      console.log(
+        "Console de calcRendimentoBrutoSelic:\n" +
+          "this.rendimentoBrutoSelic: " +
+          this.rendimentoBrutoSelic +
+          "this.valorTotalBruto: " +
+          this.valorTotalBruto +
+          "this.totalInvestido: " +
+          this.totalInvestido
+      );
+
+      return this.rendimentoBrutoSelic;
+    },
+    // ----------------------------------FIM
+
+    //---------------Calculos Poupança-------------
+    calcularRendimentoPoupanca(investimentoMensal, meses) {
+      this.valorAplicadoPoupanca = this.valorAplicado;
+      const taxaPoupanca = 0.0057; // 0.57% ao mês
+
       let valorInicial = valorAplicado;
       for (let i = 0; i < meses; i++) {
         this.valorAplicadoPoupanca =

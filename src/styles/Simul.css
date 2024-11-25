@@ -27,8 +27,8 @@
 }
 
 .text_headertext{
-  color: #fcfc30;
-  font-size: 40px;
+  color: #fcfc30 !important;
+  font-size: 30px;
   font-weight: bold;
   width: 521px;
   height: 85px;
@@ -175,14 +175,20 @@
 
 /* ================= FOOTER ================ */
 
+.simul-footer{
+  background-color: #FCFC30!important;
+}
 
-.simul-footer {
-  position: relative; 
-  bottom: 0; 
-  width: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  margin-top: 50px; 
+.simul-texto_footer{
+  color: #465EFF;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.simul-container_grafico{
+  background-color: #FFF!important;
+  height: 475px;
+  justify-self: right;
 }
   
   .simul-footer-amarelo {

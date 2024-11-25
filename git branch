@@ -1,0 +1,122 @@
+[33mcommit 36f524d02b33910cf909a160559563d26b551ba1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32minvestimentos[m[33m, [m[1;31morigin/investimentos[m[33m)[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Wed Oct 30 16:04:08 2024 -0300
+
+    Investimentos - Gráficos
+
+[33mcommit 067a6856ce4c8b2e7be281011fd536c9e0f7a6c9[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Thu Oct 10 22:36:26 2024 -0300
+
+    Implementado: Parcialmente Gráficos
+
+[33mcommit e1a27d97d157ee915edb587c61ec5819aacd9543[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Mon Oct 7 18:06:04 2024 -0300
+
+    Implementado: Base do Gráfico
+
+[33mcommit e90af3fab71a72e5a26cb54cbde130ba5c0b44c4[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Mon Oct 7 09:29:13 2024 -0300
+
+    Implementado - Estilizações em Páginas
+
+[33mcommit 9805762a3c1774925b2a0633b21744380022b483[m
+Merge: 1942631 2646353
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Fri Oct 4 22:00:01 2024 -0300
+
+    reenvio!
+
+[33mcommit 194263139c3a3af7ca99e0bc5d79e1d3ea6e57d1[m
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Fri Oct 4 21:46:31 2024 -0300
+
+    implementado: design parcial da pagina
+
+[33mcommit 2646353c3a2459acea3eed1f5d3b54d443506dd6[m
+Merge: 577394a 57188bc
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Sat Sep 21 21:45:45 2024 -0300
+
+    Implementado: Cálculo - Investimentos
+
+[33mcommit 577394a6c1ebf0d67fda845bae25f5c77f07f817[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Sat Sep 21 21:27:34 2024 -0300
+
+    Implementado: Cálculos - Investimentos
+
+[33mcommit 57188bc67665e63321c6b199655f47c4d4b74167[m
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Tue Sep 17 18:20:26 2024 -0300
+
+    melhorado: calculo do investimento
+
+[33mcommit 5d212755c8742b1fa6e8c03ae765de692992c5b3[m
+Merge: 3bff23b 4b7e9d0
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Mon Sep 16 20:02:22 2024 -0300
+
+    Merge branch 'investimentos' of https://github.com/Manelima/Banco-do-Brasil-Front-End into investimentos
+
+[33mcommit 3bff23b2d71c8ac924c2f1e4a01b9ea94b2c3bba[m
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Mon Sep 16 19:34:00 2024 -0300
+
+    implementado: base da função simularInvestimentos()
+
+[33mcommit 4b7e9d00dd634b2a90c20f120535ede4afb382c4[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Sun Sep 15 02:23:21 2024 -0300
+
+    Implementado: Investimentos-Padrão
+
+[33mcommit 8133f7dbbe2c3f1e63789cc75b4757120c3a7cb4[m
+Author: Felipe Sabino <fsabino006@gmail.com>
+Date:   Sat Sep 14 16:09:35 2024 -0300
+
+    implementado: simularInvestimentos().
+
+[33mcommit 1e926e2e37d2d2ddefe0c2b16103fbbbb67cebd3[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Fri Sep 13 18:50:43 2024 -0300
+
+    Corrigido: Páginas recolocadas
+
+[33mcommit 64c4761c72465712a4cb21ef6395d43d8b1e6f19[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Fri Sep 13 01:14:39 2024 -0300
+
+    Corrigido: Renomeando a pasta para Banco-do-Brasil corretamente
+
+[33mcommit 183c9518465af7cae07fc23f6550f705eaa4eca5[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Fri Sep 13 01:13:28 2024 -0300
+
+    Corrigido: Renomeando a pasta para Banco-do-Brasil-temp
+
+[33mcommit 3399aed90e784aad541527c7b6bab15cf13ca2b9[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Fri Sep 13 00:46:20 2024 -0300
+
+    Melhorado: Scopus-Base
+
+[33mcommit 54a43f74f971ee17e66e7db5d2a1056b88fceb9d[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Thu Sep 12 20:34:17 2024 -0300
+
+    Implementação: Scopus-Base
+
+[33mcommit eb50648d8e888fd3cc27404dbed0268405ee0264[m
+Author: Emanuel <emanuellima4321@gmail.com>
+Date:   Thu Sep 12 16:16:45 2024 -0300
+
+    Adicionando: Base Investimentos
+
+[33mcommit 218ccd21e2c5c19db08bc69cd07cae29ae3657f1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m, [m[1;32mdev[m[33m)[m
+Author: Emanuel Lima Tomaz De Aquino <emanuellima4321@gmail.com>
+Date:   Wed Sep 11 16:28:33 2024 -0300
+
+    first commit

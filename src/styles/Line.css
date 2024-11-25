@@ -1,212 +1,155 @@
 /* ============= HEADER ============ */
 
 .line-header{
-    background-color: #FCFC30!important;
-  }
+  background-color: #FCFC30!important;
+}
+
+.line-logo{
+  max-width: 68px!important;
+}
+
+.line-linha_preta_vertical{
+  height: 60%;
+  background-color: #000;
+  width: 1px;
+}
+
+.line-titulo_nav_bar {
+  color: #465EFF;
+  font-size: 24px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+/* ============= TEXTO ============*/
+.text_h1{
+  color: #FCFC30;
+  font-size: 40px;
+ 
+}
+
+.text_h4{
+  margin-top: 20%;
+  color: #FFF!important;
+}
+
+/* ================ BOTOES ============== */
+
+.line-buttongeral{
+  color: #465EFF!important;
+  border-radius: 80px;
+}
+
+.line-buttongeral:hover{
+  background-color: #465EFF;
+  color: #FFF!important;
+  border-radius: 80px;
+}
+
+.line-buttonbeforeafter{
+  background-color: #FCFC30!important;
+  color: #465EFF!important;
+} 
+
+/* =================== BODY(CONTAINER 1) ================== */
+
+.line-container-main{
+  background-image: url('@/images/blue_girl.jpg');
+  color: #FCFC30 ;
+  background-size: 100%;
+  margin-top: 3.5%;
+}
+
+.line-container_card_topo{
   
-  .line-logo{
-    max-width: 68px!important;
-  }
+ 
+  margin-top: 250px!important;
+  height: 400px; 
+  max-width: 51.5%;
+  background: none;
+  font-size: 32px;
+  font-weight: bold;
+  margin-right: 50%;
+}
+
+.line-card_filho_topo{
+  word-wrap: break-word!important;
+  word-break: break-all!important;
+  height: 242.36px;
   
-  .line-linha_preta_vertical{
-    height: 60%;
-    background-color: #000;
-    width: 1px;
-  }
-  
-  .line-titulo_nav_bar {
-    color: #465EFF;
-    font-size: 24px;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  
-  /* ================ BOTOES ============== */
-  
-  .line-buttongeral{
-    color: #465EFF!important;
-    border-radius: 80px;
-  }
-  
-  .line-buttongeral:hover{
-    background-color: #465EFF;
-    color: #FFF!important;
-    border-radius: 80px;
-  }
-  
-  /* =================== BODY(CONTAINER 1) ================== */
-  
-  .line-container-main{
-    background-image: url('@/images/blue_girl.jpg');
-    color: #FCFC30;
-    background-size: 100%;
-  }
-  
-  .line-container_card_topo{
-    
-    word-wrap: break-word!important;
-    word-break: break-all!important;
-    margin-top: 250px!important;
-    /* height: 400px; */
-    max-width: 51.5%;
-    background: none;
-    font-size: 32px;
-    font-weight: bold;
-    margin-right: 50%;
-  }
-  
-  .line-card_filho_topo{
-    word-wrap: break-word!important;
-    word-break: break-all!important;
-    height: 242.36px;
-    
-  }
-  
-  .line-subtitle_card{
-    font-weight: bold;
-    font-size: 24px;
-    color: #465EFF;
-  }
-  
-  .line-div_maintext{
-    margin-right: 0;
-    color: #FCFC30 !important;
-    font-style: bold;
-  }
-  .line-texto-emprestimo{
-    color: #FCFC30;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* =================== BODY(CONTAINER 2) ================== */
-  
-  .line-container_form{
-    margin-top: 17.5%;
-  }
-  
-  .line-lado_esquerdo{
-    padding: 0px;
-  }
-  
-  .line-lado_direito{
-    background-color: #FCFC30!important;
-    padding: 5%;
-  }
-  
-  .line-form_def_linhas{
-    color: #465EFF!important;
-    background-color: #FCFC30!important;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* ================ RESULTADOS ================ */
-  
-  .line-container_resultados{
-    background-color: #465EFF!important;
-    margin-top: 10%;
-    padding: 5%;
-  }
-  
- /* ================= FOOTER ================ */
+}
+
+.line-subtitle_card{
+  font-weight: bold;
+  font-size: 24px;
+  color: #465EFF;
+}
+
+.line-div_maintext{
+  margin-right: 0;
+  color: #FCFC30 !important;
+  font-style: bold;
+  height: 190px;
+
+}
+.line-div_secondtext{
+  margin-right: 0;
+  color: #FCFC30 !important;
+  font-style: bold;
+}
+.line-texto-emprestimo{
+  color: #FCFC30;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =================== BODY(CONTAINER 2) ================== */
+
+.line-container_form{
+  margin-top: 17.5%;
+}
+
+.line-lado_esquerdo{
+  padding: 0px;
+}
+
+.line-lado_direito{
+  background-color: #465EFF!important;
+  padding: 5%;
+}
+
+.line-form_def_linhas{
+  color: white!important;
+  background-color: #465EFF!important;
+  width: 100%;
+  height: 100%;
+}
+
+.line-h3_form{
+  margin-bottom: 20px;/* TENTAR ALTERAR ESSE VALOR PARA VER SE AS OPÇÕES SE AFASTAM DO TÍTULO! */
+}
 
 
-.line-footer {
-  position: relative; 
-  bottom: 0; 
-  width: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  margin-top: 50px; 
-  }
-  
-  .line-footer-amarelo {
-	background-color: #fcfc30; /* Cor de fundo amarela */
-	width: 105%; /* Largura total */
-	height: 50px; /* Altura da parte amarela */
-	display: flex; /* Usar flexbox para organização */
-	justify-content: space-between; /* Espaçamento entre os elementos */
-	align-items: center; /* Centralizar os itens verticalmente */
-	padding: 0 5%; /* Espaçamento interno */
-  }
-  .line-footer-azul {
-	background-color: #465EFF!important;
-	width: 105%; 
-	height: 202px; 
-	display: flex; 
-	align-items: center; 
-	justify-content: center; 
-	color: #fff; 
-  }
-  /* Estilo para o texto */
-  .line-texto-footer-location {
-	color: #000; 
-	font-weight: bold; 
-	font-size: 14px; 
-	text-align: left; 
-	margin-left: 5%;
-  }
+.line-form_ratio{
+  margin-top: 2%;
+  margin-bottom: 5%;
+  background-color: #2B43CC!important;
+  border-radius: 10px;
+ 
+}
 
-  .line-texto-footer-priv{
-	margin-left: 05%;
-	background: transparent;
-	margin-bottom: 22%;
-  }
-  .line-texto-footer-help{
-	background: transparent;
-	margin-left: 05%;
-	margin-bottom: 22%;
-  }
-  .line-footer-button-group {
-	display: flex;
-	height: 0;
-	align-items: center;
-  }
-  .line-footer-column{
-	display: inline;
-	margin-right: 10%;
-  }
-  .line-footer-column2{
-	display: inline;
-	margin-right: 10%;
-  }
-  .line-footer-column3{
-      display: inline;
-	  margin-right: 10%;
-  }
-  .p-title-text{
-	font-size: 16px;
-	line-height: 18.16px;
-  }
-  .p-sub-text{
-	font-size: 20px;
-	line-height: 23.2px;
-  }
-  
-  /* ================= SVG ================ */
-  .bb-icon-line {
-	width: 50px; 
-	height: 50px;
-	margin-left: -12.5%;
-	margin-right: 7.5%;
-  } 
+.line-form_ratio:first-child{
+  margin-top: 5%;
+}
 
-  .line-eye-footer{
-	margin-bottom: 20%;
-	margin-left: 250%;
-	width: 30px;
-	height: 30px;	
-  }
+/* ================ RESULTADOS ================ */
 
-  .line-help-footer{
-	margin-bottom: 20%;
-	margin-left: 365%;
-    width: 30px; 
-	height: 30px;
-  }
+.line-container_resultados{
+  background-color: #465EFF!important;
+  margin-top: 10%;
+  padding: 5%;
+}
 
-  .acess-icon-line{
-      width: 108px;
-	  height: 45px;
-  }
+/* ================= FOOTER ================ */
+.line-footer{
+  background-color: #FCFC30!important;
+} 
