@@ -6,18 +6,24 @@
 
     <v-btn to="/" class="blog-buttongeral mx-1">Home</v-btn>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <v-btn to="/simul" class="blog-buttongeral mx-1">Meus investimentos</v-btn>
     <v-btn to="/linhas" class="blog-buttongeral mx-1">Linhas de Crédito</v-btn>
     <v-btn to="/Operacoes" class="blog-buttongeral mx-1">Operações</v-btn>
     
    
 =======
+=======
+>>>>>>> operacoes
     <v-btn to="/simul" class="blog-buttongeral mx-1">Simulação</v-btn>
     <v-btn to="/linhas" class="blog-buttongeral mx-1">Linhas</v-btn>
     <v-btn to="/operacoes" class="blog-buttongeral mx-1">Operações</v-btn>
     
     
+<<<<<<< HEAD
 >>>>>>> linhas
+=======
+>>>>>>> operacoes
 
   </v-app-bar>
 
@@ -25,6 +31,7 @@
   <v-main>
     <v-container>
       
+<<<<<<< HEAD
 <<<<<<< HEAD
   <div>
  
@@ -34,11 +41,15 @@
 =======
       
 >>>>>>> linhas
+=======
+      
+>>>>>>> operacoes
     </v-container>
 
   </v-main>
 
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   <v-footer class="blog-footer">
     
@@ -115,6 +126,10 @@
   <v-footer app class="blog-footer">
     <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
 >>>>>>> linhas
+=======
+  <v-footer app class="blog-footer">
+    <v-col class="text-center texto_footer">© 2024 - Tropa do BB</v-col>
+>>>>>>> operacoes
   </v-footer>
 
 </template>
@@ -123,10 +138,13 @@
    import "@/styles/Blog.css";
    
 <<<<<<< HEAD
+<<<<<<< HEAD
 
    
 =======
 >>>>>>> linhas
+=======
+>>>>>>> operacoes
   export default {
     name: 'Blog',
   }

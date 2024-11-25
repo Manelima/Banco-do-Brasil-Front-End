@@ -34,6 +34,7 @@
 	color: #FFF!important;
 }
   
+<<<<<<< HEAD
 /* ================= FOOTER ================ */
 
 
@@ -135,3 +136,16 @@
       width: 108px;
 	  height: 45px;
   }
+=======
+  /* ================= FOOTER ================ */
+
+.blog-footer{
+	background-color: #FCFC30!important;
+}
+  
+.blog-texto_footer{
+	color: #465EFF;
+	font-weight: bold;
+	font-size: 20px;
+}
+>>>>>>> operacoes

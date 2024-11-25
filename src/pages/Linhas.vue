@@ -29,8 +29,7 @@
                 src="https://cdn.bb.com.br/wp-content/uploads/2023/05/Cards-Banner-Full-Credito-pra-voce-v2.png"
                 cover></v-img>
               <v-card-subtitle class="line-subtitle_card">Crédito para você</v-card-subtitle>
-              <v-card-text>Acesse opções de crédito pessoal com taxas de juros que cabem
-                no seu bolso.</v-card-text>
+              <v-card-text>Acesse opções de crédito pessoal com taxas de juros que cabem no seu bolso.</v-card-text>
             </v-card>
           </v-col>
           <v-col cols="4">
@@ -506,6 +505,53 @@
                   <h3 class="line-h3_form"></h3>
                   <v-radio class="line-form_ratio" label="Portabilidade" value=""></v-radio>
                 </template>
+
+                <!-- Linhas recomendadas: Diferenciado -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'diferenciado'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Crédito Mobilidade</li>
+                      <li>Crédito Realiza</li>
+                      <li>Crédito Energia Renovável</li>
+                      <li>Bens e Serviços para PCDs</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Linhas recomendadas: Agronegócio -->
+                <template v-if="perguntaAtual === 2 && respostasSelecionadas[2] === 'agronegocio'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Pronaf Grupo A/C</li>
+                      <li>Pronaf Agricultura Familiar</li>
+                      <li>Crédito Rural Pronamp Custeio</li>
+                      <li>Custeio Agropecuário</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Renovação de Empréstimos -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'renovar_emprestimo'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Renovação de Empréstimos</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
+                <!-- Portabilidade -->
+                <template v-if="perguntaAtual === 1 && respostasSelecionadas[1] === 'portabilidade'">
+                  <v-alert type="success">
+                    Linhas de Crédito Recomendadas:
+                    <ul>
+                      <li>Portabilidade de Crédito</li>
+                    </ul>
+                  </v-alert>
+                </template>
+
               </v-radio-group>
 
               <!-- Botões de navegação -->
@@ -618,7 +664,6 @@
      
   </v-footer>
 </template>
-
 <script>
 import '@/styles/line.css';
 

@@ -522,6 +522,7 @@ export default {
     gerarDataGrafico() {
       this.atualizarGrafico();
       return [
+        ["Valor Total", this.rendimentoB[5]],
         ["CDB/LC", this.rendimentoB[0]],
         ["Debênture", this.rendimentoB[4]],
         ["LCI & LCA", this.rendimentoB[2]],
