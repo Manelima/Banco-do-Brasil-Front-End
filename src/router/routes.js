@@ -39,6 +39,10 @@ const routes = [
     name: 'Operacoes',
     component: Operacoes,
   }, 
+  {
+    path: '/Resultado',
+    name: 'Resultado',
+  }
 ];
 
 const router = createRouter({

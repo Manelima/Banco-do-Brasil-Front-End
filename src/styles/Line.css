@@ -19,9 +19,12 @@
 }
 
 .line-buttonbeforeafter{
-  max-width: 40%;
-  margin-top: 10%;
-  font-size: 17px!important;
+  max-width: 60%;
+  max-height: none!important;
+  height: 50px!important;
+  margin-top: 45%;
+  font-size: 14px!important;
+  font-family: 'BancoDoBrasilTextos-Bold' , sans-serif;
   align-self: center;
   justify-content: center;
   background-color: #FCFC30!important;
@@ -90,15 +93,20 @@
   text-align: left;
   font-size: 20px;
   font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
-
 }
+
 .line-texto-emprestimo{
   color: #FCFC30;
   font-size: 24px;
   font-weight: bold;
 }
-
-
+.line-textfield{
+  background-color: #ffffff!important;
+  color: #000;
+}
+.line-div-form-ratio{
+  margin-top: 20px!important;
+}
 .line-container_form{
   margin-top: 17.5%;
 }
@@ -127,24 +135,47 @@
   height: 100%;
 }
 
+.line-title-container {
+  display: flex; /* Flexbox para alinhar itens horizontalmente */
+  align-items: center; /* Alinhar verticalmente */
+  justify-content: center;
+  gap: 10px; /* Espaçamento entre os itens */
+}
+
 .line-title-form{
   margin-top: 5%;
   display: flex;
   gap: 10px;
-  margin-right: 40% ;
-  font-family: 'BancoDoBrasilTextos-Regular', sans-serif;
+  font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
+  font-size: 35px!important;
+  text-align: justify;
+  color: #FCFC30;
+  margin-bottom: 5%!important;
+
+}
+.line-title-form-VIV{
+  margin-top: 5%;
+  display: flex;
+  gap: 10px;
+  margin-left: 5%;
+  margin-right: 40%;
+  font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
   font-size: 35px!important;
   text-align: left;
   color: #FCFC30;
 }
 
-
 .line-form_ratio{
   margin-top: 2%;
-  margin-bottom: 5%;
+  margin-left: 10%;
+  width: 80%;
+  color: #BBB3FF!important;
   background-color: #2B43CC!important;
   border-radius: 10px;
- 
+}
+
+.line-form_ratio .v-label {
+  color: #ffffff !important; /* Cor branca para o label */
 }
 
 .line-form_ratio:first-child{
@@ -161,14 +192,15 @@
 /* ================ SVG ===================== */
 
 .arrow-right-svg{
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right: -5%;
-  width: 10%;
+  width: 16%;
   height: 1%;
   color: #465EFF !important;
 }
 
 .arrow-left-svg{
+  position: relative;
   text-align: left;
   margin-top: 1%;
   margin-left: -20%;
@@ -176,3 +208,125 @@
   width: 50%;
   height: 15%;
 }
+
+.arrow-left-svg-2{
+  position: relative;
+  text-align: left;
+  margin-top: 1%;
+  margin-left: -05%;
+  width: 52%;
+  height: 10%;
+}
+.arrow-left-svg-3 {
+  width: 40px; /* Ajuste o tamanho da seta conforme necessário */
+  height: auto; /* Manter a proporção */
+  cursor: pointer; /* Para indicar que é clicável */
+}
+
+/*
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 90vh;
+    width: 80vw;
+    background-color: #465EFF;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 2rem;
+}
+
+.lado-direito{
+    height: 100%;
+    width: 55%;
+}
+
+.lado-direito img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.lado-esquerdo{
+    height: 100%;
+    width: 45%;
+}
+
+.infos{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin-left: 3rem;
+}
+
+.infos-subtitulo{
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.infos-titulo{
+    color: #FCFC30;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.infos-conteudo{
+    color: #fff;
+    font-size: 1.3rem;
+    margin-top: .5rem;
+    font-weight: bold;
+
+    background-color: #2B43CC;
+    width: fit-content;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.descricao-da-linha{
+    text-align: justify;
+    max-width: 80%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 1.1rem;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.btn-contratar{
+    display: block;
+    margin: 0 auto;
+    height: 8%;
+    width: 25%;
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    background-color: #FCFC30;
+    color: #465EFF;
+
+    border-radius: 1rem;
+    font-size: 1.5rem;
+
+    transition: .3s;
+}
+
+.btn-contratar:hover{
+    background-color: #ffffff;
+    color: #465EFF;
+}
+
+.btn-contratar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+*/
