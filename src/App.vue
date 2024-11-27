@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <Header v-if="$route.name != 'login'" />
+    <Header v-if="$route.name != 'Login'" />
     <router-view></router-view> 
-    <Footer v-if="$route.name !== 'login' && $route.name !== 'Resultado' && $route.name !== 'Linhas'" />
+    <Footer v-if="$route.name !== 'Login' && $route.name !== 'Resultado' && $route.name !== 'Linhas'" />
   </v-app>
 </template>
 
