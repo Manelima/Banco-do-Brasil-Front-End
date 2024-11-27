@@ -2,7 +2,7 @@
   <v-app>
     <Header v-if="$route.name != 'login'" />
     <router-view></router-view> 
-    <Footer v-if="$route.name !== 'login'" />
+    <Footer v-if="$route.name !== 'login' && $route.name !== 'Resultado' && $route.name !== 'Linhas'" />
   </v-app>
 </template>
 

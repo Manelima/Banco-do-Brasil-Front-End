@@ -9,6 +9,7 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // Utilities
 import { defineConfig } from 'vite'
+
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/

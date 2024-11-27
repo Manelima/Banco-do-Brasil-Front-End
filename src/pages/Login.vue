@@ -64,7 +64,9 @@ import "@/styles/reset.css";
 import axios from 'axios';
 
 export default {
+    name: 'Login',
     data() {
+        
         return {
             agencia: '',
             conta: '',
@@ -91,7 +93,8 @@ export default {
                 if (response.data) {
                     console.log("Login bem-sucedido:", response.data);
                     localStorage.setItem('token', JSON.stringify(response.data.token));
-                    this.$router.push('/home');
+                    localStorage.setItem('clienteNome', JSON.stringify(response.data.clienteNome));
+                    this.$router.push('/');
                 }
     
             } catch (error) {

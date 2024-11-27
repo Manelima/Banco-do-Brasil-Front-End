@@ -22,7 +22,8 @@
   max-width: 60%;
   max-height: none!important;
   height: 50px!important;
-  margin-top: 45%;
+  margin-top: 30%;
+  margin-bottom: 10%;
   font-size: 14px!important;
   font-family: 'BancoDoBrasilTextos-Bold' , sans-serif;
   align-self: center;
@@ -101,33 +102,49 @@
   font-weight: bold;
 }
 .line-textfield{
+
   background-color: #ffffff!important;
   color: #000;
+  height: 0%;
+  margin-left: 10%;
+  width: 70%;
+  margin-top: -3%;
 }
 .line-div-form-ratio{
-  margin-top: 20px!important;
+  display: flex; /* Flexbox para controlar o layout */
+  flex-direction: column; /* Alinhar os itens verticalmente */
+  gap: 24px; /* Espaçamento entre os elementos */
+  margin-top: 40px!important;
 }
 .line-container_form{
   margin-top: 17.5%;
 }
 
 .line-lado_esquerdo {
+  background-image: url('@/images/Rayssa_2.png');
+  background-size: cover;
   background-color: #f4f4f4; /* Apenas para testar o layout, pode remover */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0!important;
+  max-width: auto;
 }
 
 .line-lado_direito {
   background-color: #465EFF !important;
   color: #ffffff !important;
   display: flex;
+  flex-direction: column; /* Organiza os itens verticalmente */
   align-items: center;
   justify-content: center;
-    overflow-y: auto; /* Caso o conteúdo exceda a altura da tela */
+  max-height: 800px!important; /* Altura máxima fixa */
+  height: 100%!important; /* Preenche o espaço disponível */
+  min-height: 800px!important;
+  overflow-y: auto; /* Adiciona rolagem se o conteúdo exceder o limite */
+  padding: 20px; /* Espaçamento interno opcional */
+  box-sizing: border-box; /* Inclui padding na altura total */
 }
-
 .line-form_def_linhas{
   color: white!important;
   background-color: #465EFF!important;
@@ -137,9 +154,24 @@
 
 .line-title-container {
   display: flex; /* Flexbox para alinhar itens horizontalmente */
-  align-items: center; /* Alinhar verticalmente */
-  justify-content: center;
+  align-items: center;  
   gap: 10px; /* Espaçamento entre os itens */
+}
+
+.line-col-arrow {
+  display: flex;
+  justify-content: flex-start; /* Seta alinhada à esquerda */
+  align-items: center;
+  padding-left: 50px!important; /* Ajuste conforme necessário */
+}
+
+/* Coluna do título */
+.line-col-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px!important;
+  text-align: left;
 }
 
 .line-title-form{
@@ -149,16 +181,37 @@
   font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
   font-size: 35px!important;
   text-align: justify;
-  color: #FCFC30;
+  color: #FCFC30!important;
   margin-bottom: 5%!important;
-
 }
-.line-title-form-VIV{
+.line-title-input{
   margin-top: 5%;
+
+  margin-left: 10%;
   display: flex;
   gap: 10px;
-  margin-left: 5%;
+  font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
+  font-size: 20px!important;
+  text-align: justify;
+  color: #fff;
+  margin-bottom: 5%!important;
+}
+.line-div-seta{
   margin-right: 40%;
+  margin-top: 03%;
+
+}
+.line-div-sectitle{
+  display: flex;
+
+}
+
+.line-title-form-longtitle{
+  display: flex;
+  gap: 10px;
+  margin-left: 2%;
+  margin-top: -09%;
+  width: 80%;
   font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
   font-size: 35px!important;
   text-align: left;
@@ -167,21 +220,28 @@
 
 .line-form_ratio{
   margin-top: 2%;
-  margin-left: 10%;
+  margin-left: 12.5%;
+  height: 50%!important;
   width: 80%;
-  color: #BBB3FF!important;
   background-color: #2B43CC!important;
+  color: #bbb3ff!important;
   border-radius: 10px;
 }
 
 .line-form_ratio .v-label {
-  color: #ffffff !important; /* Cor branca para o label */
+  color: white !important;
+  font-style: bold!important;
+  margin-top: 1%;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important; /* Cor branca para o label */
 }
 
 .line-form_ratio:first-child{
   margin-top: 5%;
 }
 
+.line-textfield{
+  border-bottom: #FCFC30 2px solid;
+}
 /* ================ RESULTADOS ================ */
 
 .line-container_resultados{
@@ -212,121 +272,13 @@
 .arrow-left-svg-2{
   position: relative;
   text-align: left;
-  margin-top: 1%;
-  margin-left: -05%;
-  width: 52%;
-  height: 10%;
+  width: 40px!important;
+  height: 20px !important; 
+ /* Manter a proporção */
+  cursor: pointer;
 }
 .arrow-left-svg-3 {
   width: 40px; /* Ajuste o tamanho da seta conforme necessário */
   height: auto; /* Manter a proporção */
   cursor: pointer; /* Para indicar que é clicável */
 }
-
-/*
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container{
-    height: 90vh;
-    width: 80vw;
-    background-color: #465EFF;
-    display: flex;
-    margin: 0 auto;
-    border-radius: 2rem;
-}
-
-.lado-direito{
-    height: 100%;
-    width: 55%;
-}
-
-.lado-direito img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 2rem;
-}
-
-.lado-esquerdo{
-    height: 100%;
-    width: 45%;
-}
-
-.infos{
-    height: 85%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    margin-left: 3rem;
-}
-
-.infos-subtitulo{
-    color: #fff;
-    margin-top: 1rem;
-}
-
-.infos-titulo{
-    color: #FCFC30;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.infos-conteudo{
-    color: #fff;
-    font-size: 1.3rem;
-    margin-top: .5rem;
-    font-weight: bold;
-
-    background-color: #2B43CC;
-    width: fit-content;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-
-.descricao-da-linha{
-    text-align: justify;
-    max-width: 80%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    font-size: 1.1rem;
-
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.btn-contratar{
-    display: block;
-    margin: 0 auto;
-    height: 8%;
-    width: 25%;
-    cursor: pointer;
-
-    border: none;
-    outline: none;
-
-    background-color: #FCFC30;
-    color: #465EFF;
-
-    border-radius: 1rem;
-    font-size: 1.5rem;
-
-    transition: .3s;
-}
-
-.btn-contratar:hover{
-    background-color: #ffffff;
-    color: #465EFF;
-}
-
-.btn-contratar a{
-    text-decoration: none;
-    color: inherit;
-}
-
-*/

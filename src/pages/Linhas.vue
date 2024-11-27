@@ -2,55 +2,51 @@
   <v-main class="line-container-main">
     <v-container class="d-flex" fluid>
       <!-- Lado esquerdo: Imagem -->
-      <v-col cols="6" class="line-lado_esquerdo">
-        <v-img src="@/images/Rayssa-cortada.png" height="100%" width="100%"></v-img>
-      </v-col>
+      <v-col cols="6" class="line-lado_esquerdo"></v-col>
 
       <!-- Lado direito: Formulário e perguntas -->
-      <v-col cols="6" class="line-lado_direito d-flex align-center justify-center">
+      <v-col cols="6" class="line-lado_direito">
         <v-form class="line-form_def_linhas">
           <v-radio-group v-model="respostasSelecionadas['pergunta_' + perguntaAtual]" class="line-pergunta_form">
             <!-- Pergunta inicial -->
             <template v-if="perguntaAtual === 0">
               <h1 class="line-title-zero">
-                <b> Quer saber quais são suas<br>principais linhas de <br>crédito?</b>
+                <b> Quer saber quais são suas<br />principais linhas de <br />crédito?</b>
               </h1>
+
               <h2 class="line-subtitle-zero">
-                O BB ajuda a encontrar a melhor solução para você. <br> Conheça as linhas de crédito pessoal, escolha a
-                mais <br>
+                O BB ajuda a encontrar a melhor solução para você. <br />
+                Conheça as linhas de crédito pessoal, escolha a mais <br />
                 adequada e realize seus sonhos.
               </h2>
             </template>
 
             <!-- Pergunta 1: O que você procura? -->
             <template v-if="perguntaAtual === 1">
-
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
-                  <h3 class="line-title-form mb-10">
-                    O que você precisa?
-                  </h3>
+                  <h3 class="line-title-form mb-10">O que você precisa?</h3>
                 </v-col>
-
               </v-row>
-            <div class="line-div-form-ratio">
 
-              <v-radio class="line-form_ratio" label="Dinheiro na conta para usar como eu quiser"
-                value="dinheiro_conta"></v-radio>
-              <v-radio class="line-form_ratio" label="Financiamento para realizar meus sonhos"
-                value="financiamento_sonhos"></v-radio>
-              <v-radio class="line-form_ratio" label="Quero renovar empréstimos que já possuo"
-                value="renovar_emprestimo"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Fazer a portabilidade de um empréstimo de outro banco ou instituição financeira"
-                value="portabilidade"></v-radio>
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio" label="Dinheiro na conta para usar como eu quiser"
+                  value="dinheiro_conta"></v-radio>
 
-            </div>
+                <v-radio class="line-form_ratio" label="Financiamento para realizar meus sonhos"
+                  value="financiamento_sonhos"></v-radio>
 
+                <v-radio class="line-form_ratio" label="Quero renovar empréstimos que já possuo"
+                  value="renovar_emprestimo"></v-radio>
+
+                <v-radio class="line-form_ratio"
+                  label="Fazer a portabilidade de um empréstimo de outro banco ou instituição financeira"
+                  value="portabilidade"></v-radio>
+              </div>
             </template>
 
             <!-- Resposta anterior(1): "Dinheiro na conta para usar como eu quiser" -->
@@ -59,27 +55,24 @@
               respostasSelecionadas['pergunta_1'] === 'dinheiro_conta'
             ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 225px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
+                <v-col style="padding-bottom: 120px">
                   <h3 class="line-title-form">
-                    Você quer usar um imóvel ou veículo como garantia desse
-                    empréstimo? Isso pode deixar sua taxa de juros mais baixa
+                    Você quer usar um imóvel ou veículo como garantia desse empréstimo?
+                    Isso pode deixar sua taxa de juros mais baixa
                   </h3>
                 </v-col>
-
               </v-row>
 
               <div class="line-div-form-ratio">
-
-              <v-radio class="line-form_ratio" label="Não quero usar garantias" value="sem_garantia"></v-radio>
-              <v-radio class="line-form_ratio" label="Sim, quero usar garantias e ter juros baixos"
-                value="com_garantia"></v-radio>
+                <v-radio class="line-form_ratio" label="Sim, quero usar garantias e ter juros baixos"
+                  value="com_garantia"></v-radio>
+                <v-radio class="line-form_ratio" label="Não quero usar garantias" value="sem_garantia"></v-radio>
               </div>
-
             </template>
 
             <!-- Resposta anterior(2): "Não quero usar garantias" -->
@@ -88,75 +81,70 @@
               respostasSelecionadas['pergunta_2'] === 'sem_garantia'
             ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 225px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
+                <v-col style="padding-bottom: 70px">
                   <h3 class="line-title-form">
-
-                    Você prefere pagar parcelas mensais(linhas CDC), ou tem
-                    algum valor a receber no futuro(linhas de antecipação), para
-                    quitar o empréstimo?
+                    Você prefere pagar parcelas mensais(linhas CDC), ou tem algum valor a
+                    receber no futuro(linhas de antecipação), para quitar o empréstimo?
                   </h3>
                 </v-col>
-
-
               </v-row>
-              <v-radio class="line-form_ratio" label="Antecipar valores sem precisar pagar parcelas mensais"
-                value="antecipar"></v-radio>
-              <v-radio class="line-form_ratio" label="Crédito na hora com pagamento de parcelas mensais"
-                value="credito_hora"></v-radio>
+
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio" label="Antecipar valores sem precisar pagar parcelas mensais"
+                  value="antecipar"></v-radio>
+                <v-radio class="line-form_ratio" label="Crédito na hora com pagamento de parcelas mensais"
+                  value="credito_hora"></v-radio>
+              </div>
             </template>
 
             <!-- Resposta anterior(3): "Antecipar valores sem precisar pagar parcelas mensais" -->
             <template v-if="
-              perguntaAtual === 4 &&
-              respostasSelecionadas['pergunta_3'] === 'antecipar'
+              perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'antecipar'
             ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 135px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
-                <v-col>
+                <v-col style="padding-bottom: 135px">
                   <h3 class="line-title-form">O que você pretende antecipar?</h3>
                 </v-col>
               </v-row>
 
-              <div>
-                <v-radio class="line-form_ratio" label="13º salário." value="13-terceiro"></v-radio>
-              <v-radio class="line-form_ratio" label="Restituição do IRPF." value="IRPF"></v-radio>
-              <v-radio class="line-form_ratio" label="Saque aniversário do FGTS." value="FGTS"></v-radio>
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio" label="13º salário." value="antecipar-decimo-terceiro"></v-radio>
+                <v-radio class="line-form_ratio" label="Restituição do IRPF." value="IRPF"></v-radio>
+                <v-radio class="line-form_ratio" label="Saque aniversário do FGTS." value="FGTS"></v-radio>
               </div>
-              
             </template>
 
             <!-- Resposta anterior(4): "13º salário." -->
             <template v-if="
               perguntaAtual === 5 &&
-              respostasSelecionadas['pergunta_4'] === '13-terceiro' &&
-              rotaPerguntas === '/perguntas/13-terceiro'
+              respostasSelecionadas['pergunta_4'] === 'antecipar-decimo-terceiro' &&
+              rotaPerguntas === 'antecipar-decimo-terceiro'
             ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 40px; padding-bottom: 200px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
-                <v-col>
-                  <h3 class="line-title-form mb-12">Quanto você vai receber?</h3>
+                <v-col style="padding-bottom: 50px">
+                  <h3 class="line-title-form mb-12">Digite os valores:</h3>
                 </v-col>
               </v-row>
 
-              <v-text-field class="line-textfield"v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do 13º salário"
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
                 type="number" min="1412" max="20000" step="0.01">
               </v-text-field>
-              <h3 class="line-title-form">
-                Qual será a data de recebimento do valor?
-              </h3>
-              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_6']" label="Recebimento do valor" type="date"
-                :min="minDate_13" :max="maxDate_13">
+              <h3 class="line-title-input">Qual será a data de recebimento do valor?</h3>
+              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_6']" label="" type="date"
+                :min="minDate_13" :max="maxDate_13" @change="atualizarDataUS">
               </v-text-field>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO 13º(FINALIZADA) -->
@@ -165,28 +153,26 @@
             <template v-if="
               perguntaAtual === 5 &&
               respostasSelecionadas['pergunta_4'] === 'IRPF' &&
-              rotaPerguntas === '/perguntas/IRPF'
+              rotaPerguntas === 'antecipar-irpf'
             ">
-            <v-row class="line-title-container">
-              <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
-              </v-col>
-              <h3 class="line-title-form mb-12">Quanto você vai receber?</h3>
-              <v-col>
-
-              </v-col>
-            </v-row>
-           
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor da restituição do IRPF"
+              <v-row class="line-title-container">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 118px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
+                </v-col>
+                <v-col style="padding-bottom: 120px">
+                  <h3 class="line-title-form">Sobre o IRPF</h3>
+                </v-col>
+              </v-row>
+              <div class="line-div-form-ratio"></div>
+              <h3 class="line-title-input">Quanto você vai receber?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
                 type="number" min="1911" max="50000" step="0.01">
               </v-text-field>
 
-              <h3 class="line-title-form">
-                Qual será a data de recebimento do valor?
-              </h3>
-              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_5']" label="Recebimento do valor" type="date"
-                :min="minDate_IRPF" :max="maxDate_IRPF">
+              <h3 class="line-title-input">Qual será a data de recebimento do valor?</h3>
+              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_5']" label="" type="date"
+                :min="minDate_IRPF" :max="maxDate_IRPF" @change="atualizarDataUS">
               </v-text-field>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO IRPF(FINALIZADA) -->
@@ -195,247 +181,259 @@
             <template v-if="
               perguntaAtual === 5 &&
               respostasSelecionadas['pergunta_4'] === 'FGTS' &&
-              rotaPerguntas === '/perguntas/FGTS'
+              rotaPerguntas === 'antecipar-fgts'
             ">
-            <v-row class="line-title-container">
-             <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
-             </v-col>
-             <v-col>
-              <h3 class="line-title-form">
-                Quanto você tem de saldo no FGTS?
-              </h3>
-             </v-col>
+              <v-row class="line-title-container">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 317px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
+                </v-col>
+                <v-col style="padding-bottom: 320px">
+                  <h3 class="line-title-form">O que você precisa?</h3>
+                </v-col>
               </v-row>
 
-              
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Saldo FGTS" type="number"
-                min="500" max="50000" step="0.01">
+              <h3 class="line-title-input">Quanto você tem de saldo no FGTS?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                type="number" min="500" max="50000" step="0.01">
               </v-text-field>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO FGTS(FINALIZADA) -->
 
             <!-- Resposta anterior(3): Crédito na hora com pagamento de parcelas mensais -->
 
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_hora'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'credito_hora'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-top: 45px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
+                <v-col style="padding-top: 40px">
                   <h3 class="line-title-form">Escolha uma das seguintes opções</h3>
                 </v-col>
-
               </v-row>
-
-              <v-radio class="line-form_ratio"
-                label="Crédito Salário para quem recebe o salário no BB e tem conta corrente ativa(possui melhores taxas e prazos)"
-                value="credito_salario"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Crédito Benefício para aposentados ou pensionistas do INSS que recebem o benefício na conta corrente do BB(com taxas de juros atraticas)"
-                value="credito_beneficio"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Empréstimo Automático, opção ideal para quem precisa de dinheiro para emergências, colocar as contas em dia ou usar como quiser"
-                value="emprestimo_automatico"></v-radio>
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio"
+                  label="Crédito Salário para quem recebe o salário no BB e tem conta corrente ativa(possui melhores taxas e prazos)"
+                  value="credito-salario"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Crédito Benefício para aposentados ou pensionistas do INSS que recebem o benefício na conta corrente do BB(com taxas de juros atraticas)"
+                  value="credito-beneficio"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Empréstimo Automático, opção ideal para quem precisa de dinheiro para emergências, colocar as contas em dia ou usar como quiser"
+                  value="credito-automatico"></v-radio>
+              </div>
             </template>
 
             <!-- Resposta anterior(4): Crédito Salário para quem recebe o salário no bb... -->
-            <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'credito_salario'">
+            <template v-if="
+              perguntaAtual === 5 &&
+              respostasSelecionadas['pergunta_4'] === 'credito-salario'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
-                  <h3 class="line-title-form mt-0"> Quanto você precisa?</h3>
+                  <h3 class="line-title-form mt-0">Quanto você precisa?</h3>
                 </v-col>
               </v-row>
 
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor"
+                type="number">
               </v-text-field>
 
               <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1"
-                max="72" step="1"></v-text-field>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas"
+                type="number" min="1" max="72" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO CREDITO_SALARIO(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-salario(FINALIZADA) -->
 
             <!-- Resposta anterior(4): Crédito Benefício para aposentados ou pensionistas... -->
-            <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'credito_beneficio'">
+            <template v-if="
+              perguntaAtual === 5 &&
+              respostasSelecionadas['pergunta_4'] === 'credito-beneficio'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
                   <h3 class="line-title-form mb-12">Qual o valor do benefício?</h3>
                 </v-col>
               </v-row>
-              <v-text-field  class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor"
+                type="number">
                 <!-- definir :min e :max desse -->
               </v-text-field>
 
               <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="1"
-                max="72" step="1"></v-text-field>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas"
+                type="number" min="1" max="72" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO CREDITO_BENEFICIO(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-beneficio(FINALIZADA) -->
 
             <!-- Resposta anterior(4): Empréstimo Automático, opção ideal para quem... -->
-            <template v-if="perguntaAtual === 5 && respostasSelecionadas['pergunta_4'] === 'emprestimo_automatico'">
+            <template v-if="
+              perguntaAtual === 5 &&
+              respostasSelecionadas['pergunta_4'] === 'credito-automatico'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
                   <h3 class="line-title-form mb-12">Qual o valor do empréstimo?</h3>
                 </v-col>
               </v-row>
-              
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor" type="number">
+
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor"
+                type="number">
                 <!-- definir :min e :max desse -->
               </v-text-field>
 
               <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="1"
-                max="72" step="1"></v-text-field>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas"
+                type="number" min="1" max="72" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO EMPRESTIMO_AUTOMATICO(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-automatico(FINALIZADA) -->
 
             <!-- Resposta anterior(2): "Sim, quero usar garantias e ter juros baixos" -->
-            <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'com_garantia'">
+            <template v-if="
+              perguntaAtual === 3 &&
+              respostasSelecionadas['pergunta_2'] === 'com_garantia'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 103px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
                 <v-col>
-                  <h3 class="line-title-form">O que você deseja usar como garantia?</h3>
+                  <h3 class="line-title-form" style="padding-bottom: 92px">
+                    O que você deseja usar como garantia?
+                  </h3>
                 </v-col>
               </v-row>
-              <v-radio class="line-form_ratio" label="Imóvel" value="imovel_como_garantia"></v-radio>
-              <v-radio class="line-form_ratio" label="Veículo" value="veiculo_como_garantia"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Investimentos(Poupança, Fundos de Renda Fixa, CDB, LCA e Planos de Previdência Privada BrasilPrev)"
-                value="investimentos_como_garantia"></v-radio>
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio" label="Imóvel" value="garantia-imovel"></v-radio>
+                <v-radio class="line-form_ratio" label="Veículo" value="garantia-veiculo"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Investimentos(Poupança, Fundos de Renda Fixa, CDB, LCA e Planos de Previdência Privada BrasilPrev)"
+                  value="garantia-investimento"></v-radio>
+              </div>
             </template>
 
             <!-- Resposta anterior(3): "Imóvel" -->
             <template v-if="
               perguntaAtual === 4 &&
-              respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia'
+              respostasSelecionadas['pergunta_3'] === 'garantia-imovel'
             ">
-            <v-row class="line-title-container">
-              <v-col cols="auto">
-                <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
-              </v-col>
+              <v-row class="line-title-container">
+                <v-col cols="auto" style="padding-top: 32px; padding-left: 50px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
+                </v-col>
 
-              <v-col>
-                <h3 class="line-title-form">Qual é o valor do imóvel ?</h3>
-              <v-text-field class="line-textfield"v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do imóvel" type="number"
-                min="35000" max="5000000" step="0.01"></v-text-field>
-              </v-col>
+                <v-col style="padding-top: 31px">
+                  <h3 class="line-title-form">O que você precisa?</h3>
+                </v-col>
+              </v-row>
 
-            </v-row>
-              
-                <h3 class="line-title-form">Quanto você deseja ?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
-                type="number" min="0" step="0.01"></v-text-field>          
+              <h3 class="line-title-input">Qual é o valor do imóvel ?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']"
+                label="Valor do imóvel" type="number" min="35000" max="5000000" step="0.01"></v-text-field>
 
-            <h3 class="line-title-form">Em quantas parcelas você deseja?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="0"
-                step="0.01"></v-text-field>
-           
+              <h3 class="line-title-input">Quanto você deseja ?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']"
+                label="Valor do empréstimo" type="number" min="0" step="0.01"></v-text-field>
+
+              <h3 class="line-title-input">Em quantas parcelas você deseja?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas"
+                type="number" min="0" step="0.01"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO IMOVEL_COMO_GARANTIA -->
+            <!-- ACIMA ESTÁ A ROTA DO garantia-imovel -->
 
             <!-- Resposta anterior(3): "Veículo" -->
             <template v-if="
               perguntaAtual === 4 &&
-              respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia'
+              respostasSelecionadas['pergunta_3'] === 'garantia-veiculo'
             ">
-            <v-row class="line-title-container">
-              <v-col cols="auto">
-                <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                alt="seta esquerda">
-              </v-col>
+              <v-row class="line-title-container">
+                <v-col cols="auto" style="padding-left: 50px; padding-top: 31px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
+                </v-col>
 
-              <v-col>
-                <h3 class="line-title-form mb-12">Qual é o valor do veículo?</h3>
-              </v-col>
+                <v-col style="padding-top: 30px">
+                  <h3 class="line-title-form">O que você precisa?</h3>
+                </v-col>
+              </v-row>
+              <h3 class="line-title-input">Qual é o valor do veículo?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']"
+                label="Valor do veículo" type="number" min="10000" max="1000000" step="0.01"></v-text-field>
 
-            </v-row>
+              <h3 class="line-title-input">Quanto você deseja ?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']"
+                label="Valor do empréstimo" type="number" min="0" step="0.01"></v-text-field>
 
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do veículo" type="number"
-                min="10000" max="1000000" step="0.01"></v-text-field>
-
-              <h3 class="line-title-form">Quanto você deseja ?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
+              <h3 class="line-title-input">Em quantas parcelas você deseja?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas"
                 type="number" min="0" step="0.01"></v-text-field>
-
-              <h3 class="line-title-form">Em quantas parcelas você deseja?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="0"
-                step="0.01"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO VEICULO_COMO_GARANTIA -->
+            <!-- ACIMA ESTÁ A ROTA DO garantia-veiculo -->
 
             <!-- Resposta anterior(3): "Investimentos" -->
             <template v-if="
               perguntaAtual === 4 &&
-              respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia'
+              respostasSelecionadas['pergunta_3'] === 'garantia-investimento'
             ">
-            <v-row class="line-title-container">
-              <v-col cols="auto">
-                <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
-              </v-col>
-
-              <v-col>
-                <h3 class="line-title-form">O quanto, em patrimônios, você possui investido?</h3>              
-              </v-col>
-
-            </v-row>
-             
-              <v-text-field class="line-textfield"v-model.number="respostasSelecionadas['pergunta_4']" label="Valor dos investimentos"
-              type="number" min="10000" max="10000000" step="0.01"></v-text-field>
-
-              <v-row>
-                <v-col cols="auto">
-
+              <v-row class="line-title-container">
+                <v-col cols="auto" style="padding-left: 50px; padding-top: 31px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
-                  
+                <v-col style="padding-top: 30px">
+                  <h3 class="line-title-form">O que você precisa?</h3>
                 </v-col>
               </v-row>
-              <h3 class="line-title-form">O quanto você deseja?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Valor do empréstimo"
+
+              <h3 class="line-title-input">Valor dos investimentos</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label=""
+                type="number" min="10000" max="10000000" step="0.01"></v-text-field>
+
+              <h3 class="line-title-input">Qual o valor do empréstimo?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
                 type="number" min="0" step="0.01"></v-text-field>
 
-              <h3 class="line-title-form">Em quantas parcelas você deseja?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label="Parcelas" type="number" min="0"
-                step="0.01"></v-text-field>
+              <h3 class="line-title-input">Em quantas parcelas você deseja?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_6']" label=""
+                type="number" min="0" step="0.01"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO INVESTIMENTOS_COMO_GARANTIA -->
+            <!-- ACIMA ESTÁ A ROTA DO garantia-investimento -->
 
             <!-- Resposta anterior(1): "Financiamentos para realizar meus sonhos" -->
-            <template v-if="perguntaAtual === 2 && respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos'">
-
+            <template v-if="
+              perguntaAtual === 2 &&
+              respostasSelecionadas['pergunta_1'] === 'financiamento_sonhos'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                    alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 316px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
-                <v-col>
+                <v-col style="padding-bottom: 218px">
                   <h3 class="line-title-form">
-                    Possuímos vários tipos de financiamento, desde os tradicionais até os mais diversos, para oferecer
-                    exatamente o que você procura
+                    Possuímos vários tipos de financiamento, desde os tradicionais até os
+                    mais diversos, para oferecer exatamente o que você procura
                   </h3>
                 </v-col>
               </v-row>
@@ -446,223 +444,268 @@
             </template>
 
             <!-- Resposta anterior (2): "Eu quero os clássicos, imobiliário e veículos" -->
-            <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'classicos'">
+            <template v-if="
+              perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'classicos'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 135px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
-                  <h3 class="line-title-form mt-1">Escolha dentre as opções a seguir:</h3>
+                <v-col style="padding-bottom: 140px">
+                  <h3 class="line-title-form">Escolha dentre as opções a seguir:</h3>
                 </v-col>
               </v-row>
-
-              <v-radio class="line-form_ratio" label="Financiamento imobiliário"
-                value="financiamento_imobiliario"></v-radio>
-              <v-radio class="line-form_ratio" label="Financiamento carro" value="financiamento_carro"></v-radio>
-              <v-radio class="line-form_ratio" label="Financiamento moto" value="financiamento_moto"></v-radio>
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio" label="Financiamento imobiliário"
+                  value="financiamento_imobiliario"></v-radio>
+                <v-radio class="line-form_ratio" label="Financiamento carro" value="financiamento_carro"></v-radio>
+                <v-radio class="line-form_ratio" label="Financiamento moto" value="financiamento_moto"></v-radio>
+              </div>
             </template>
 
             <!-- Resposta anterior(3): "Financiamento Imobiliário" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'financiamento-imobiliario'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 40px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
                 <v-col>
-                  <h3 class="line-title-form mb-11">Qual o valor do Imovél?</h3>
+                  <h3 class="line-title-form">Qual o valor do Imovél?</h3>
                 </v-col>
               </v-row>
+              <div class="line-div-form-ratio">
+                <h3 class="line-title-input">Valor do imóvel</h3>
+                <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label=""
+                  type="number" min="20000" max="5000000" step="0.01">
+                </v-text-field>
 
-              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label="Valor do imóvel" type="number"
-                min="20000" max="5000000" step="0.01">
-              </v-text-field>
-
-              <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="15"
-                step="420"></v-text-field>
+                <h3 class="line-title-input">Em quantas parcelas você deseja pagar?</h3>
+                <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                  type="number" min="15" step="420"></v-text-field>
+              </div>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_IMOBILIARIO(FINALIZADA) -->
 
             <!-- Resposta anterior(3): "Financiamento Carro" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_carro'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'financiamento_carro'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                <v-col cols="auto" style="padding-left: 50px; padding-bottom: 153px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
 
-                <v-col>
-                  <h3 class="line-title-form">Qual o valor do Carro?</h3>
+                <v-col style="padding-bottom: 160px">
+                  <h3 class="line-title-form">O que você precisa?</h3>
                 </v-col>
-
               </v-row>
-              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label="Valor do carro" type="number"
+
+              <h3 class="line-title-input">Valor do carro</h3>
+              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label="" type="number"
                 min="20000" max="500000" step="0.01">
               </v-text-field>
 
-              <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="5"
-                max="36" step="1"></v-text-field>
+              <h3 class="line-title-input">Em quantas parcelas você deseja pagar?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                type="number" min="5" max="36" step="1"></v-text-field>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_CARRO(FINALIZADA) -->
 
             <!-- Resposta anterior(3): "Financiamento Moto" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'financiamento_moto'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'financiamento_moto'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
                   <h3 class="line-title-form">Qual o valor da Moto?</h3>
                 </v-col>
               </v-row>
-              
-              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label="Valor da moto" type="number"
+
+              <h3 class="line-title-input">Qual o valor da moto?</h3>
+              <v-text-field class="line-textfield" v-model="respostasSelecionadas['pergunta_4']" label="" type="number"
                 min="10000" max="100000" step="0.01">
               </v-text-field>
 
-              <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="5"
-                max="36" step="1"></v-text-field>
+              <h3 class="line-title-input">Em quantas parcelas você deseja pagar?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                type="number" min="5" max="36" step="1"></v-text-field>
             </template>
             <!-- ACIMA ESTÁ A ROTA DO FINANCIAMENTO_MOTO(FINALIZADA) -->
 
             <!-- Resposta anterior(2): "Procuro algo diferenciado que só o BB possui" -->
-            <template v-if="perguntaAtual === 3 && respostasSelecionadas['pergunta_2'] === 'diferenciado'">
+            <template v-if="
+              perguntaAtual === 3 &&
+              respostasSelecionadas['pergunta_2'] === 'diferenciado'
+            ">
               <v-row class="line-title-container">
-                <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3">
+                <v-col cols="auto" style="padding-left: 50px; padding-top: 200px">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3" />
                 </v-col>
 
-                <v-col>
+                <v-col style="padding-top: 200px">
                   <h3 class="line-title-form">Escolha entre as opções a seguir:</h3>
                 </v-col>
               </v-row>
-              
-              <v-radio class="line-form_ratio"
-                label="Crédito Mobilidade (financie itens direcionados à mobilidade como: bicicletas, patinetes, scooters elétricos ou mecânicos e motos abaixo de 125 cc.)"
-                value="credito_mobilidade"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Crédito Realiza (você pode financiar tudo o que precisa, eletrônicas, itens pessoais, serviços, viagens e muitos mais)"
-                value="credito_realiza"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Crédito Energia Renovável (financie sistemas voltaicos que captam a luz do sol durante o dia e a convertem a fim de gerar energia solar residencial)"
-                value="credito_energia_renovavel"></v-radio>
-              <v-radio class="line-form_ratio"
-                label="Bens e serviços para PCDs (Financia cadeiras de rodas, aparelhos auditivos, órteses, próteses, andadores, entre outro produtos de tecnologia assistiva)"
-                value="bens_e_servicos_pcds"></v-radio>
+
+              <div class="line-div-form-ratio">
+                <v-radio class="line-form_ratio"
+                  label="Crédito Mobilidade (financie itens direcionados à mobilidade como: bicicletas, patinetes, scooters elétricos ou mecânicos e motos abaixo de 125 cc.)"
+                  value="credito-mobilidade"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Crédito Realiza (você pode financiar tudo o que precisa, eletrônicas, itens pessoais, serviços, viagens e muitos mais)"
+                  value="credito-realiza"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Crédito Energia Renovável (financie sistemas voltaicos que captam a luz do sol durante o dia e a convertem a fim de gerar energia solar residencial)"
+                  value="credito-energia-renovavel"></v-radio>
+                <v-radio class="line-form_ratio"
+                  label="Bens e serviços para PCDs (Financia cadeiras de rodas, aparelhos auditivos, órteses, próteses, andadores, entre outro produtos de tecnologia assistiva)"
+                  value="bens-servicos-pcd"></v-radio>
+              </div>
             </template>
 
             <!-- Respota anterior(3): "Crédito mobilidade" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_mobilidade'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'credito-mobilidade'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3" />
                 </v-col>
 
                 <v-col>
-                  <h3 class="line-title-form">Qual o valor do item que deseja financiar?</h3>
+                  <h3 class="line-title-form">
+                    Qual o valor do item que deseja financiar?
+                  </h3>
                 </v-col>
-
               </v-row>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number"
-                min="500" max="50000" step="0.01"></v-text-field>
+              <h3 class="line-title-input">Qual o valor do item?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label=""
+                type="number" min="500" max="50000" step="0.01"></v-text-field>
 
-              <h3 class="line-title-form">Em quantas parcelas você deseja pagar ?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Quantidade de parcelas"
+              <h3 class="line-title-input">Em quantas parcelas você deseja pagar ?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
                 type="number" min="1" max="60" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO CREDITO_MOBILIDADE(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-mobilidade(FINALIZADA) -->
 
             <!-- Resposta anterior(3): "Crédito realiza" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_realiza'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'credito-realiza'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
-                  <h3 class="line-title-form">Qual o valor do item ou serviço que deseja financiar?</h3>
+                  <h3 class="line-title-form">
+                    Qual o valor do item ou serviço que deseja financiar?
+                  </h3>
                 </v-col>
               </v-row>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço"
+
+              <h3 class="line-title-input">Valor do item/serviço</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label=""
                 type="number" min="100" max="50000" step="0.01"></v-text-field>
 
-              <h3 class="line-title-form">Qual o valor do item que deseja financiar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Quantidade de parcelas"
-                type="number" min="1" max="60" step="1"></v-text-field>
+              <h3 class="line-title-input">Qual o valor do item que deseja financiar?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']"
+                label="Quantidade de parcelas" type="number" min="1" max="60" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO CREDITO_REALIZA(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-realiza(FINALIZADA) -->
 
             <!-- Resposta anterior(3): "Crédito energia renovável" -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'credito-energia-renovavel'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
-                  <h3 class="line-title-form">Qual o valor do item que deseja financiar?</h3>
+                  <h3 class="line-title-form">
+                    Qual o valor do item que deseja financiar?
+                  </h3>
                 </v-col>
               </v-row>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item" type="number"
-                min="2000" max="100000" step="0.01"></v-text-field>
 
-              <h3 class="line-title-form">Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="2"
-                max="96" step="1"></v-text-field>
+              <h3 class="line-title-input">Qual o valor do item?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label=""
+                type="number" min="2000" max="100000" step="0.01"></v-text-field>
+
+              <h3 class="line-title-input">Em quantas parcelas você deseja pagar?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                type="number" min="2" max="96" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DO CREDITO_ENERGIA_RENOVAVEL(FINALIZADA) -->
+            <!-- ACIMA ESTÁ A ROTA DO credito-energia-renovavel(FINALIZADA) -->
 
             <!-- Resposta anterior(3): "Bens e serviços para PCDs -->
-            <template v-if="perguntaAtual === 4 && respostasSelecionadas['pergunta_3'] === 'bens_e_servicos_pcds'">
+            <template v-if="
+              perguntaAtual === 4 &&
+              respostasSelecionadas['pergunta_3'] === 'bens-servicos-pcd'
+            ">
               <v-row class="line-title-container">
                 <v-col cols="auto">
-                  <img src="@/assets/arrow-left.svg" @click="perguntaAnterior" class="arrow-left-svg-3"
-                  alt="seta esquerda">
+                  <img src="@/assets/seta-esquerda-azul.png" @click="perguntaAnterior" class="arrow-left-svg-3"
+                    alt="seta esquerda" />
                 </v-col>
                 <v-col>
-                  <h3 class="line-title-form">Qual o valor do item/serviço que deseja financiar?</h3>
+                  <h3 class="line-title-form">
+                    Qual o valor do item/serviço que deseja financiar?
+                  </h3>
                 </v-col>
               </v-row>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label="Valor do item/serviço"
+
+              <h3 class="line-title-input">Valor do item/serviço</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_4']" label=""
                 type="number" min="70" max="30000" step="0.01"></v-text-field>
 
-              <h3>Em quantas parcelas você deseja pagar?</h3>
-              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label="Parcelas" type="number" min="2"
-                max="60" step="1"></v-text-field>
+              <h3 class="line-title-input">Em quantas parcelas você deseja pagar?</h3>
+              <v-text-field class="line-textfield" v-model.number="respostasSelecionadas['pergunta_5']" label=""
+                type="number" min="2" max="60" step="1"></v-text-field>
             </template>
-            <!-- ACIMA ESTÁ A ROTA DOS BENS_E_SERVICOS_PCDS -->
-
+            <!-- ACIMA ESTÁ A ROTA DOS bens-servicos-pcd -->
           </v-radio-group>
 
           <!-- Botões de navegação -->
           <v-row>
             <v-col cols="6">
-              <v-btn class="line-buttonbeforeafter " v-if="perguntaAtual === 0" @click="proximaPergunta">Começar <img
-                  src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg"></v-btn>
+              <v-btn class="line-buttonbeforeafter" v-if="perguntaAtual === 0" @click="proximaPergunta">Começar
+                <img src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg" /></v-btn>
             </v-col>
-            <v-col cols="6" class="text-right">
+            <v-col cols="6" class="text-right" style="padding-right: 75px">
               <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === false && perguntaAtual !== 0"
-                @click="proximaPergunta">AVANÇAR <img
-                src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg"></v-btn>
-              <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true && perguntaAtual !== 0" :disabled="!fimDaRota || !respostasSelecionadas['pergunta_' + perguntaAtual]" 
-                @click="enviarResposta">Avançar <img
-                src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg"></v-btn>
+                @click="proximaPergunta">AVANÇAR
+                <img src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg" /></v-btn>
+              <v-btn class="line-buttonbeforeafter" v-if="fimDaRota === true && perguntaAtual !== 0" :disabled="!fimDaRota || !respostasSelecionadas['pergunta_' + perguntaAtual]
+                " @click="enviarResposta">Avançar
+                <img src="@/assets/arrow-right-blue.svg" alt="seta direita" class="arrow-right-svg" /></v-btn>
             </v-col>
           </v-row>
         </v-form>
       </v-col>
 
-
       <v-alert type="success" v-if="mostrarResultados">
-        Suas respostas foram enviadas! Confira abaixo as linhas de crédito
-        recomendadas para você:
+        Suas respostas foram enviadas! Confira abaixo as linhas de crédito recomendadas
+        para você:
       </v-alert>
 
       <!-- Exibir as opções de crédito recomendadas -->
@@ -676,66 +719,30 @@
       </v-container>
     </v-container>
   </v-main>
-  <!--
-  <div class="container">
-        <div class="lado-esquerdo">
-            <div class="infos">
-                <h1 class="infos-titulo">A Linha de Crédito ideal para você</h1>
 
-                <h2 class="infos-subtitulo nome-da-linha">Nome da Linha de Credito</h2>
-                <p class="infos-conteudo descricao-da-linha">Descrição da linha de Credito djasi9jij io jdsaoidjsoiajd jdsaiodjasoijd jasdijsai jdisajd jsaidj iasdjisaj dias idjsaoijd oiasd asjdoijdiasojdi ajsdij asd iasdjjdaidjasijd diasji djasoi josa</p>
-
-                <h2 class="infos-subtitulo">Valor do Empréstimo</h2>
-                <p class="infos-conteudo">R$1500,00</p>
-
-                <h2 class="infos-subtitulo">Valor das Parcelas</h2>
-                <p class="infos-conteudo">R$120,00</p>
-
-                <h2 class="infos-subtitulo">Numero de Parcelas</h2>
-                <p class="infos-conteudo">9</p>
-
-                <h2 class="infos-subtitulo">Valor Total com Juros</h2>
-                <p class="infos-conteudo">R$2140,58</p>
-
-                <h2 class="infos-subtitulo">Taxa de Juros Mensal</h2>
-                <p class="infos-conteudo">1,25%</p>
-
-                <h2 class="infos-subtitulo">Taxa de Juros Total</h2>
-                <p class="infos-conteudo"> 12,8%</p>
-            </div>
-
-            <button class="btn-contratar">
-                <a href="http://" target="_blank" rel="noopener noreferrer">Contratar</a>
-            </button>
-        </div>
-
-        <div class="lado-direito">
-            <img src="./resultado-linhas.png" alt="imagem de homem no pc">
-        </div>
-    </div>
-  -->
-
-  
 </template>
+
 <script>
-import '@/styles/line.css';
+import "@/styles/line.css";
+import "@/styles/reset.css";
 
 export default {
   data() {
     return {
       perguntaAtual: 0,
       totalDePerguntas: 0,
-      respostasSelecionadas: { 'pergunta_0': 'Este índice não possui alternativas!' }, // Agora é um objeto(o valor pré-estabelecido serve apenas para não provocar retorno 'undefined' ao averiguar os console.logs)
+      respostasSelecionadas: { pergunta_0: "Este índice não possui alternativas!" }, // Agora é um objeto(o valor pré-estabelecido serve apenas para não provocar retorno 'undefined' ao averiguar os console.logs)
       mostrarResultados: false,
       linhasRecomendadas: [],
       verificacao: this.perguntaAtual < this.totalDePerguntas,
       menu: false, // controla a abertura do calendário
       rotaPerguntas: "",
       fimDaRota: false,
-      minDate_13: '2024-11-01',
-      maxDate_13: '2024-12-31',
-      minDate_IRPF: '',
-      maxDate_IRPF: '',
+      minDate_13: "2024-11-01",
+      maxDate_13: "2024-12-31",
+      minDate_IRPF: "",
+      maxDate_IRPF: "",
+      dataExportada: null,
     };
   },
   methods: {
@@ -749,8 +756,8 @@ export default {
 
       const formatarData = (data) => {
         const ano = data.getFullYear();
-        const mes = String(data.getMonth() + 1).padStart(2, '0');
-        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, "0");
+        const dia = String(data.getDate()).padStart(2, "0");
         return `${ano}-${mes}-${dia}`;
       };
 
@@ -758,59 +765,63 @@ export default {
       this.maxDate_IRPF = formatarData(fimDoAno);
     },
     definirRotaETotalDePerguntas() {
-      if (this.respostasSelecionadas["pergunta_4"] === "13-terceiro") {
-        this.rotaPerguntas = "/perguntas/13-terceiro";
+      if (this.respostasSelecionadas["pergunta_4"] === "antecipar-decimo-terceiro") {
+        this.rotaPerguntas = "antecipar-decimo-terceiro";
         this.totalDePerguntas = 5;
       } else if (this.respostasSelecionadas["pergunta_4"] === "IRPF") {
-        this.rotaPerguntas = "/perguntas/IRPF";
+        this.rotaPerguntas = "antecipar-irpf";
         this.totalDePerguntas = 5;
       } else if (this.respostasSelecionadas["pergunta_4"] === "FGTS") {
-        this.rotaPerguntas = "/perguntas/FGTS";
+        this.rotaPerguntas = "antecipar-fgts";
         this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_4'] === 'credito_salario') {
-        this.rotaPerguntas = "/perguntas/credito_salario";
+      } else if (this.respostasSelecionadas["pergunta_4"] === "credito-salario") {
+        this.rotaPerguntas = "credito-salario";
         this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_4'] === 'credito_beneficio') {
-        this.rotaPerguntas = "/perguntas/credito_beneficio";
+      } else if (this.respostasSelecionadas["pergunta_4"] === "credito-beneficio") {
+        this.rotaPerguntas = "credito-beneficio";
         this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_4'] === 'emprestimo_automatico') {
-        this.rotaPerguntas = "/perguntas/emprestimo_automatico";
+      } else if (this.respostasSelecionadas["pergunta_4"] === "credito-automatico") {
+        this.rotaPerguntas = "credito-automatico";
         this.totalDePerguntas = 5;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'imovel_como_garantia') {
-        this.rotaPerguntas = "/perguntas/imovel_como_garantia";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "garantia-imovel") {
+        this.rotaPerguntas = "garantia-imovel";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'veiculo_como_garantia') {
-        this.rotaPerguntas = "/perguntas/veiculo_como_garantia";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "garantia-veiculo") {
+        this.rotaPerguntas = "garantia-veiculo";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'investimentos_como_garantia') {
-        this.rotaPerguntas = "/perguntas/investimentos_como_garantia";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "garantia-investimento") {
+        this.rotaPerguntas = "garantia-investimento";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_imobiliario') {
-        this.rotaPerguntas = "/perguntas/financiamento_imobiliario";
+      } else if (
+        this.respostasSelecionadas["pergunta_3"] === "financiamento_imobiliario"
+      ) {
+        this.rotaPerguntas = "financiamento_imobiliario";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_carro') {
-        this.rotaPerguntas = "/perguntas/financiamento_carro";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "financiamento_carro") {
+        this.rotaPerguntas = "financiamento_carro";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'financiamento_moto') {
-        this.rotaPerguntas = "/perguntas/financiamento_moto";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "financiamento_moto") {
+        this.rotaPerguntas = "financiamento_moto";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_mobilidade') {
-        this.rotaPerguntas = "/perguntas/credito_mobilidade";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "credito-mobilidade") {
+        this.rotaPerguntas = "credito-mobilidade";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_realiza') {
-        this.rotaPerguntas = "/perguntas/credito_realiza";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "credito-realiza") {
+        this.rotaPerguntas = "credito-realiza";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'credito_energia_renovavel') {
-        this.rotaPerguntas = "/perguntas/credito_energia_renovavel";
+      } else if (
+        this.respostasSelecionadas["pergunta_3"] === "credito-energia-renovavel"
+      ) {
+        this.rotaPerguntas = "credito-energia-renovavel";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_3'] === 'bens_e_servicos_pcds') {
-        this.rotaPerguntas = "/perguntas/bens_e_servicos_pcds";
+      } else if (this.respostasSelecionadas["pergunta_3"] === "bens-servicos-pcd") {
+        this.rotaPerguntas = "bens-servicos-pcd";
         this.totalDePerguntas = 4;
-      } else if (this.respostasSelecionadas['pergunta_1'] === 'renovar_emprestimo') {
-        this.rotaPerguntas = "/perguntas/renovar_emprestimo";
+      } else if (this.respostasSelecionadas["pergunta_1"] === "renovar_emprestimo") {
+        this.rotaPerguntas = "renovar_emprestimo";
         this.totalDePerguntas = 1;
-      } else if (this.respostasSelecionadas['pergunta_1'] === 'portabilidade') {
-        this.rotaPerguntas = "/perguntas/portabilidade";
+      } else if (this.respostasSelecionadas["pergunta_1"] === "portabilidade") {
+        this.rotaPerguntas = "portabilidade";
         this.totalDePerguntas = 1;
       }
     },
@@ -818,55 +829,168 @@ export default {
       if (this.perguntaAtual === this.totalDePerguntas) {
         this.fimDaRota = true;
       }
-      console.log('O usuário chegou no fim da rota? ' + this.fimDaRota);
-      console.log('Pergunta atual: ' + this.perguntaAtual);
-      console.log('Total de perguntas: ' + this.totalDePerguntas);
+      console.log("O usuário chegou no fim da rota? " + this.fimDaRota);
+      console.log("Pergunta atual: " + this.perguntaAtual);
+      console.log("Total de perguntas: " + this.totalDePerguntas);
     },
     proximaPergunta() {
-      console.log("Resposta da pergunta atual(" + this.perguntaAtual + "):" + this.respostasSelecionadas["pergunta_" + this.perguntaAtual]);
+      console.log(
+        "Resposta da pergunta atual(" +
+        this.perguntaAtual +
+        "):" +
+        this.respostasSelecionadas["pergunta_" + this.perguntaAtual]
+      );
 
       this.definirRotaETotalDePerguntas();
 
       this.perguntaAtual++;
 
-      if (this.rotaPerguntas !== '') {
-        console.log('Rota atual: ' + this.rotaPerguntas + ' e total de perguntas: ' + this.totalDePerguntas);
+      if (this.rotaPerguntas !== "") {
+        console.log(
+          "Rota atual: " +
+          this.rotaPerguntas +
+          " e total de perguntas: " +
+          this.totalDePerguntas
+        );
       }
       this.definirFimDaRota();
     },
     perguntaAnterior() {
-      this.respostasSelecionadas['perunta_' + this.perguntaAtual] = null;
-      if (this.fimDaRota === true) {
-        this.fimDaRota = false;
-      }
+      this.respostasSelecionadas["pergunta_" + this.perguntaAtual] = null;
+      this.fimDaRota = false;
       if (this.perguntaAtual > 0) {
         this.perguntaAtual--;
       }
     },
-    async enviarResposta() {
-      try {
-        const tipo = this.respostasSelecionadas["pergunta_1"]; // Exemplo: tipo da linha
-        const params = { /* Adicione os parâmetros específicos aqui */ };
-
-        const response = await fetch(`https://sought-hare-ultimate.ngrok-free.app/linhas-de-credito/simular/${tipo}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          params: params,
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          this.linhasRecomendadas = data; // Popula os resultados recomendados com os dados da API
-          this.mostrarResultados = true;
-        } else {
-          console.error('Erro ao obter as linhas de crédito:', response.statusText);
+    converterDataInputToDataUS(dataInput) {
+      // Verifica se a entrada está no formato esperado
+      if (dataInput && /^\d{2}-\d{2}-\d{4}$/.test(dataInput)) {
+        // Divide a data no formato dd-mm-yyyy
+        const [dia, mes, ano] = dataInput.split("-");
+        // Retorna no formato yyyy-mm-dd
+        return `${ano}-${mes}-${dia}`;
+      }
+      // Retorna null ou lança um erro se o formato estiver incorreto
+      console.error("Formato de data inválido. Esperado: dd-mm-yyyy");
+      return null;
+    },
+    atualizarDataUS() {
+      if (rotaPerguntas === "antecipar-irpf") {
+        const dataFormatada = this.converterDataInputToDataUS(
+          this.respostasSelecionadas["resposta_5"]
+        );
+        if (dataFormatada) {
+          this.respostasSelecionadas["resposta_5"] = dataFormatada;
         }
-      } catch (error) {
-        console.error('Erro na requisição:', error);
+      } else if (rotaPerguntas === "antecipar-decimo-terceiro") {
+        const dataFormatada = this.converterDataInputToDataUS(
+          this.respostasSelecionadas["resposta_6"]
+        );
+        if (dataFormatada) {
+          this.respostasSelecionadas["resposta_6"] = dataFormatada;
+        }
       }
     },
+    
+    async enviarResposta() {
+      try {
+        const token = localStorage.getItem('token');
+        let dataParaAPI = null;
+        let valorParaAPI = null;
+        let custoParaAPI = null;
+        let parcelasParaAPI = null;
+
+        //bloco condicional referenciando os campos de data
+        if (this.rotaPerguntas === "antecipar-irpf") {
+          dataParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "antecipar-decimo-terceiro") {
+          dataParaAPI = this.respostasSelecionadas["resposta_6"];
+        }
+        //bloco condicional referenciando os campos de custo(ex: bens usados como garantia)
+        if (this.rotaPerguntas === "garantia-imovel") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotaPerguntas === "garantia-veiculo") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotaPerguntas === "garantia-investimento") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotaPerguntas === "financiamento-imobiliario") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotasPerguntas === "financiamento-carro") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotaPerguntas === "financiamento-moto") {
+          custoParaAPI = this.respostasSelecionadas["resposta_4"];
+        } else if (this.rotaPerguntas === "credito-mobilidade") {
+          custoParaAPI = this.respostasSelecionadas["resposta_3"];
+        } else if (this.rotaPerguntas === "credito-realiza") {
+          custoParaAPI = this.respostasSelecionadas["resposta_3"];
+        } else if (this.rotaPerguntas === "credito-energia-renovavel") {
+          custoParaAPI = this.respostasSelecionadas["resposta_3"];
+        } else if (rotaPerguntas === "bens-servicos-pcd") {
+          custoParaAPI = this.respostasSelecionadas["resposta_3"];
+        }
+        //bloco condicional referenciando os campos de valor de empréstimo
+        if (rotaPerguntas === "credito-salario") {
+          valorParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "credito-beneficio") {
+          valorParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "credito-automatico") {
+          valorParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "garantia-imovel") {
+          custoParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "garantia-veiculo") {
+          custoParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "garantia-investimento") {
+          custoParaAPI = this.respostasSelecionadas["resposta_5"];
+        }
+        //bloco condicional referenciando os campos de parcelas
+        if (rotaPerguntas === "credito-salario") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "credito-beneficio") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "credito-automatico") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "garantia-imovel") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "garantia-veiculo") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "garantia-investimento") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_6"];
+        } else if (rotaPerguntas === "credito-mobilidade") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "credito-realiza") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "credito-energia-renovavel") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "bens-servicos-pcd") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "financiamento-imobiliario") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotasPerguntas === "financiamento-carro") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        } else if (rotaPerguntas === "financiamento-moto") {
+          parcelasParaAPI = this.respostasSelecionadas["resposta_5"];
+        }
+        const response = await axios.get('http://localhost:8080/linhas-de-credito/simular/${tipo}', {
+          params: {
+            valor: valorParaAPI,
+            parcelas: parcelasParaAPI,
+            custo: custoParaAPI,
+            data: dataParaAPI
+          },
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        });
+
+      } catch (error) {
+        if (error.response?.data?.scoreBaixo === true) {
+          this.$router.push({ name: ResultScoreBaixo });
+        }
+        console.error("Erro na requisição:", error);
+        const errorMessage = error.response?.data?.message || 'Erro interno do servidor.';
+      }
+    },
+    
     getLinhasRecomendadas() {
       let linhas = [];
 
@@ -877,18 +1001,14 @@ export default {
             "Empréstimo com Garantia de Veículo",
             "Empréstimo com Garantia de Investimentos"
           );
-        } else if (
-          this.respostasSelecionadas["pergunta_2"] === "sem_garantia"
-        ) {
+        } else if (this.respostasSelecionadas["pergunta_2"] === "sem_garantia") {
           if (this.respostasSelecionadas["pergunta_3"] === "antecipar") {
             linhas.push(
               "Antecipar 13º",
               "Restituição do IRPF",
               "Saque aniversário do FGTS"
             );
-          } else if (
-            this.respostasSelecionadas["pergunta_3"] === "credito_hora"
-          ) {
+          } else if (this.respostasSelecionadas["pergunta_3"] === "credito_hora") {
             linhas.push(
               "Empréstimo Consignado",
               "Empréstimo Automático",
@@ -897,18 +1017,14 @@ export default {
             );
           }
         }
-      } else if (
-        this.respostasSelecionadas["pergunta_1"] === "financiamento_sonhos"
-      ) {
+      } else if (this.respostasSelecionadas["pergunta_1"] === "financiamento_sonhos") {
         if (this.respostasSelecionadas["pergunta_2"] === "classicos") {
           linhas.push(
             "Financiamento Imobiliário",
             "Financiamento de Veículos",
             "Financiamento de Motos"
           );
-        } else if (
-          this.respostasSelecionadas["pergunta_2"] === "diferenciado"
-        ) {
+        } else if (this.respostasSelecionadas["pergunta_2"] === "diferenciado") {
           linhas.push(
             "Crédito Mobilidade",
             "Crédito Realiza",
@@ -916,9 +1032,7 @@ export default {
             "Bens e Serviços para PCDs"
           );
         }
-      } else if (
-        this.respostasSelecionadas["pergunta_1"] === "renovar_emprestimo"
-      ) {
+      } else if (this.respostasSelecionadas["pergunta_1"] === "renovar_emprestimo") {
         linhas.push("Renovação de Empréstimos");
       } else if (this.respostasSelecionadas["pergunta_1"] === "portabilidade") {
         linhas.push("Portabilidade de Crédito");
@@ -927,52 +1041,31 @@ export default {
       return linhas;
     },
     // Método para obter todas as linhas de crédito
-    async fetchLinhasDeCredito() {
-      try {
-        const response = await fetch('https://sought-hare-ultimate.ngrok-free.app/linhas-de-credito');
-        if (!response.ok) {
-          throw new Error('Erro ao buscar linhas de crédito: ' + response.statusText);
-        }
-        const data = await response.json();
-        console.log('Linhas de Crédito:', data);
-        return data;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-
-    // Método para obter uma linha de crédito específica por ID
-    async fetchLinhaDeCreditoPorId(id) {
-      try {
-        const response = await fetch(`https://sought-hare-ultimate.ngrok-free.app/linhas-de-credito/${id}`);
-        if (!response.ok) {
-          throw new Error('Erro ao buscar linha de crédito: ' + response.statusText);
-        }
-        const data = await response.json();
-        console.log('Linha de Crédito específica:', data);
-        return data;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-
-    // Método para simular uma linha de crédito
     async simularLinhaDeCredito(tipo, params) {
       try {
         const queryParams = new URLSearchParams(params).toString();
-        const response = await fetch(`https://sought-hare-ultimate.ngrok-free.app/linhas-de-credito/simular/${tipo}?${queryParams}`);
-        if (!response.ok) {
-          throw new Error('Erro ao simular linha de crédito: ' + response.statusText);
-        }
-        const data = await response.json();
-        console.log('Simulação de linha de crédito:', data);
-        return data;
+        const url = `https://sought-hare-ultimate.ngrok-free.app/linhas-de-credito/simular/${tipo}?${queryParams}`;
+        const response = await axios.get(url, {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        });
+
+        this.dataExportada = response.data;
+
+        return response.data;
       } catch (error) {
-        console.error(error);
+        if (error.response?.data?.scoreBaixo === true) {
+          this.$router.push({ name: ResultScoreBaixo });
+        }
+        const errorMessage = error.response?.data?.message || 'Erro interno do servidor.';
+        console.error("Erro na requisição:", errorMessage);
+      
       }
-    },
+    }
   },
   created() {
+    
     this.atualizarIntervaloDatas(); // Chamada ao carregar o componente
   },
 };

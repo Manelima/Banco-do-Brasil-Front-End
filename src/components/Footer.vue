@@ -187,6 +187,7 @@ height: 30px;
   height: 45px;
 }
 
+/*
 @font-face {
     font-family: 'BancoDoBrasilTextos-Bold';
     src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
@@ -207,6 +208,7 @@ height: 30px;
     font-weight: normal;
     font-style: normal;
 }
+*/
 
 </style>
 

@@ -6,6 +6,7 @@ import Linhas from '@/pages/Linhas.vue';
 import Simul from '@/pages/Simul.vue';
 import Operacoes from '@/pages/Operacoes.vue';
 import Blog from '@/pages/Blog.vue';
+import Resultado from '@/pages/Resultado.vue';
  
 
 const routes = [
@@ -40,9 +41,10 @@ const routes = [
     component: Operacoes,
   }, 
   {
-    path: '/Resultado',
+    path: '/resultado',
     name: 'Resultado',
-  }
+    component: Resultado,
+  },
 ];
 
 const router = createRouter({

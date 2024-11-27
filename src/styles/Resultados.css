@@ -1,0 +1,115 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.result-container{
+    margin-top: 10%;
+    height: 90vh;
+    width: 80vw;
+    background-color: #465EFF;
+    display: flex;
+    border-radius: 2rem;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+.result-lado-direito{
+    height: 100%;
+    width: 100%;
+}
+
+.result-lado-direito img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.result-lado-esquerdo{
+    height: 100%;
+    width: 100%;
+}
+
+.result-infos{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin-left: 8rem;
+}
+
+.result-infos-subtitulo{
+    color: #fff;
+    margin-top: 1rem;
+    font-family: 'BancoDoBrasilTextos-Bold', sans-serif!important;
+}
+.result-infos-subtitulo-yellow{
+    color: #FCFC30!important;
+    margin-top: 1rem;
+    font-size: 20px!important;
+    font-family: 'BancoDoBrasilTextos-Bold', sans-serif!important;
+}
+.result-infos-titulo{
+    color: #FCFC30!important;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 30px!important;
+    font-family: 'BancoDoBrasilTextos-Bold', sans-serif!important;
+}
+
+.result-infos-conteudo{
+    color: #fff;
+    font-size: 1.3rem;
+    margin-top: .5rem;
+    font-family: 'BancoDoBrasilTextos-Medium', sans-serif!important;
+    background-color: #2B43CC;
+    width: fit-content;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.result-descricao-da-linha{
+    text-align: justify;
+    max-width: 80%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 1.1rem;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.result-btn-contratar{
+    display: block;
+    margin: 0 auto;
+    height: 8%;
+    width: 25%;
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    background-color: #FCFC30;
+    color: #465EFF;
+
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-family: 'BancoDoBrasilTextos-Medium', sans-serif!important;
+    transition: .3s;
+}
+
+.result-btn-contratar:hover{
+    background-color: #ffffff;
+    color: #465EFF;
+}
+
+.result-btn-contratar a{
+    text-decoration: none;
+    color: inherit;
+}
+

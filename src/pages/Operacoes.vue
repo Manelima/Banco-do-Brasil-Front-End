@@ -1,7 +1,12 @@
 <template>
   <v-main>
-    <v-text class="opera-text_saldo">Saldo Disponível</v-text>
+   
 
+   
+    <v-text class="opera-text_saldo">Saldo Disponível </v-text>
+    <v-text class="opera-text-ex"> R$ 1.000,00</v-text>
+   
+  
     <div class="opera-yellowline">
       Suas Operações
     </div>
@@ -78,7 +83,7 @@
               <br>
               <v-card-text class="opera-cardtext-saldos">
                 <b>
-                  Saldo disponível:<br> R$ {{ saldoDisponivel }}
+                  Saldo disponível: R$: 1.000<br>  {{ saldoDisponivel }}
                 </b>
 
               </v-card-text>
@@ -128,7 +133,7 @@
               <v-spacer></v-spacer>
               <v-card-text class="opera-cardtext-saldos">
                 <b>
-                  Saldo disponível:<br> R$ {{ saldoDisponivel }}
+                  Saldo disponível:  <br> R$ {{ saldoDisponivel }}
                 </b>
               </v-card-text>
 
@@ -169,8 +174,8 @@
               <v-col>
 
                 <img src="@/assets/oper_cash.png" class="opera-cash-icon-transf">
-
-                <v-card-title class="opera-title-operacao-selecionada-transferencia">
+                
+              <v-card-title class="opera-title-operacao-selecionada-transferencia">
                   <b>Transferência</b></v-card-title>
               </v-col>
               <br>
@@ -235,6 +240,7 @@
                   Saldo atual:<br> R$ {{ saldoDisponivel }}
                 </b>
               </v-card-text>
+              <br>
               <v-card-text class="opera-cardtext-contacorrente">
                 Conta corrente
               </v-card-text>
@@ -262,6 +268,7 @@
         </v-dialog>
 
       </v-container>
+    
     </v-container>
   </v-main>
 </template>
