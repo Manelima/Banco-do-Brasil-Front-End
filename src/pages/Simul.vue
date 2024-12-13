@@ -66,33 +66,42 @@
         <v-row>
           <v-col cols="6" class="simul-coluna_formulario">
             <v-card class="simul-card pa-4 transparent-bg mb-10" elevation="3">
-              <img src="@/assets/arrow-right-blue.svg" alt="Seta para a direita(azul)" class="svg-icon-arrow"> 
-              <v-card-title class="simul-titulo_card text-h4">
+              <v-row>
+                <img src="@/assets/arrow-right-blue.svg" alt="Seta para a direita(azul)" class="svg-icon-arrow-row"> 
+              <v-card-title class="simul-titulo-card-atv">
                 Tipo de Ativo
               </v-card-title>
+              </v-row>
+              
 
               <v-form>
                 <v-row class="simul-simul-linha_botoes_form">
                   <v-col>
+                    <v-text class="text-lay">Valor da Aplicação</v-text>
                     <v-text-field class="simul-campo_texto mb-4" v-model="formulario.valor_aplicado"
-                      label="Valor da Aplicação" @input="formatarValorMonetario('valor_aplicado')">
+                      label="" @input="formatarValorMonetario('valor_aplicado')">
                     </v-text-field>
                   </v-col>
 
                   <v-col>
+                    <v-text class="text-lay">Investimento Mensal</v-text>
                     <v-text-field class="simul-campo_texto mb-4" v-model="formulario.investimento_mensal"
-                      label="Investimento Mensal" @input="formatarValorMonetario('investimento_mensal')">
+                      label="" @input="formatarValorMonetario('investimento_mensal')">
                     </v-text-field>
                   </v-col>
                 </v-row>
 
                 <v-row class="simul-linha_botoes_form">
                   <v-col>
-                    <v-text-field class="simul-campo_texto primary mb-4" v-model="formulario.periodo" label="Prazo">
+                    <v-text class="text-lay">Prazo</v-text>
+
+                    <v-text-field class="simul-campo_texto primary mb-4" v-model="formulario.periodo" label="">
                     </v-text-field>
                   </v-col>
 
                   <v-col>
+                    <v-text class="text-lay">Meses/Anos</v-text>
+
                     <v-select class="simul-campo_texto mb-4" v-model="formulario.tipo_de_periodo"
                       :items="['Meses', 'Anos']">
                     </v-select>
@@ -101,21 +110,24 @@
 
                 <v-row class="simul-linha_botoes_form">
                   <v-col>
-                    <!-- Campo para seleção do tipo de rentabilidade (exibido apenas se não for poupança) -->
+                    <v-text class="text-lay"  v-if="formulario.tipo_investimento !== 'Poupança'">Tipo de Rentabilidade</v-text>
+
                     <v-select class="simul-campo_texto mb-4" v-if="formulario.tipo_investimento !== 'Poupança'"
                       v-model="formulario.rentabilidade" :items="opcoesRentabilidade.find(
                         (opcoes) =>
                           opcoes.tipo === formulario.tipo_investimento
                       )?.opcoes || []
-                        " label="Tipo de Rentabilidade" @change="atualizarResumoRentabilidade">
+                        " label="" @change="atualizarResumoRentabilidade">
                     </v-select>
                   </v-col>
 
                   <v-col>
+                    <v-text class="text-lay" v-if="formulario.tipo_investimento !== 'Poupança'">Taxa (%)</v-text>
+
                     <!-- Campo para a porcentagem de rentabilidade -->
                     <v-text-field class="simul-campo_texto simul-inputcol mb-4"
                       v-if="formulario.tipo_investimento !== 'Poupança'" v-model="formulario.percentualRentabilidade"
-                      label="Taxa (%)" @input="validarPercentual">
+                      label="" @input="validarPercentual"> 
                     </v-text-field>
                   </v-col>
                 </v-row>
@@ -205,6 +217,11 @@
       </v-container>
 
       <v-container class="simul-container_filho_2">
+        <v-container class="mb-16">
+          <v-text class="simul-title-tipos-texto">Tipos de Investimentos</v-text>
+
+        </v-container>
+
         <v-row>
           
           <v-col cols="6">
@@ -349,9 +366,6 @@ export default {
 
       meses: 0,
 
-      //retornoPrefixado: 0, não estava sendo usada
-      //rendimentoBrutoSelic: 0,
-      //rendimentoBrutoPoupanca: 0,
     };
   },
   methods: {
@@ -750,7 +764,6 @@ export default {
       this.valorAplicadoPoupanca = this.valorAplicado;
       const taxaPoupanca = 0.0057; // 0.57% ao mês
 
-      let valorInicial = valorAplicado;
       for (let i = 0; i < meses; i++) {
         this.valorAplicadoPoupanca =
           this.valorAplicadoPoupanca * (1 + taxaPoupanca) + investimentoMensal;

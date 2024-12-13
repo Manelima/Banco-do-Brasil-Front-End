@@ -96,6 +96,7 @@
 	text-align: left;
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
+	font-family: 'BancoDoBrasilTextos-Bold', sans-serif;
 }
 .opera-text-ex{
 	display: flex;
@@ -108,6 +109,7 @@
 	text-align: left;
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
+	font-family: 'BancoDoBrasilTextos-Regular', sans-serif;
 }
 
 .opera-item {
@@ -118,9 +120,7 @@
 	text-align: center; 
 	gap: 02px;
   }
-.opera-text-ex{
 
-}
   .opera-yellowline { 
     position: relative; /* Define o contexto para o ::after */
     font-size: 35px !important; 
@@ -174,6 +174,7 @@
 
 .opera-div_saudacao{
 	font-size: 2em;
+	font-family: 'BancoDoBrasilTextos-Medium', sans-serif;
 }
 
 .opera-div_operacoes{

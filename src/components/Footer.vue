@@ -17,6 +17,7 @@
                 <strong>
                     <p class="p-sub-text">0800 729 0088</p>
                 </strong>
+              
             </div>
 
             <div class="footer-column2">
@@ -65,7 +66,7 @@
             </div>
             <div class="footer-button-group">
                 <img src="@/assets/help-circle-outline.svg" alt="Help" class="help-footer" />
-                <p class="texto-footer-help">AJUDA</p>
+                <p class="texto-footer-help">Ajuda</p>
             </div>
         </div>
     </v-footer>
@@ -117,12 +118,16 @@ color: #000;
 font-size: 14px; 
 text-align: left; 
 margin-left: 5%;
+font-family: 'BancoDoBrasilTextos-Medium' !important;
+
 }
 
 .texto-footer-priv{
 margin-left: 05%;
 background: transparent;
 margin-bottom: 22%;
+font-family: 'BancoDoBrasilTextos-Medium' !important;
+
 }
 
 .texto-footer-help{
@@ -130,6 +135,9 @@ margin-bottom: 22%;
     margin-left: 05%;
     margin-bottom: 22%;
     cursor: pointer;
+    font-size: 18px!important;
+    font-family: 'BancoDoBrasilTextos-Medium',!important;
+
 }
 .texto-footer-help:hover{
     background: transparent;

@@ -9,7 +9,7 @@
   color: #fcfc30 !important;
   font-size: 70px;
   font-weight: bold;
-	font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+	font-family: 'BancoDoBrasilTextos-Bold' !important;
   width: 521px;
   height: 85px;
   top: 324px;
@@ -24,7 +24,7 @@
   width: 512px;
   font-size: 20px;
   margin-bottom: 0.5%;
-  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+  font-family: 'BancoDoBrasilTextos-Bold'!important;
 
 }
 .text_homesim-img{
@@ -68,10 +68,17 @@
 
   margin-top: -01.15%;
 }
+
+.text-lay{
+  color: #000;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+}
 /* ================ BOTOES ============== */
 .simul-buttongeral{
     color: #465EFF!important;
     border-radius: 80px;
+    font-family: 'BancoDoBrasilTextos-Medium', sans-serif !important;
+
 }
 
 .simul-buttongeral:hover{
@@ -145,8 +152,17 @@
 .simul-titulo_card{
   font-weight: 400!important;
   color: #465EFF!important;
+  font-size: 21px!important;
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+
 }
 
+.simul-titulo-card-atv{
+  font-family: 'BancoDoBrasilTextos-Bold', sans-serif !important;
+  font-size: 30px!important;
+  font-weight: 400!important;
+  color: #465EFF!important;
+}
 .simul-subtitulo_card{
   color: #465EFF;
   font-weight: 400!important;
@@ -155,6 +171,7 @@
 .simul-texto_card{
   color: #465EFF;
   font-weight: 400!important;
+  font-size: 15px!important;
   font-family: 'BancoDoBrasilTextos-Medium', sans-serif !important;
 }
 
@@ -170,12 +187,26 @@
 
 }
 
-  /* ================= SVG ================ */
+.simul-title-tipos-texto{
+  color: #465EFF!important;
+  margin-left: 35%;
+  font-size: 30px!important;
+  font-family: 'BancoDoBrasilTextos-Medium', sans-serif !important;
+  margin-bottom: 50%;
+}
+/* ================= SVG ================ */
   .svg-icon-arrow{
     background-color: #465EFF!important;
     border-radius: 100px;
     margin-top: 05%;
     width: 02%;
+    height: 02%;
+
+  }
+  .svg-icon-arrow-row{
+    border-radius: 100px;
+    margin-top: 03%;
+    width: 5%;
     height: 02%;
 
   }

@@ -31,31 +31,6 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-
-/* Fonte Regular */
-@font-face {
-    font-family: 'banco-do-brasil-textos';
-    src: url('@/assets/fonts/BancoDoBrasilTextos-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Fonte Medium */
-@font-face {
-    font-family: 'banco-do-brasil-textos';
-    src: url('@/assets/fonts/BancoDoBrasilTextos-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-/* Fonte Bold */
-@font-face {
-    font-family: 'banco-do-brasil-textos';
-    src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
 @font-face {
     font-family: 'BancoDoBrasilTextos-Bold';
     src: url('@/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
